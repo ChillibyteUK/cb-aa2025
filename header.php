@@ -118,7 +118,7 @@ session_start();
 		<div class="prenav d-none d-md-flex align-items-center justify-content-end gap-4 pt-4">
 			<a href="#"><i class="fa-solid fa-headphones"></i> Customer Support</a>
 			<a href="#"><i class="fa-solid fa-globe"></i> Select Region</a>
-			<a href="#"><i class="fa-solid fa-circle-info"></i> About us</a>
+			<a href="/about/"><i class="fa-solid fa-circle-info"></i> About us</a>
 			<?= do_shortcode( '[social_icons]' ); ?>
 		</div>
 	</div>

@@ -65,7 +65,7 @@ defined( 'ABSPATH' ) || exit;
 						'full',
 						false,
 						array(
-							'data-aos' => 'fade-up',
+							'data-aos' => 'fade-left',
 						)
 					);
 					?>
@@ -89,7 +89,7 @@ while ( have_rows( 'sections' ) ) {
         'full',
         false,
         array(
-            'data-aos'          => 'fade-up',
+            'data-aos'          => 'fade-left',
             'data-aos-duration' => '300',
         )
     );

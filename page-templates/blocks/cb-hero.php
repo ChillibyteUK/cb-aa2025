@@ -1,0 +1,40 @@
+<?php
+/**
+ * Block template for CB Hero.
+ *
+ * @package cb-aa2025
+ */
+
+defined( 'ABSPATH' ) || exit;
+
+?>
+<section class="hero">
+	<?= wp_get_attachment_image( get_field( 'background' ), 'full', false, array( 'class' => 'hero__background' ) ); ?>
+	<div class="container">
+		<div class="hero__content text-center">
+			<?php
+			if ( get_field( 'title' ) ) {
+				?>
+				<h1 class="hero__title"><?= esc_html( get_field( 'title' ) ); ?></h1>
+				<?php
+			}
+			if ( get_field( 'subtitle' ) ) {
+				?>
+				<p class="hero__subtitle"><?= esc_html( get_field( 'subtitle' ) ); ?></p>
+				<?php
+			}
+			?>
+		</div>
+		<?php
+		$modules = get_field( 'modules' );
+		if ( $modules && is_array( $modules ) && count( $modules ) > 0 ) {
+			foreach ( $modules as $module ) {
+				$layout = $module['acf_fc_layout'];
+				if ( 'icons' === $layout ) {
+					get_template_part( 'partials/hero/module-icons', null, array( 'module' => $module ) );
+				}
+			}
+		}
+		?>
+	</div>
+</section>
