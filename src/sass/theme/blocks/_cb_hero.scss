@@ -1,11 +1,11 @@
 .hero {
-    min-height: calc( 500px + var(--h-top) );
+    min-height: calc( 500px + var(--h-top) + 2rem );
     padding-top: var(--h-top);
     position: relative;
     isolation: isolate; 
     margin-bottom: -2px;
     overflow: hidden;
-    padding-block: calc( 6rem + var(--h-top) ) 6rem;
+    padding-block: calc( 6rem + var(--h-top) ) 4rem;
 
     color: #fff;
 
