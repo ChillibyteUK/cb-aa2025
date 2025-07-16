@@ -1,0 +1,160 @@
+.deal {
+    text-align: center;
+    text-decoration: none;
+    padding: 10px;
+    height: 100%;
+    display: block;
+    transition: background-color var(--transition);
+    clip-path: polygon(17% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 20%);
+
+    background-color: var(--col-primary-400);
+    &__inner {
+        transition: background-color var(--transition);
+        background-color: white;
+        clip-path: polygon(17% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 20%);
+        height: 100%;
+        padding: 1rem;
+
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+    }
+
+    &:hover {
+        background-color: var(--col-accent-400);
+        color: var(--col-primary-400);
+        .deal__inner {
+            background-color: var(--col-accent-100);
+        }
+    }
+    &__disclaimer {
+        font-size: var(--fs-100);
+        text-transform: uppercase;
+        margin-bottom: 0.5rem;
+    }
+    &__logo {
+        margin-bottom: 0.5rem;
+        width: 127px;
+        height: 80px;
+    }
+    &__intro {
+        font-size: var(--fs-200);
+        text-transform: uppercase;
+        margin-bottom: 0.25rem;
+    }
+    &__title {
+        text-transform: uppercase;
+        font-weight: var(--fw-600);
+        font-size: var(--fs-300);
+        padding-block: 0.5rem;
+    }
+
+    &__value {
+        font-weight: var(--fw-600);
+        font-size: var(--fs-500);
+        color: var(--col-primary-400);
+        margin-bottom: 0.5rem;
+    }
+    &__description_pre {
+        font-size: var(--fs-200);
+        text-transform: uppercase;
+        margin-bottom: 0.25rem;
+    }
+
+    &__description {
+        font-size: var(--fs-300);
+        font-weight: var(--fw-600);
+        margin-bottom: 0.5rem;
+    }
+
+    &__finance_pre {
+        font-size: var(--fs-200);
+        text-transform: uppercase;
+        margin-bottom: 0.25rem;
+    }
+
+    &__finance {
+        text-transform: uppercase;
+        font-weight: var(--fw-600);
+        font-size: var(--fs-300);
+        margin-bottom: 0.5rem;
+    }
+
+    &__date {
+        font-size: var(--fs-200);
+    }
+
+    &__image {
+        margin-bottom: 1rem;
+        position: relative;
+        img {
+            aspect-ratio: 16 / 9;
+            width: 100%;
+            object-fit: cover;
+        }
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: url(../img/hero-overlay.svg);
+            background-size: auto;
+            background-position: right bottom;
+            background-repeat: no-repeat;
+            opacity: 0.3;
+            mix-blend-mode: multiply;
+        }
+    }
+
+    &__sidebar {
+        @media (max-width:992px) {
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--col-accent-400);
+        }
+        @media (min-width:992px) {
+            position: sticky;
+            top: var(--h-top);
+            border-right: 2px solid var(--col-accent-400);
+        }
+    }
+}
+
+.related {
+    &__card {
+        background-color: var(--col-primary-400);
+        text-decoration: none;
+        display: block;
+        padding: 5px;
+        clip-path: polygon(17% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 25%);
+        transition: border-color var(--transition), background-color var(--transition);
+        &:hover {
+            color: var(--col-primary-400);
+            background-color: var(--col-accent-400);
+        }
+    }
+    &__inner {
+        clip-path: polygon(17% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 25%);
+        background-color: white;
+    }
+    &__image {
+        position: relative;
+        img {
+            aspect-ratio: 16 / 9;
+            width: 100%;
+            object-fit: cover;
+        }
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: url(../img/hero-overlay.svg);
+            background-size: auto;
+            background-position: right bottom;
+            background-repeat: no-repeat;
+            opacity: 0.3;
+            mix-blend-mode: multiply;
+        }
+    }
+    &__title {
+        font-weight: var(--fw-600);
+    }
+
+}

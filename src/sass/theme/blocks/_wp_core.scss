@@ -1,0 +1,32 @@
+.container-xl {
+    .container-xl {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.wp-block-columns {
+    gap: 1rem;
+}
+
+blockquote.wp-block-quote {
+    background-color: var(--col-off-white);
+    padding-block: 10rem;
+    p {
+        margin-bottom: 8rem;
+        font-family: var(--ff-title);
+        color: var(--col-main-blue);
+        font-size: var(--fs-blockquote);
+        line-height: 1.2;
+    }
+    cite {
+        font-style: normal;
+        font-weight: 400;
+        color: var(--col-text);
+        font-size: var(--fs-menu-intro);
+        color: var(--col-main-blue);
+        &::before {
+            content: "";
+        }
+    }
+}

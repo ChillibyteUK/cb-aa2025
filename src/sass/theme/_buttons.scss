@@ -1,0 +1,168 @@
+.wp-block-buttons.is-content-justification-center {
+    display: flex;
+}
+
+.wp-block-button__link {
+    position: relative;
+    font-family: var(--ff-title);
+    font-weight: var(--fw-600);
+    font-size: var(--fs-200) !important;
+
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    background-color: var(--col-primary-400);
+    border: none;
+    color: white;
+
+    display: inline;
+    padding: 0.5rem 2rem !important;
+    border-radius: 0;
+    clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 50%);
+    transition:
+        background-color var(--transition),
+        transform var(--transition),
+        box-shadow var(--transition);
+
+    align-self: flex-start;
+
+    &.btn-arrow::after {
+        content: "»";
+        transition: color var(--transition);
+        margin-left: 0.5rem;
+    }
+
+    &:hover {
+        color: white;
+        background-color: color-mix(in srgb, var(--col-primary-400), #ffffff 10%);
+        transform: translateY(2px);
+    }
+
+    &--wo {
+        background-color: white;
+        color: var(--col-primary-400);
+        &:hover {
+            color: var(--col-primary-400);
+            background-color: color-mix(in srgb, #ffffff, var(--col-primary-400) 10%);
+            transform: translateY(2px);
+        }
+    }
+
+}
+
+.btn {
+    border-radius: 0;
+    padding: 0.5rem 2rem !important;
+    min-width: 200px;
+    text-align: center;
+}
+.btn-primary {
+    border: 1px solid var(--_button-bg, var(--col-highlight-green)) !important;
+    background-color: var(--_button-bg, var(--col-highlight-green)) !important;
+    color: var(--_button-txt, var(--col-main-blue)) !important;
+    font-weight: var(--fw-bold);
+}
+.btn-outline {
+    border: 1px solid var(--_button-bg, var(--col-highlight-green));
+    color: var(--_button-bg, var(--col-main-blue)) !important;
+}
+
+.btn-green--arrow {
+    border-radius: 0.25rem;
+    background-color: var(--col-highlight-green);
+    color: var(--col-main-blue);
+    font-weight: var(--fw-bold);
+    position: relative;
+    padding-right: 2.5rem;
+
+    &::after {
+        content: "";
+        position: absolute;
+        display: inline-block;
+        width: 20px;
+        height: 21px;
+        top: 0.75rem;
+        margin-inline-start: 1rem;
+        transition: color var(--transition);
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='12' viewBox='0 0 20 12'%3E%3Cg id='Group_28' data-name='Group 28' transform='translate(0)'%3E%3Cpath id='Vector_5_Stroke_' data-name='Vector 5 (Stroke)' d='M1313.874,4719.94l5.216,5.186a.811.811,0,0,1,0,1.152l-5.216,5.185a.823.823,0,0,1-1.159,0,.811.811,0,0,1,0-1.152l3.817-3.794h-17.2v-1.629h17.2l-3.817-3.794a.811.811,0,0,1,0-1.152A.823.823,0,0,1,1313.874,4719.94Z' transform='translate(-1299.33 -4719.701)' fill='%23112c4d'/%3E%3C/g%3E%3C/svg%3E%0A");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    &:hover {
+        color: var(--col-main-blue);
+        background-color: color-mix(in srgb, var(--col-highlight-green), #ffffff 10%);
+        &::after {
+            color: var(--col-main-blue);
+        }
+    }
+
+}
+.btn-green-no--arrow {
+    background-color: transparent;
+    color: var(--col-highlight-green);
+    font-weight: var(--fw-bold);
+    position: relative;
+    padding-right: 2.5rem;
+
+    &::after {
+        content: "";
+        position: absolute;
+        display: inline-block;
+        width: 20px;
+        height: 21px;
+        top: 0.75rem;
+        margin-inline-start: 1rem;
+        transition: color var(--transition);
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='12' viewBox='0 0 20 12'%3E%3Cg id='Group_28' data-name='Group 28' transform='translate(0)'%3E%3Cpath id='Vector_5_Stroke_' data-name='Vector 5 (Stroke)' d='M1313.874,4719.94l5.216,5.186a.811.811,0,0,1,0,1.152l-5.216,5.185a.823.823,0,0,1-1.159,0,.811.811,0,0,1,0-1.152l3.817-3.794h-17.2v-1.629h17.2l-3.817-3.794a.811.811,0,0,1,0-1.152A.823.823,0,0,1,1313.874,4719.94Z' transform='translate(-1299.33 -4719.701)' fill='%2347DD85'/%3E%3C/g%3E%3C/svg%3E%0A");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    &:hover {
+        color: var(--col-white);
+    }
+}
+
+
+.button-green {
+    min-width: 180px;
+	padding: 0.5rem 1.5rem;
+	background-color: var(--col-highlight-green);
+	color: var(--col-main-blue);
+	font-weight: 600;
+	font-size: 1rem;
+	border: none;
+	border-radius: 0.5rem;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+}
+
+.button-green:hover {
+	background-color: var(--col-highlight-green);
+    color: var(--col-main-blue);
+}
+
+.button-green--arrow {
+	display: inline-flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.button-green--arrow::after {
+	content: "";
+	display: inline-block;
+    width: 20px;
+    height: 12px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='12' viewBox='0 0 20 12'%3E%3Cg transform='translate(0)'%3E%3Cpath d='M1313.874,4719.94l5.216,5.186a.811.811,0,0,1,0,1.152l-5.216,5.185a.823.823,0,0,1-1.159,0,.811.811,0,0,1,0-1.152l3.817-3.794h-17.2v-1.629h17.2l-3.817-3.794a.811.811,0,0,1,0-1.152A.823.823,0,0,1,1313.874,4719.94Z' transform='translate(-1299.33 -4719.701)' fill='%23112C4D'/%3E%3C/g%3E%3C/svg%3E%0A");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+	transition: transform 0.2s ease;
+}
+
+.button-green--arrow:hover::after {
+	transform: translateX(4px);
+}

@@ -1,0 +1,14 @@
+.cb_video {
+    background: linear-gradient(
+        to bottom,
+        var(--col-background-blue) 50%,
+        var(--col-off-white) 50%
+    );
+}
+
+.ratio-2x1 {
+    --bs-aspect-ratio: 50%;
+}
+.ratio-4x1 {
+    --bs-aspect-ratio: 25%;
+}

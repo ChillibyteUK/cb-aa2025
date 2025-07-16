@@ -1,0 +1,71 @@
+$col-primary: #0c4254;
+$col-secondary: #e9988e;
+
+:root {
+
+	--col-dark-grey:        #8795A6;
+	--col-mid-grey:         #DBDFE4;
+	--col-off-white:        #F2F4F6;
+	--col-highlight-green:  #47DD85;
+	--col-talent-pink:      #E8088E;
+	--col-white:            #FFFFFF;
+	--col-call360-blue:     #3B7DC0;
+	--col-main-blue:        #112C4D;
+	--col-background-blue:  #0B1F3A;
+
+    --h-top: 85px;
+
+    --fw-400: 400;
+    --fw-600: 600;
+    --fw-700: 600;
+
+    --fw-bold: 600;
+
+--fs-hero-title: 56px;
+--fs-hero-intro: 22px;
+--fs-hero-subtitle: 36px;
+--fs-blockquote: 40px;
+--fs-menu-title: 24px;
+--fs-menu-intro: 16px;
+--fs-menu-subtitle: 18px;
+--fs-menu-descr: 14px;
+--fs-smallest: 12px;
+--fs-h2: 48px;
+--fs-h3: 32px;
+
+    // --fs-100: clamp(0.5119rem, 0.4895rem + 0.112vw, 0.5763rem);
+    // --fs-200: clamp(0.69rem, 0.66rem + 0.15vw, 0.78rem);
+    // --fs-200: clamp(0.69rem, 0.66rem + 0.15vw, 0.78rem);
+    // --fs-300: clamp(0.83rem, 0.80rem + 0.18vw, 0.94rem);
+    // --fs-400: clamp(1.00rem, 0.96rem + 0.22vw, 1.13rem);
+    // --fs-450: clamp(1.10rem, 1.00rem + 0.24vw, 1.20rem);
+    // --fs-500: clamp(1.20rem, 1.15rem + 0.26vw, 1.35rem);
+    // --fs-600: clamp(1.44rem, 1.38rem + 0.31vw, 1.62rem);
+    // --fs-700: clamp(1.73rem, 1.65rem + 0.38vw, 1.94rem);
+    // --fs-800: clamp(2.07rem, 1.98rem + 0.45vw, 2.33rem);
+    // --fs-900: clamp(2.49rem, 2.38rem + 0.54vw, 2.80rem);
+
+    --fs-100: 0.75rem;  /* 12px  / 16 */
+    --fs-200: 0.83125rem;  /* 13.3px / 16 */
+    --fs-300: 0.925rem;  /* 14.8px / 16 */
+    --fs-400: 1rem;  /* 16px / 16 */
+    --fs-500: 1.2375rem;  /* 19.8px / 16 */
+    --fs-600: 1.53125rem;  /* 24.5px / 16 */
+    --fs-700: 1.89375rem;  /* 30.3px / 16 */
+    --fs-800: 2.34375rem;  /* 37.5px / 16 */
+    --fs-900: 2.5rem;  /* 40px / 16 */
+
+
+    --transition: 250ms ease-in-out;
+
+    --border-lg: 1rem;
+    --border-sm: 0.5rem;
+    --border-xs: 0.25rem;
+
+    --box-shadow-lg: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px; // tw 39
+    --box-shadow-sm: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px; // tw 37
+
+    --ff-body: 'Inter', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    --ff-title: 'Sora', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    --ff-fa: 'Font Awesome 6 Free';
+}

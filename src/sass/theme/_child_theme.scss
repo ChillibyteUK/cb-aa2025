@@ -1,0 +1,190 @@
+// @import "props";
+@import "typography";
+@import "colours";
+@import "header";
+@import "footer";
+@import "buttons";
+@import "deals";
+@import "blog";
+@import "forms";
+@import "blocks/blocks";
+// @import "case_study";
+
+
+body {
+    // color: var(--col-primary-400);
+    // color: #111;
+    color: var(--body-color);
+}
+
+// a:not(.btn) {
+    //     font-weight: var(--fw-500);
+    //     text-decoration: none;
+    // }
+a {
+    color: var(--col-primary-400);
+    text-decoration: none;
+    transition: color var(--transition);
+    &:hover {
+        color: var(--col-secondary-400);
+    }
+}
+
+a.noline {
+    text-decoration: none;
+}
+a.anchor {
+    display: block;
+    position: relative;
+    top: calc(var(--h-top) * -1); //-150px;
+    visibility: hidden;
+}
+
+@media (min-width:992px) {
+    .cols-lg-2 {
+        columns: 2;
+    }
+    .cols-lg-3 {
+        columns: 3;
+    }
+}
+
+.cols-2 {
+    columns: 2;
+}
+.cols-3 {
+    columns: 3;
+}
+
+.mw-md-65 {
+    @media (min-width:992px) {
+        max-width: 65ch;
+        // margin: auto;
+    }
+}
+
+// @media (max-width:768px) {
+//     .wp-block-image {
+//         figure.alignright {
+//             float: none !important;
+//             margin: auto !important;
+//         }
+//     }
+// }
+
+.share-icons {
+    padding-top: 1rem;
+    a:not(:last-of-type) {
+        margin-right: 0.5rem;
+    }
+}
+
+.social-share {
+    a {
+        font-size: var(--fs-450);
+        &:hover {
+            color: var(--col-primary-400);
+        }
+    }
+}
+
+// :not(.share-icons,.social-icons,figure,.cb,.rplg-biz-name) > a[target="_blank"]:not(.btn)::after {
+//     content: "\f08e";
+//     font-family: "Font Awesome 6 Free";
+//     font-weight: 600;
+//     margin-left: 0.5rem;
+//     display: inline-block;
+// }
+// :not(.share-icons,.social-icons,figure,.cb,.rplg-biz-name) > a[target="_blank"]:not(.btn)::after {
+//     font-weight: 600;
+// }
+
+
+#breadcrumbs {
+    font-size: 0.889rem;
+}
+
+
+.reading {
+    font-size: 0.889rem;
+    font-style: italic;
+}
+
+.feature-link {
+    color: var(--highlight);
+    font-size: var(--fs-300);
+    font-weight: var(--fw-600);
+    &::before {
+        content: "\f044";
+        font-family: 'font awesome 6 free';
+        font-weight: 600;
+        margin-right: 0.75rem;
+    }
+}
+
+main ul:not(.splide__list,.fa-ul) {
+    list-style: none;
+    padding-left: 1.5rem;
+    li {
+        margin-bottom: 0.5rem;
+        &::before {
+            content: "\25A0";
+            color: var(--col-accent-400);
+            display: inline-block;
+            width: 1.5rem;
+            margin-left: -1.5rem;
+        }
+    }
+}
+
+// .slick-dots {
+// 	display: flex;
+// 	justify-content: center;
+	
+// 	margin: 0;
+// 	padding: 1rem 0;
+// 	list-style-type: none;
+//     li {
+//         margin: 0 0.25rem;
+//     }
+	
+//     button {
+//         display: block;
+//         width: 0.5rem;
+//         height: 0.5rem;
+//         padding: 0;
+        
+//         border: none;
+//         border-radius: 100%;
+//         background-color: var(--col-grey-800);
+        
+//         text-indent: -9999px;
+//     }
+//     li.slick-active button {
+//         background-color: var(--col-grey-900);
+//     }
+// }
+
+// show stuff that overflows horizontally
+// * {
+//     outline: 1px solid #f00 !important;
+// }
+// show stuff that overflows horizontally via console JS
+/*
+var all = document.getElementsByTagName("*"), i = 0, rect, docWidth = document.documentElement.offsetWidth;
+for (; i < all.length; i++) {
+    rect = all[i].getBoundingClientRect();
+    if (rect.right > docWidth || rect.left < 0){
+        console.log(all[i]);
+        all[i].style.borderTop = '1px solid red';
+    }
+}
+*/
+
+// @mixin fluid-type($min-vw, $max-vw, $min-value, $max-value) {
+// 	$factor: 1 / ($max-vw - $min-vw) * ($max-value - $min-value);
+// 	$calc-value: unquote('#{ $min-value - ($min-vw * $factor) } + #{ 100vw * $factor }');
+
+// 	font-size: $min-value; // Fallback for older browsers
+// 	font-size: clamp(#{if($min-value > $max-value, $max-value, $min-value)}, #{$calc-value}, #{if($min-value > $max-value, $min-value, $max-value)});
+// }
