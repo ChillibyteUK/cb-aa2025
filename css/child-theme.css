@@ -22084,6 +22084,15 @@ blockquote.wp-block-quote cite::before {
   background-color: var(--col-background-blue);
   color: var(--col-white);
 }
+.cb_scroll_snap--constrained {
+  max-width: 640px;
+  -webkit-margin-start: 0;
+  margin-inline-start: 0;
+}
+.cb_scroll_snap--full {
+  width: 100%;
+  text-align: center;
+}
 .cb_scroll_snap h2, .cb_scroll_snap .h2 {
   font-size: var(--fs-hero-title);
 }

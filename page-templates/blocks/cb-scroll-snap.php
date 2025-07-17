@@ -6,14 +6,28 @@
  */
 
 defined( 'ABSPATH' ) || exit;
+
+$colour = get_field( 'colour' ) ? strtolower( get_field( 'colour' ) ) : 'white';
+$width  = get_field( 'width' ) ? strtolower( get_field( 'width' ) ) : 'constrained';
+
+if ( 'white' === $colour ) {
+	$colour = 'has-white-color';
+} elseif ( 'blue' === $colour ) {
+	$colour = 'has-call360-blue-color';
+} elseif ( 'pink' === $colour ) {
+	$colour = 'has-talent-pink-color';
+}
+
+if ( 'constrained' === $width ) {
+	$width = 'cb_scroll_snap--constrained';
+} elseif ( 'full' === $width ) {
+	$width = 'cb_scroll_snap--full';
+}
+
 ?>
 <section class="cb_scroll_snap">
 	<div class="container">
-		<div class="row">
-			<div class="col-md-6">
-				<h2><?= esc_html( get_field( 'title' ) ); ?></h2>
-			</div>
-		</div>
+	<h2 class="<?= esc_attr( $colour . ' ' . $width ); ?>"><?= esc_html( get_field( 'title' ) ); ?></h2>
 	</div>
 	<div class="container cb_scroll_snap__content">
 		<div class="row g-5">

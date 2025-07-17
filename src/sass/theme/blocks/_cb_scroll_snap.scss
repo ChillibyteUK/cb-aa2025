@@ -3,6 +3,15 @@
     background-color: var(--col-background-blue);
     color: var(--col-white);
 
+    &--constrained {
+        max-width: 640px;
+        margin-inline-start: 0;
+    }
+    &--full {
+        width: 100%;
+        text-align: center;
+    }
+
     h2 {
         font-size: var(--fs-hero-title);
     }

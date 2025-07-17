@@ -3,6 +3,7 @@
  * Hero Icons Module Template
  *
  * @param array $args['module'] The module data from ACF.
+ * @package cb-aa2025
  */
 
 defined( 'ABSPATH' ) || exit;

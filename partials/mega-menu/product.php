@@ -70,14 +70,22 @@ $menu_id   = esc_attr( $menu_data['anchor_slug'] );
 			</h2>
 			<div id="collapse-<?= esc_attr( $menu_id ); ?>-1" class="accordion-collapse collapse" aria-labelledby="heading-<?= esc_attr( $menu_id ); ?>-1" data-bs-parent="#accordion-<?= esc_attr( $menu_id ); ?>">
 				<div class="accordion-body">
-					<?php foreach ( $menu_data['column_2_items'] as $item ) : ?>
+					<?php
+					foreach ( $menu_data['column_2_items'] as $item ) {
+						?>
 						<h4 class="h6"><?= esc_html( $item['title'] ); ?></h4>
 						<p class="small"><?= esc_html( $item['description'] ); ?></p>
-					<?php endforeach; ?>
-					<?php foreach ( $menu_data['column_3_items'] as $item ) : ?>
+						<?php
+					}
+					?>
+					<?php
+					foreach ( $menu_data['column_3_items'] as $item ) {
+						?>
 						<h4 class="h6"><?= esc_html( $item['title'] ); ?></h4>
 						<p class="small"><?= esc_html( $item['description'] ); ?></p>
-					<?php endforeach; ?>
+						<?php
+					}
+					?>
 				</div>
 			</div>
 		</div>
