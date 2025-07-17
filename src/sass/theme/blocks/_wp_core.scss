@@ -11,11 +11,13 @@
 
 .wp-block-group.alignfull > .wp-block-group__inner-container {
     @extend .container;
-    &.wp-block-group-is-layout-constrained > .wp-block-heading,
-    &.wp-block-group-is-layout-constrained > p
-    {
-        @media (min-width:992px) {
-            max-width: min(64vw, 1000px);
+
+    &.wp-block-group-is-layout-constrained {
+        > .wp-block-heading:not(.has-text-align-center),
+        > p {
+            @media (min-width: 992px) {
+                max-width: min(64vw, 1000px);
+            }
         }
     }
 }

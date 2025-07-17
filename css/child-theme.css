@@ -21921,7 +21921,8 @@ body .gform_wrapper .gform_footer button {
 }
 
 @media (min-width: 992px) {
-  .wp-block-group.alignfull > .wp-block-group__inner-container.wp-block-group-is-layout-constrained > .wp-block-heading, .wp-block-group.alignfull > .wp-block-group__inner-container.wp-block-group-is-layout-constrained > p {
+  .wp-block-group.alignfull > .wp-block-group__inner-container.wp-block-group-is-layout-constrained > .wp-block-heading:not(.has-text-align-center),
+.wp-block-group.alignfull > .wp-block-group__inner-container.wp-block-group-is-layout-constrained > p {
     max-width: min(64vw, 1000px);
   }
 }
