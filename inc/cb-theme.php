@@ -147,7 +147,7 @@ function widgets_init() {
             array(
                 'name'  => 'Call360 Blue',
                 'slug'  => 'call360-blue',
-                'color' => '#E8088E',
+                'color' => '#4189D0',
             ),
         )
     );
