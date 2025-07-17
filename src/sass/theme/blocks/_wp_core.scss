@@ -14,7 +14,7 @@
 
     &.wp-block-group-is-layout-constrained {
         > .wp-block-heading:not(.has-text-align-center),
-        > p {
+        > p:not(.has-text-align-center) {
             @media (min-width: 992px) {
                 max-width: min(64vw, 1000px);
             }
