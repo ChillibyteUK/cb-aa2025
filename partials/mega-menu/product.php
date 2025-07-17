@@ -39,8 +39,10 @@ $menu_id   = esc_attr( $menu_data['anchor_slug'] );
 		<?php
 		foreach ( $menu_data['column_2_items'] as $item ) {
 			?>
+		<a href="<?= esc_url( $item['link']['url'] ); ?>" class="mega-menu__link">
 			<div class="h6"><?= esc_html( $item['title'] ); ?></div>
 			<p class="small"><?= esc_html( $item['description'] ); ?></p>
+		</a>
 			<?php
 		}
 		?>
@@ -49,8 +51,10 @@ $menu_id   = esc_attr( $menu_data['anchor_slug'] );
 		<?php
 		foreach ( $menu_data['column_3_items'] as $item ) {
 			?>
+		<a href="<?= esc_url( $item['link']['url'] ); ?>" class="mega-menu__link">
 			<div class="h6"><?= esc_html( $item['title'] ); ?></div>
 			<p class="small"><?= esc_html( $item['description'] ); ?></p>
+		</a>
 			<?php
 		}
 		?>
