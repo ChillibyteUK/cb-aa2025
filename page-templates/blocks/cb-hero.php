@@ -33,6 +33,9 @@ defined( 'ABSPATH' ) || exit;
 				if ( 'icons' === $layout ) {
 					get_template_part( 'partials/hero/module-icons', null, array( 'module' => $module ) );
 				}
+				if ( 'image' === $layout ) {
+					get_template_part( 'partials/hero/module-image', null, array( 'module' => $module ) );
+				}
 			}
 		}
 		?>

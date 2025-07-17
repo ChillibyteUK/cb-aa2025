@@ -26,6 +26,13 @@ defined( 'ABSPATH' ) || exit;
 					$theme = get_sub_field( 'theme' );
 					?>
 				<section class="cb_scroll_snap--<?= esc_attr( $theme ); ?>" id="section<?= esc_attr( $i ); ?>">
+					<?php
+					if ( get_sub_field( 'icon' ) ) {
+						?>
+					<img src="<?= esc_url( get_sub_field( 'icon' ) ); ?>" alt="<?= esc_attr( get_sub_field( 'title' ) ); ?>" class="cb_scroll_snap__icon" />
+						<?php
+					}
+					?>
 					<h3><?= esc_html( get_sub_field( 'title' ) ); ?></h3>
 					<p><?= wp_kses_post( get_sub_field( 'content' ) ); ?></p>
 					<div class="cb_scroll_snap__buttons">
@@ -41,7 +48,7 @@ defined( 'ABSPATH' ) || exit;
 						if ( get_sub_field( 'more_link' ) ) {
 							$more_link = get_sub_field( 'more_link' );
 							?>
-						<a href="<?= esc_url( $more_link['url'] ); ?>" class="btn btn-green-no--arrow" target="<?= esc_attr( $more_link['target'] ); ?>">
+						<a href="<?= esc_url( $more_link['url'] ); ?>" class="green-arrow" target="<?= esc_attr( $more_link['target'] ); ?>">
 							<?= esc_html( $more_link['title'] ); ?>
 						</a>
 							<?php

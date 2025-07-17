@@ -99,7 +99,7 @@
     }
 
 }
-.btn-green-no--arrow {
+.green-arrow {
     background-color: transparent;
     color: var(--col-highlight-green);
     font-weight: var(--fw-bold);
@@ -112,7 +112,7 @@
         display: inline-block;
         width: 20px;
         height: 21px;
-        top: 0.75rem;
+        top: 0.25rem;
         margin-inline-start: 1rem;
         transition: color var(--transition);
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='12' viewBox='0 0 20 12'%3E%3Cg id='Group_28' data-name='Group 28' transform='translate(0)'%3E%3Cpath id='Vector_5_Stroke_' data-name='Vector 5 (Stroke)' d='M1313.874,4719.94l5.216,5.186a.811.811,0,0,1,0,1.152l-5.216,5.185a.823.823,0,0,1-1.159,0,.811.811,0,0,1,0-1.152l3.817-3.794h-17.2v-1.629h17.2l-3.817-3.794a.811.811,0,0,1,0-1.152A.823.823,0,0,1,1313.874,4719.94Z' transform='translate(-1299.33 -4719.701)' fill='%2347DD85'/%3E%3C/g%3E%3C/svg%3E%0A");

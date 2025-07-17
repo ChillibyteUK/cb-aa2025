@@ -21489,20 +21489,20 @@ strong, b {
   color: var(--col-main-blue);
 }
 
-.btn-green-no--arrow {
+.green-arrow {
   background-color: transparent;
   color: var(--col-highlight-green);
   font-weight: var(--fw-bold);
   position: relative;
   padding-right: 2.5rem;
 }
-.btn-green-no--arrow::after {
+.green-arrow::after {
   content: "";
   position: absolute;
   display: inline-block;
   width: 20px;
   height: 21px;
-  top: 0.75rem;
+  top: 0.25rem;
   -webkit-margin-start: 1rem;
   margin-inline-start: 1rem;
   transition: color var(--transition);
@@ -21511,7 +21511,7 @@ strong, b {
   background-repeat: no-repeat;
   background-size: contain;
 }
-.btn-green-no--arrow:hover {
+.green-arrow:hover {
   color: var(--col-white);
 }
 
@@ -22091,6 +22091,12 @@ blockquote.wp-block-quote cite::before {
 .cb_scroll_snap__buttons {
   display: flex;
   gap: 1rem;
+  align-items: center;
+}
+.cb_scroll_snap__icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 1rem;
 }
 
 .cb_case_study_slider {
@@ -22247,7 +22253,7 @@ blockquote.wp-block-quote cite::before {
   object-position: bottom center;
 }
 .hero__content {
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 .hero .container, .hero .wp-block-group.alignfull > .wp-block-group__inner-container {
   z-index: 1;
@@ -22256,6 +22262,7 @@ blockquote.wp-block-quote cite::before {
   font-size: var(--fs-500);
 }
 .hero__icons {
+  margin-top: 2rem;
   display: flex;
   flex-wrap: wrap;
   -moz-column-gap: 3rem;
@@ -22284,6 +22291,11 @@ blockquote.wp-block-quote cite::before {
   font-size: var(--fs-200);
   max-width: 20ch;
   margin: 0;
+}
+.hero__image-img {
+  display: block;
+  width: max(300px, 80%);
+  margin-inline: auto;
 }
 
 .cb_contact {
