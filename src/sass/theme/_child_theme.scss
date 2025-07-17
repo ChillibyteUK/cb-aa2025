@@ -122,20 +122,20 @@ a.anchor {
     }
 }
 
-main ul:not(.splide__list,.fa-ul) {
-    list-style: none;
-    padding-left: 1.5rem;
-    li {
-        margin-bottom: 0.5rem;
-        &::before {
-            content: "\25A0";
-            color: var(--col-accent-400);
-            display: inline-block;
-            width: 1.5rem;
-            margin-left: -1.5rem;
-        }
-    }
-}
+// main ul:not(.splide__list,.fa-ul) {
+//     list-style: none;
+//     padding-left: 1.5rem;
+//     li {
+//         margin-bottom: 0.5rem;
+//         &::before {
+//             content: "\25A0";
+//             color: var(--col-accent-400);
+//             display: inline-block;
+//             width: 1.5rem;
+//             margin-left: -1.5rem;
+//         }
+//     }
+// }
 
 // .slick-dots {
 // 	display: flex;

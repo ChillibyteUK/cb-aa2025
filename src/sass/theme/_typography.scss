@@ -48,7 +48,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, .h99 {
     font-family: var(--ff-title);
     font-style: normal;
     margin-bottom: 0.5rem;
-    color: var(--col-primary-400);
+    // color: var(--col-main-blue);
     text-wrap: balance;
 }
 
@@ -79,11 +79,10 @@ h4, .h4 {
 .fs-800 { font-size: var(--fs-800); }
 .fs-900 { font-size: var(--fs-900); }
 
-.underline {
-    display: inline-block;
-    padding-bottom: 0.25rem;
-    border-bottom: 2px solid var(--col-accent-400);
+.has-medium-font-size {
+    font-size: var(--fs-hero-intro);
 }
+
 
 strong, b {
     font-weight: var(--fw-600);
@@ -104,13 +103,6 @@ strong, b {
 
 .has-small-font-size {
     font-size: var(--fs-200);
-}
-
-.preTitle {
-    font-size: var(--fs-300);
-    text-transform: uppercase;
-    font-family: var(--ff-title);
-    letter-spacing: 0.1em;
 }
 
 .ff-title {

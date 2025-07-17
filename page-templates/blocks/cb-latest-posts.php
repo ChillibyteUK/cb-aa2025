@@ -7,8 +7,16 @@
 
 defined( 'ABSPATH' ) || exit;
 
+$theme = strtolower( get_field( 'theme' ) );
+if ( ! $theme ) {
+	$theme = '';
+}
+else {
+	$theme = 'cb_latest_posts--' . sanitize_html_class( $theme );
+}
+
 ?>
-<section class="cb_latest_posts">
+<section class="cb_latest_posts <?= esc_attr( $theme ); ?>">
 	<div class="container">
 		<div class="d-flex justify-content-between align-items-center mb-4">
 			<h2 class="cb_latest_posts__title"><?= esc_html( get_field( 'title' ) ); ?></h2>

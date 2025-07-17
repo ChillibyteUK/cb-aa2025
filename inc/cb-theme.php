@@ -105,39 +105,49 @@ function widgets_init() {
         'editor-color-palette',
         array(
             array(
-                'name'  => 'Primary',
-                'slug'  => 'primary-400',
-                'color' => '#1d2047',
+                'name'  => 'Background Blue',
+                'slug'  => 'background-blue',
+                'color' => '#0B1F3A',
             ),
             array(
-                'name'  => 'Secondary',
-                'slug'  => 'secondary-400',
-                'color' => '#0074CC',
+                'name'  => 'Main Blue',
+                'slug'  => 'main-blue',
+                'color' => '#112C4D',
             ),
             array(
-                'name'  => 'Accent',
-                'slug'  => 'accent-400',
-                'color' => '#FF8400',
+                'name'  => 'Highlight Green',
+                'slug'  => 'highlight-green',
+                'color' => '#47DD85',
             ),
             array(
-                'name'  => 'Grey 600',
-                'slug'  => 'grey-600',
-                'color' => '#e8e8e8',
+                'name'  => 'Off White',
+                'slug'  => 'off-white',
+                'color' => '#F2F4F6',
             ),
             array(
-                'name'  => 'Grey 400',
-                'slug'  => 'grey-400',
-                'color' => '#e9eef0',
+                'name'  => 'Mid Grey',
+                'slug'  => 'mid-grey',
+                'color' => '#DBDFE4',
             ),
             array(
-                'name'  => 'Grey 200',
-                'slug'  => 'grey-200',
-                'color' => '#f1f4f5',
+                'name'  => 'Dark Grey',
+                'slug'  => 'dark-grey',
+                'color' => '#8795A6',
             ),
             array(
                 'name'  => 'White',
                 'slug'  => 'white',
                 'color' => '#ffffff',
+            ),
+            array(
+                'name'  => 'Talent Pink',
+                'slug'  => 'talent-pink',
+                'color' => '#E8088E',
+            ),
+            array(
+                'name'  => 'Call360 Blue',
+                'slug'  => 'call360-blue',
+                'color' => '#E8088E',
             ),
         )
     );

@@ -1,5 +1,17 @@
 .cb_latest_posts {
-    padding-block: 6rem;
+
+    --_colour: var(--col-white);
+    --_background: var(--col-main-blue);
+    
+    &:not(.cb_latest_posts--dark) {
+        padding-block: 6rem;
+        --_colour: var(--col-main-blue);
+        --_background: var(--col-white);
+    }
+    max-width: unset !important;
+
+
+
     &__title {
         margin-bottom: 2rem;
         font-size: var(--fs-h2);
@@ -10,7 +22,7 @@
         row-gap: 1rem;
         flex-direction: column;
         padding: 1rem;
-        background-color: white;
+        background-color: var(--_background);
         border: 0.5rem;
         box-shadow: var(--box-shadow-lg);
         justify-content: space-between;
@@ -35,11 +47,12 @@
         font-size: var(--fs-menu-subtitle);
         font-family: var(--ff-body);
         font-weight: var(--fw-bold);
+        color: var(--_colour);
         margin-bottom: 0.75rem;
     }
     &__post-excerpt {
         font-size: var(--fs-menu-intro);
-        color: var(--col-dark-grey);
+        color: var(--_colour);
         margin-bottom: 1rem;
     }
     &__post-link {

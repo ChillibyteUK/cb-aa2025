@@ -1,0 +1,29 @@
+.cb_contact {
+    max-width: 100% !important;
+    background-color: var(--col-main-blue);
+    color: var(--col-white);
+    padding-bottom: 3rem;
+    
+    &:not(:last-of-type) {
+        .container {
+            padding-bottom: 3rem;
+            border-bottom: 4px solid var(--col-background-blue);
+        }
+    }
+
+    &__flag {
+        width: 70px;
+        margin-bottom: 1rem;
+    }
+
+    &__title {
+        font-size: var(--fs-500);
+    }
+    &__description {
+        font-size: var(--fs-300);
+    }
+
+    .custom-list {
+        font-size: var(--fs-300);
+    }
+}

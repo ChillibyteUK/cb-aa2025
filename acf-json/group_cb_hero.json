@@ -217,7 +217,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "all"
+                "value": "acf\/cb-hero"
             }
         ]
     ],
@@ -230,5 +230,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1752667768
+    "modified": 1752679619
 }
