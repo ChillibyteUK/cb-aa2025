@@ -22287,8 +22287,18 @@ blockquote.wp-block-quote cite::before {
   z-index: -1;
   -o-object-fit: cover;
   object-fit: cover;
+}
+.hero__background--bottom {
   -o-object-position: bottom center;
   object-position: bottom center;
+}
+.hero__background--top {
+  -o-object-position: top center;
+  object-position: top center;
+}
+.hero__background--center {
+  -o-object-position: center center;
+  object-position: center center;
 }
 .hero__content {
   margin-bottom: 1rem;

@@ -7,9 +7,12 @@
 
 defined( 'ABSPATH' ) || exit;
 
+$bgalign = strtolower( get_field( 'background_alignment' ) );
+$bgalign = $bgalign ? $bgalign : 'bottom';
+
 ?>
 <section class="hero">
-	<?= wp_get_attachment_image( get_field( 'background' ), 'full', false, array( 'class' => 'hero__background' ) ); ?>
+	<?= wp_get_attachment_image( get_field( 'background' ), 'full', false, array( 'class' => 'hero__background hero__background--' . $bgalign ) ); ?>
 	<div class="container">
 		<div class="hero__content text-center">
 			<?php

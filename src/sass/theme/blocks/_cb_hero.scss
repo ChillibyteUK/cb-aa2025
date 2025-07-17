@@ -17,7 +17,16 @@
         height: 100%;
         z-index: -1;
         object-fit: cover;
+    }
+
+    &__background--bottom {
         object-position: bottom center;
+    }
+    &__background--top {
+        object-position: top center;
+    }
+    &__background--center {
+        object-position: center center;
     }
 
     &__content {
