@@ -139,7 +139,7 @@ session_start();
 
 				if ( $menus ) {
 					?>
-					<nav class="main-nav">
+					<nav class="main-nav w-100 d-flex justify-content-between">
 						<ul class="nav-list nav justify-content-start">
 							<?php
 							foreach ( $menus as $menu_item ) {
@@ -165,9 +165,11 @@ session_start();
 								}
 							}
 							?>
-							<a href="#" class="btn">Customer Sales</a>
-							<a href="#" class="btn">Free Trial</a>
 						</ul>
+						<div class="d-flex gap-2 justify-content-end align-items-center">
+							<a href="#" class="nav-button-outline"><span class="icon-phone"></span> Customer Sales</a>
+							<a href="#" class="nav-button-green">Free Trial</a>
+						</div>
 					</nav>
 					<?php
 				}
