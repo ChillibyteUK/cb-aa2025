@@ -142,19 +142,125 @@ session_start();
 					<nav class="main-nav w-100 d-flex justify-content-between">
 						<ul class="nav-list nav justify-content-start">
 							<?php
-							foreach ( $menus as $menu_item ) {
-								$slug   = esc_attr( $menu_item['anchor_slug'] );
-								$label  = esc_attr( $menu_item['menu_item'] );
+							// Get current page URL for active state.
+							$current_url = isset( $_SERVER['REQUEST_URI'] ) ? esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '';
+							
+							// Ensure homepage is always represented as '/'
+							if ( empty( $current_url ) || $current_url === '' ) {
+								$current_url = '/';
+							}
+
+							/**
+							 * Check if current page matches any links in a mega menu.
+							 *
+							 * @param  array  $menu_item   The menu item data.
+							 * @param  string $current_url The current page URL.
+							 * @return bool
+							 */
+							function is_menu_active( $menu_item, $current_url ) {
 								$layout = $menu_item['acf_fc_layout'];
+								
+								// For plain menus, check direct slug match.
+								if ( 'plain' === $layout ) {
+									$menu_url = '/' . $menu_item['anchor_slug'] . '/';
+									
+									// Handle homepage case specifically.
+									if ( '' === $menu_item['anchor_slug'] || 'home' === $menu_item['anchor_slug'] ) {
+										$menu_url = '/';
+									}
+									
+									return $current_url === $menu_url;
+								}
+								
+								// For mega menus, check all sub-links.
+								if ( 'product' === $layout ) {
+									// Check column 2 and 3 items.
+									$items_to_check = array();
+									
+									// Add main buttons (column 1).
+									if ( ! empty( $menu_item['column_1_button_1']['url'] ) && '#' !== $menu_item['column_1_button_1']['url'] ) {
+										$items_to_check[] = array( 'link' => array( 'url' => $menu_item['column_1_button_1']['url'] ) );
+									}
+									if ( ! empty( $menu_item['column_1_button_2']['url'] ) && '#' !== $menu_item['column_1_button_2']['url'] ) {
+										$items_to_check[] = array( 'link' => array( 'url' => $menu_item['column_1_button_2']['url'] ) );
+									}
+									
+									// Add column 2 items if they exist.
+									if ( ! empty( $menu_item['column_2_items'] ) && is_array( $menu_item['column_2_items'] ) ) {
+										$items_to_check = array_merge( $items_to_check, $menu_item['column_2_items'] );
+									}
+									
+									// Add column 3 items if they exist.
+									if ( ! empty( $menu_item['column_3_items'] ) && is_array( $menu_item['column_3_items'] ) ) {
+										$items_to_check = array_merge( $items_to_check, $menu_item['column_3_items'] );
+									}
+									
+									foreach ( $items_to_check as $item ) {
+										if ( ! empty( $item['link']['url'] ) && '#' !== $item['link']['url'] ) {
+											$item_url = wp_parse_url( $item['link']['url'], PHP_URL_PATH );
+											
+											// Skip if it's the homepage link in mega menu.
+											if ( '/' === $item_url && '/' === $current_url ) {
+												continue;
+											}
+											
+											if ( $current_url === $item_url ) {
+												return true;
+											}
+										}
+									}
+								}
+								
+								if ( 'resources' === $layout ) {
+									// Check column 2 and 3 items.
+									$items_to_check = array();
+									
+									// Add column 2 items if they exist.
+									if ( ! empty( $menu_item['column_2_items'] ) && is_array( $menu_item['column_2_items'] ) ) {
+										$items_to_check = array_merge( $items_to_check, $menu_item['column_2_items'] );
+									}
+									
+									// Add column 3 items if they exist.
+									if ( ! empty( $menu_item['column_3_items'] ) && is_array( $menu_item['column_3_items'] ) ) {
+										$items_to_check = array_merge( $items_to_check, $menu_item['column_3_items'] );
+									}
+									
+									foreach ( $items_to_check as $item ) {
+										// Resources menu has different structure - link might be string or empty.
+										if ( ! empty( $item['link'] ) && is_string( $item['link'] ) && '#' !== $item['link'] ) {
+											$item_url = wp_parse_url( $item['link'], PHP_URL_PATH );
+											
+											// Skip if it's the homepage link in mega menu.
+											if ( '/' === $item_url && '/' === $current_url ) {
+												continue;
+											}
+											
+											if ( $current_url === $item_url ) {
+												return true;
+											}
+										}
+									}
+								}
+								
+								return false;
+							}
+
+							foreach ( $menus as $menu_item ) {
+								$slug      = esc_attr( $menu_item['anchor_slug'] );
+								$label     = esc_attr( $menu_item['menu_item'] );
+								$layout    = $menu_item['acf_fc_layout'];
+								$is_active = is_menu_active( $menu_item, $current_url ) ? ' active' : '';
+								$cc        = 'nav--' . esc_attr( $slug );
+								
 								if ( 'plain' === $layout ) {
 									?>
-								<li class="nav-item">
+								<li class="nav-item<?= esc_attr( $is_active . ' ' . $cc ); ?>">
 									<a class="nav-link" href="/<?= esc_attr( $slug ); ?>"><?= esc_html( $label ); ?></a>
 								</li>
 									<?php
 								} else {
 									?>
-								<li class="nav-item">
+								<li class="nav-item<?= esc_attr( $is_active . ' ' . $cc ); ?>">
 									<a class="nav-link mega-trigger"
 										href="#"
 										data-mega-target="mega-<?= esc_attr( $slug ); ?>">

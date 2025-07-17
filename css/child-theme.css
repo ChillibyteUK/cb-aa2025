@@ -21193,6 +21193,10 @@ strong, b {
 #wrapperNavbar li.current-menu-parent a {
   color: var(--col-accent-400);
 }
+#wrapperNavbar .nav-item.active .nav-link {
+  color: gold;
+  font-weight: bold;
+}
 #wrapperNavbar .nav-link {
   cursor: pointer;
   padding-top: 0;
