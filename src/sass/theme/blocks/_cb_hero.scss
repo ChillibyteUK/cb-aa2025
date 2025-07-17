@@ -30,6 +30,8 @@
 
     &__subtitle {
         font-size: var(--fs-500);
+        max-width: 70ch;
+        margin-inline: auto;
     }
 
     &__icons {

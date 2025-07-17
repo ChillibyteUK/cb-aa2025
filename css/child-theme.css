@@ -22260,6 +22260,8 @@ blockquote.wp-block-quote cite::before {
 }
 .hero__subtitle {
   font-size: var(--fs-500);
+  max-width: 70ch;
+  margin-inline: auto;
 }
 .hero__icons {
   margin-top: 2rem;
