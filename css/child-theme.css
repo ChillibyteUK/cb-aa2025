@@ -22308,8 +22308,11 @@ blockquote.wp-block-quote cite::before {
 }
 .hero__subtitle {
   font-size: var(--fs-500);
-  max-width: 70ch;
+  max-width: 60ch;
+}
+.hero.text-center .hero__subtitle {
   margin-inline: auto;
+  max-width: 70ch;
 }
 .hero__icons {
   margin-top: 2rem;

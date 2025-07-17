@@ -39,8 +39,13 @@
 
     &__subtitle {
         font-size: var(--fs-500);
-        max-width: 70ch;
-        margin-inline: auto;
+        max-width: 60ch;
+    }
+    &.text-center {
+        .hero__subtitle {
+            margin-inline: auto;
+            max-width: 70ch;
+        }
     }
 
     &__icons {
