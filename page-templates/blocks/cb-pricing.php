@@ -294,7 +294,8 @@ $talenttrack_enterprise   = get_field( 'talenttrack_enterprise' );
 					</div>
 				</div>
 			</div>
-					<div class="container pt-5" id="talenttrack-comparison">
+		</div>
+		<div class="container pt-5" id="talenttrack-comparison">
 			<h2 class="text-center mb-5">Compare our plans</h2>
 			<?php
 			if ( have_rows( 'talenttrack_comparison' ) ) {
@@ -328,7 +329,6 @@ $talenttrack_enterprise   = get_field( 'talenttrack_enterprise' );
 			}
 			?>
 		</div>
-	</div>
 	</div>
 </section>
 
