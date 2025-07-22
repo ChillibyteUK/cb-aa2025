@@ -170,11 +170,19 @@ session_start();
 									
 									// If there's a product parameter, only activate that specific menu.
 									if ( $product_param ) {
-										if ( 'call360' === $product_param && in_array( $slug, array( 'call360', 'products' ), true ) ) {
-											return true;
+										if ( 'call360' === $product_param ) {
+											// Check for various possible slug variations for Call360.
+											$call360_slugs = array( 'call-tracking', 'call360', 'call-360', 'products', 'product' );
+											if ( in_array( $slug, $call360_slugs, true ) ) {
+												return true;
+											}
 										}
-										if ( 'talenttrack' === $product_param && in_array( $slug, array( 'talenttrack', 'talent-track' ), true ) ) {
-											return true;
+										if ( 'talenttrack' === $product_param ) {
+											// Check for various possible slug variations for TalentTrack.
+											$talenttrack_slugs = array( 'talent-track', 'talenttrack', 'talent_track' );
+											if ( in_array( $slug, $talenttrack_slugs, true ) ) {
+												return true;
+											}
 										}
 										// Don't activate pricing menu when there's a specific product parameter.
 										return false;
