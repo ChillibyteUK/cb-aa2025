@@ -254,14 +254,14 @@ session_start();
 								
 								if ( 'plain' === $layout ) {
 									?>
-								<li class="nav-item<?= esc_attr( $is_active . ' ' . $cc ); ?>">
-									<a class="nav-link" href="/<?= esc_attr( $slug ); ?>"><?= esc_html( $label ); ?></a>
+								<li class="nav-item">
+									<a class="nav-link<?= esc_attr( $is_active . ' ' . $cc ); ?>" href="/<?= esc_attr( $slug ); ?>"><?= esc_html( $label ); ?></a>
 								</li>
 									<?php
 								} else {
 									?>
-								<li class="nav-item<?= esc_attr( $is_active . ' ' . $cc ); ?>">
-									<a class="nav-link mega-trigger"
+								<li class="nav-item">
+									<a class="nav-link mega-trigger<?= esc_attr( $is_active . ' ' . $cc ); ?>"
 										href="#"
 										data-mega-target="mega-<?= esc_attr( $slug ); ?>">
 										<?= esc_html( $label ); ?>

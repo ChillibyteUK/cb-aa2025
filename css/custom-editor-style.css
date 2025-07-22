@@ -1,5 +1,6 @@
 @charset "UTF-8";
 :root {
+  --hsl-dark-grey: 213 15% 59%;
   --col-dark-grey: #8795A6;
   --col-mid-grey: #DBDFE4;
   --col-off-white: #F2F4F6;

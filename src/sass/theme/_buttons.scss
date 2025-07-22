@@ -51,20 +51,78 @@
 }
 
 .btn {
-    border-radius: 0;
+    border-radius: 0.25rem;
     padding: 0.5rem 2rem !important;
     min-width: 200px;
     text-align: center;
+    background-color: transparent;
+    border: 2px solid transparent
+
 }
 .btn-primary {
-    border: 1px solid var(--_button-bg, var(--col-highlight-green)) !important;
+    border: 2px solid var(--_button-bg, var(--col-highlight-green)) !important;
     background-color: var(--_button-bg, var(--col-highlight-green)) !important;
     color: var(--_button-txt, var(--col-main-blue)) !important;
     font-weight: var(--fw-bold);
+    &:hover {
+        background-color: color-mix(in srgb, var(--_button-bg, var(--col-highlight-green)), #ffffff 10%);
+        color: var(--_button-txt, var(--col-main-blue)) !important;
+    }
 }
 .btn-outline {
-    border: 1px solid var(--_button-bg, var(--col-highlight-green));
+    border: 2px solid var(--_button-bg, var(--col-highlight-green));
     color: var(--_button-bg, var(--col-main-blue)) !important;
+}
+
+.btn-call360 {
+    background-color: var(--col-call360-blue);
+    color: var(--col-white);
+    font-weight: var(--fw-bold);
+    border-radius: 0.25rem;
+    padding: 0.5rem 1.5rem;
+    transition: background-color var(--transition), color var(--transition);
+    &:hover {
+        background-color: color-mix(in srgb, var(--col-call360-blue), #ffffff 10%);
+        color: #fff !important;
+    }
+}
+.btn-call360--outline {
+    background-color: var(--col-white);
+    border: 2px solid var(--col-call360-blue);
+    color: var(--col-call360-blue);
+    font-weight: var(--fw-bold);
+    border-radius: 0.25rem;
+    padding: 0.5rem 1.5rem;
+    transition: background-color var(--transition), color var(--transition);
+    &:hover {
+        background-color: color-mix(in srgb, var(--col-call360-blue), #ffffff 10%);
+        color: #fff !important;
+    }
+}
+.btn-talent {
+    background-color: var(--col-talent-pink);
+    color: var(--col-white);
+    font-weight: var(--fw-bold);
+    border-radius: 0.25rem;
+    padding: 0.5rem 1.5rem;
+    transition: background-color var(--transition), color var(--transition);
+    &:hover {
+        background-color: color-mix(in srgb, var(--col-talent-pink), #ffffff 10%);
+        color: #fff !important;
+    }
+}
+.btn-talent--outline {
+    background-color: var(--col-white);
+    border: 2px solid var(--col-talent-pink);
+    color: var(--col-talent-pink);
+    font-weight: var(--fw-bold);
+    border-radius: 0.25rem;
+    padding: 0.5rem 1.5rem;
+    transition: background-color var(--transition), color var(--transition);
+    &:hover {
+        background-color: color-mix(in srgb, var(--col-talent-pink), #ffffff 10%);
+        color: #fff !important;
+    }
 }
 
 .btn-green--arrow {

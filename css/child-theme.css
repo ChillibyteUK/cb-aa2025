@@ -1,5 +1,6 @@
 @charset "UTF-8";
 :root {
+  --hsl-dark-grey: 213 15% 59%;
   --col-dark-grey: #8795A6;
   --col-mid-grey: #DBDFE4;
   --col-off-white: #F2F4F6;
@@ -21069,8 +21070,8 @@ strong, b {
   font-weight: var(--fw-600);
 }
 
-.w-constrained {
-  max-width: 90ch;
+.w-constrained--sm {
+  max-width: 30ch;
   margin-inline: auto;
 }
 
@@ -21191,11 +21192,17 @@ strong, b {
 }
 #wrapperNavbar li.current-menu-item a,
 #wrapperNavbar li.current-menu-parent a {
+  color: var(--col-main-blue);
+}
+#wrapperNavbar .nav-item .nav-link.active {
+  font-weight: bold;
   color: var(--col-accent-400);
 }
-#wrapperNavbar .nav-item.active .nav-link {
-  color: gold;
-  font-weight: bold;
+#wrapperNavbar .nav-item .nav-link.active.nav--call-tracking {
+  color: var(--col-call360-blue);
+}
+#wrapperNavbar .nav-item .nav-link.active.nav--talent-track {
+  color: var(--col-talent-pink);
 }
 #wrapperNavbar .nav-link {
   cursor: pointer;
@@ -21473,22 +21480,82 @@ strong, b {
 }
 
 .btn {
-  border-radius: 0;
+  border-radius: 0.25rem;
   padding: 0.5rem 2rem !important;
   min-width: 200px;
   text-align: center;
+  background-color: transparent;
+  border: 2px solid transparent;
 }
 
 .btn-primary {
-  border: 1px solid var(--_button-bg, var(--col-highlight-green)) !important;
+  border: 2px solid var(--_button-bg, var(--col-highlight-green)) !important;
   background-color: var(--_button-bg, var(--col-highlight-green)) !important;
   color: var(--_button-txt, var(--col-main-blue)) !important;
   font-weight: var(--fw-bold);
 }
+.btn-primary:hover {
+  background-color: color-mix(in srgb, var(--_button-bg, var(--col-highlight-green)), #ffffff 10%);
+  color: var(--_button-txt, var(--col-main-blue)) !important;
+}
 
 .btn-outline {
-  border: 1px solid var(--_button-bg, var(--col-highlight-green));
+  border: 2px solid var(--_button-bg, var(--col-highlight-green));
   color: var(--_button-bg, var(--col-main-blue)) !important;
+}
+
+.btn-call360 {
+  background-color: var(--col-call360-blue);
+  color: var(--col-white);
+  font-weight: var(--fw-bold);
+  border-radius: 0.25rem;
+  padding: 0.5rem 1.5rem;
+  transition: background-color var(--transition), color var(--transition);
+}
+.btn-call360:hover {
+  background-color: color-mix(in srgb, var(--col-call360-blue), #ffffff 10%);
+  color: #fff !important;
+}
+
+.btn-call360--outline {
+  background-color: var(--col-white);
+  border: 2px solid var(--col-call360-blue);
+  color: var(--col-call360-blue);
+  font-weight: var(--fw-bold);
+  border-radius: 0.25rem;
+  padding: 0.5rem 1.5rem;
+  transition: background-color var(--transition), color var(--transition);
+}
+.btn-call360--outline:hover {
+  background-color: color-mix(in srgb, var(--col-call360-blue), #ffffff 10%);
+  color: #fff !important;
+}
+
+.btn-talent {
+  background-color: var(--col-talent-pink);
+  color: var(--col-white);
+  font-weight: var(--fw-bold);
+  border-radius: 0.25rem;
+  padding: 0.5rem 1.5rem;
+  transition: background-color var(--transition), color var(--transition);
+}
+.btn-talent:hover {
+  background-color: color-mix(in srgb, var(--col-talent-pink), #ffffff 10%);
+  color: #fff !important;
+}
+
+.btn-talent--outline {
+  background-color: var(--col-white);
+  border: 2px solid var(--col-talent-pink);
+  color: var(--col-talent-pink);
+  font-weight: var(--fw-bold);
+  border-radius: 0.25rem;
+  padding: 0.5rem 1.5rem;
+  transition: background-color var(--transition), color var(--transition);
+}
+.btn-talent--outline:hover {
+  background-color: color-mix(in srgb, var(--col-talent-pink), #ffffff 10%);
+  color: #fff !important;
 }
 
 .btn-green--arrow {
@@ -22377,6 +22444,177 @@ blockquote.wp-block-quote cite::before {
 }
 .cb_contact .custom-list {
   font-size: var(--fs-300);
+}
+
+.pricing-toggle {
+  display: flex;
+  justify-content: center;
+  background: var(--_glow, #f5f5f5);
+  border-radius: 50px;
+  padding: 4px;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.pricing-toggle__btn {
+  flex: 1;
+  padding: 12px 24px;
+  border: none;
+  background: transparent;
+  border-radius: 46px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  color: #fff;
+}
+
+.pricing-toggle__btn--active {
+  background: #fff;
+  color: #333;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.price-toggle {
+  display: flex;
+  justify-content: end;
+  background: var(--_glow, #f5f5f5);
+  border-radius: 50px;
+  padding: 4px;
+  max-width: 250px;
+}
+
+.pricing_card {
+  background-color: white;
+  color: #000;
+  height: 100%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+.pricing_card__header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas: "package price" "description price";
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px dashed #ccc;
+}
+.pricing_card__package {
+  grid-area: package;
+  font-size: var(--fs-menu-title);
+  font-weight: bold;
+}
+.pricing_card__price {
+  grid-area: price;
+  font-size: var(--fs-h3);
+  font-weight: regular;
+  text-align: right;
+  align-self: center;
+}
+.pricing_card__description {
+  grid-area: description;
+  font-size: var(--fs-menu-descr);
+  color: var(--col-dark-grey);
+}
+.pricing_card__features {
+  margin-bottom: 2rem;
+  font-size: var(--fs-menu-descr);
+}
+.pricing_card__features strong {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.pricing_card__features li {
+  margin-bottom: 0.5rem;
+}
+.pricing_card__actions .btn {
+  width: 100%;
+}
+.pricing_card__actions a {
+  color: var(--col-dark-grey);
+  font-size: var(--fs-menu-descr);
+}
+.pricing_card--glow {
+  box-shadow: 0 0 20px var(--_glow);
+}
+.pricing_card--glow h2, .pricing_card--glow .h2 {
+  color: var(--_glow);
+}
+.pricing_card--glow .pricing_card__price {
+  color: var(--_glow);
+}
+
+.call360_tab {
+  --_glow: var(--col-call360-blue);
+}
+.call360_tab ul {
+  -webkit-margin-start: 1.5rem;
+  margin-inline-start: 1.5rem;
+}
+.call360_tab strong {
+  color: var(--col-call360-blue);
+}
+.call360_tab .fa-li {
+  color: var(--col-call360-blue);
+}
+
+.talenttrack_tab {
+  --_glow: var(--col-talent-pink);
+}
+.talenttrack_tab ul {
+  -webkit-margin-start: 1.5rem;
+  margin-inline-start: 1.5rem;
+}
+.talenttrack_tab strong {
+  color: var(--col-talent-pink);
+}
+.talenttrack_tab .fa-li {
+  color: var(--col-talent-pink);
+}
+
+.comparison-table {
+  color: white;
+}
+.comparison-table th,
+.comparison-table td:not(:first-child) {
+  text-align: center;
+}
+.comparison-table thead th {
+  border-bottom: none !important;
+}
+.comparison-table tbody {
+  border-top: none !important;
+}
+.comparison-table tr > td {
+  border-bottom: 1px solid hsl(var(--hsl-dark-grey)/0.5);
+}
+.comparison-table tr:last-of-type td {
+  border-bottom: none;
+}
+.comparison-table th {
+  color: var(--_glow);
+  font-size: var(--fs-menu-subtitle) !important;
+}
+.comparison-table .fa-solid {
+  font-size: var(--fs-hero-intro);
+  color: var(--col-dark-grey);
+}
+.comparison-table .fa-solid.fa-check {
+  color: var(--_glow);
+}
+.comparison-table tr > td:nth-child(1) {
+  font-size: var(--fs-menu-descr);
+}
+.comparison-table tr > *:nth-child(2) {
+  background-color: hsl(var(--hsl-dark-grey)/0.05);
+  font-size: var(--fs-smallest);
+}
+.comparison-table tr > *:nth-child(3) {
+  background-color: hsl(var(--hsl-dark-grey)/0.15);
+  font-size: var(--fs-smallest);
+}
+.comparison-table tr > *:nth-child(4) {
+  background-color: hsl(var(--hsl-dark-grey)/0.25);
+  font-size: var(--fs-smallest);
 }
 
 body {

@@ -92,8 +92,8 @@ strong, b {
     font-weight: var(--fw-600);
 }
 
-.w-constrained {
-    max-width: 90ch;
+.w-constrained--sm {
+    max-width: 30ch;
     margin-inline: auto
 }
 .w-constrained--inner > * {

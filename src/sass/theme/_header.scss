@@ -39,12 +39,19 @@
 
     li.current-menu-item a,
     li.current-menu-parent a {
-        color: var(--col-accent-400);
+        color: var(--col-main-blue);
     }
 
-    .nav-item.active .nav-link {
-        color: gold;
+    .nav-item .nav-link.active {
         font-weight: bold;
+        color: var(--col-accent-400);
+        &.nav--call-tracking {
+            color: var(--col-call360-blue);
+        }
+        &.nav--talent-track {
+            color: var(--col-talent-pink);
+        }
+        
     }
 
     .nav-link {
