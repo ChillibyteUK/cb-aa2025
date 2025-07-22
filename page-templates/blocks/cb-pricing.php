@@ -16,7 +16,7 @@ $talenttrack_professional = get_field( 'talenttrack_professional' );
 $talenttrack_enterprise   = get_field( 'talenttrack_enterprise' );
 
 ?>
-<section class="hero">
+<section class="hero pb-0">
 	<div class="call360_tab pricing-tab" data-tab="call360">
 		<?= wp_get_attachment_image( get_field( 'call360_background' ), 'full', false, array( 'class' => 'hero__background hero__background--' . $bgalign ) ); ?>
 		<div class="container pb-5">
@@ -138,7 +138,7 @@ $talenttrack_enterprise   = get_field( 'talenttrack_enterprise' );
 				</div>
 			</div>
 		</div>
-		<div class="container pt-5" id="call360-comparison">
+		<div class="container py-5" id="call360-comparison">
 			<h2 class="text-center mb-5">Compare our plans</h2>
 			<?php
 			if ( have_rows( 'call360_comparison' ) ) {
@@ -172,6 +172,89 @@ $talenttrack_enterprise   = get_field( 'talenttrack_enterprise' );
 			}
 			?>
 		</div>
+		<section class="has-off-white-background-color has-main-blue-color" id="call360_faq">
+			<div class="container py-5">
+				<h2 class="text-center mb-5">Frequently asked questions</h2>
+				<?php
+				if ( have_rows( 'call360_faqs' ) ) {
+					// Get all FAQ items first.
+					$faqs = array();
+					while ( have_rows( 'call360_faqs' ) ) {
+						the_row();
+						$faqs[] = array(
+							'question' => get_sub_field( 'question' ),
+							'answer'   => get_sub_field( 'answer' ),
+						);
+					}
+
+					// Split into two columns.
+					$total        = count( $faqs );
+					$half         = ceil( $total / 2 );
+					$left_column  = array_slice( $faqs, 0, $half );
+					$right_column = array_slice( $faqs, $half );
+					?>
+					<div class="faq-columns">
+						<div class="faq-column">
+							<?php
+							$faq_count = 0;
+							foreach ( $left_column as $faq ) {
+								++$faq_count;
+								$collapse_id = 'call360-faq-' . $faq_count;
+								?>
+								<div class="faq-item-wrapper mb-3">
+									<div class="card faq-item">
+										<div class="card-header">
+											<div class="w-100 text-start collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#<?= esc_attr( $collapse_id ); ?>" aria-expanded="false" aria-controls="<?= esc_attr( $collapse_id ); ?>">
+												<div class="d-flex justify-content-between align-items-center">
+													<span><?= esc_html( $faq['question'] ); ?></span>
+													<i class="fas fa-plus"></i>
+												</div>
+											</div>
+										</div>
+										<div id="<?= esc_attr( $collapse_id ); ?>" class="collapse">
+											<div class="card-body">
+												<?= wp_kses_post( $faq['answer'] ); ?>
+											</div>
+										</div>
+									</div>
+								</div>
+								<?php
+							}
+							?>
+						</div>
+						<div class="faq-column">
+							<?php
+							foreach ( $right_column as $faq ) {
+								++$faq_count;
+								$collapse_id = 'call360-faq-' . $faq_count;
+								?>
+								<div class="faq-item-wrapper mb-3">
+									<div class="card faq-item">
+										<div class="card-header">
+											<div class="w-100 text-start collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#<?= esc_attr( $collapse_id ); ?>" aria-expanded="false" aria-controls="<?= esc_attr( $collapse_id ); ?>">
+												<div class="d-flex justify-content-between align-items-center">
+													<span><?= esc_html( $faq['question'] ); ?></span>
+													<i class="fas fa-plus"></i>
+												</div>
+											</div>
+										</div>
+										<div id="<?= esc_attr( $collapse_id ); ?>" class="collapse">
+											<div class="card-body">
+												<?= wp_kses_post( $faq['answer'] ); ?>
+											</div>
+										</div>
+									</div>
+								</div>
+								<?php
+							}
+							?>
+						</div>
+					</div>
+					<?php
+				}
+				?>
+			</div>
+		</section>
 	</div>
 	<div class="talenttrack_tab pricing-tab d-none" data-tab="talenttrack">
 		<?= wp_get_attachment_image( get_field( 'talenttrack_background' ), 'full', false, array( 'class' => 'hero__background hero__background--' . $bgalign ) ); ?>
@@ -295,7 +378,7 @@ $talenttrack_enterprise   = get_field( 'talenttrack_enterprise' );
 				</div>
 			</div>
 		</div>
-		<div class="container pt-5" id="talenttrack-comparison">
+		<div class="container py-5" id="talenttrack-comparison">
 			<h2 class="text-center mb-5">Compare our plans</h2>
 			<?php
 			if ( have_rows( 'talenttrack_comparison' ) ) {
@@ -329,10 +412,195 @@ $talenttrack_enterprise   = get_field( 'talenttrack_enterprise' );
 			}
 			?>
 		</div>
+		<section class="has-off-white-background-color has-main-blue-color" id="talenttrack_faq">
+			<div class="container py-5">
+				<h2 class="text-center mb-5">Frequently asked questions</h2>
+				<?php
+				if ( have_rows( 'talenttrack_faqs' ) ) {
+					// Get all FAQ items first
+					$faqs = array();
+					while ( have_rows( 'talenttrack_faqs' ) ) {
+						the_row();
+						$faqs[] = array(
+							'question' => get_sub_field( 'question' ),
+							'answer'   => get_sub_field( 'answer' ),
+						);
+					}
+					
+					// Split into two columns
+					$total = count( $faqs );
+					$half = ceil( $total / 2 );
+					$left_column = array_slice( $faqs, 0, $half );
+					$right_column = array_slice( $faqs, $half );
+					?>
+					<div class="faq-columns">
+						<div class="faq-column">
+							<?php
+							$faq_count = 0;
+							foreach ( $left_column as $faq ) {
+								++$faq_count;
+								$collapse_id = 'talenttrack-faq-' . $faq_count;
+								?>
+								<div class="faq-item-wrapper mb-3">
+									<div class="card faq-item">
+										<div class="card-header">
+											<div class="w-100 text-start collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#<?= esc_attr( $collapse_id ); ?>" aria-expanded="false" aria-controls="<?= esc_attr( $collapse_id ); ?>">
+												<div class="d-flex justify-content-between align-items-center">
+													<span><?= esc_html( $faq['question'] ); ?></span>
+													<i class="fas fa-plus"></i>
+												</div>
+											</div>
+										</div>
+										<div id="<?= esc_attr( $collapse_id ); ?>" class="collapse">
+											<div class="card-body">
+												<?= wp_kses_post( $faq['answer'] ); ?>
+											</div>
+										</div>
+									</div>
+								</div>
+								<?php
+							}
+							?>
+						</div>
+						<div class="faq-column">
+							<?php
+							foreach ( $right_column as $faq ) {
+								++$faq_count;
+								$collapse_id = 'talenttrack-faq-' . $faq_count;
+								?>
+								<div class="faq-item-wrapper mb-3">
+									<div class="card faq-item">
+										<div class="card-header">
+											<div class="w-100 text-start collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#<?= esc_attr( $collapse_id ); ?>" aria-expanded="false" aria-controls="<?= esc_attr( $collapse_id ); ?>">
+												<div class="d-flex justify-content-between align-items-center">
+													<span><?= esc_html( $faq['question'] ); ?></span>
+													<i class="fas fa-plus"></i>
+												</div>
+											</div>
+										</div>
+										<div id="<?= esc_attr( $collapse_id ); ?>" class="collapse">
+											<div class="card-body">
+												<?= wp_kses_post( $faq['answer'] ); ?>
+											</div>
+										</div>
+									</div>
+								</div>
+								<?php
+							}
+							?>
+						</div>
+					</div>
+					<?php
+				}
+				?>
+			</div>
+		</section>
 	</div>
 </section>
 
+<?php
+// Generate FAQ Schema markup combining both Call360 and TalentTrack FAQs
+$faq_items = array();
+
+// Add Call360 FAQs
+if ( have_rows( 'call360_faqs' ) ) {
+	while ( have_rows( 'call360_faqs' ) ) {
+		the_row();
+		$faq_items[] = array(
+			'@type'          => 'Question',
+			'name'           => get_sub_field( 'question' ),
+			'acceptedAnswer' => array(
+				'@type' => 'Answer',
+				'text'  => wp_strip_all_tags( get_sub_field( 'answer' ) ),
+			),
+		);
+	}
+}
+
+// Add TalentTrack FAQs
+if ( have_rows( 'talenttrack_faqs' ) ) {
+	while ( have_rows( 'talenttrack_faqs' ) ) {
+		the_row();
+		$faq_items[] = array(
+			'@type'          => 'Question',
+			'name'           => get_sub_field( 'question' ),
+			'acceptedAnswer' => array(
+				'@type' => 'Answer',
+				'text'  => wp_strip_all_tags( get_sub_field( 'answer' ) ),
+			),
+		);
+	}
+}
+
+// Output FAQ Schema if we have FAQ items
+if ( ! empty( $faq_items ) ) {
+	$faq_schema = array(
+		'@context'   => 'https://schema.org',
+		'@type'      => 'FAQPage',
+		'mainEntity' => $faq_items,
+	);
+	?>
+<script type="application/ld+json">
+<?= wp_json_encode( $faq_schema, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ); ?>
+</script>
+	<?php
+}
+?>
+
 <style>
+.faq-columns {
+	display: flex;
+	gap: 0.75rem;
+}
+
+.faq-column {
+	flex: 1;
+}
+
+@media (max-width: 768px) {
+	.faq-columns {
+		flex-direction: column;
+	}
+}
+
+.faq-item-wrapper {
+	break-inside: avoid;
+	page-break-inside: avoid;
+}
+
+.faq-item .card-header div {
+	color: inherit !important;
+	border: none;
+	box-shadow: none;
+	cursor: pointer;
+	font-weight: 600;
+	font-size: var(--fs-menu-intro);
+}
+
+.faq-item .card-header div:focus {
+	box-shadow: none;
+}
+
+.faq-item .card-header div .fas {
+	transition: transform 0.3s ease;
+}
+
+.faq-item .card-header div .fas {
+	color: var(--_glow);
+	font-size: 1rem;
+}
+.faq-item .card-header div[aria-expanded="true"] .fas {
+	transform: rotate(45deg);
+	color: var(--col-dark-grey);
+}
+
+.faq-item .card-body {
+	padding-top: 1rem;
+	font-size: var(--fs-menu-descr);
+}
+.faq-item .card-body p {
+	margin-bottom: 0;
+}
 </style>
 
 <script>

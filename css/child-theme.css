@@ -22617,6 +22617,13 @@ blockquote.wp-block-quote cite::before {
   font-size: var(--fs-smallest);
 }
 
+.faq-item-wrapper {
+  border: 2px solid hsl(var(--hsl-dark-grey)/0.5);
+  border-radius: var(--border-sm);
+  background-color: white;
+  padding: 1rem;
+}
+
 body {
   color: var(--body-color);
 }
