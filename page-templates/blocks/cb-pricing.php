@@ -7,22 +7,6 @@
 
 defined( 'ABSPATH' ) || exit;
 
-/**
- * Convert Y/N values to icons.
- *
- * @param string $value The value to check.
- * @return string The icon HTML or original value.
- */
-function get_yn_icon( $value ) {
-	$clean_value = strtoupper( trim( $value ) );
-	if ( 'Y' === $clean_value ) {
-		return '<i class="fa-solid fa-check"></i>';
-	} elseif ( 'N' === $clean_value ) {
-		return '<i class="fa-solid fa-times"></i>';
-	}
-	return esc_html( $value );
-}
-
 $call360_essential    = get_field( 'call360_essential' );
 $call360_professional = get_field( 'call360_professional' );
 $call360_enterprise   = get_field( 'call360_enterprise' );
