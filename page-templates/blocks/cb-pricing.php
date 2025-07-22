@@ -175,7 +175,7 @@ $talenttrack_enterprise   = get_field( 'talenttrack_enterprise' );
 	</div>
 	<div class="talenttrack_tab pricing-tab d-none" data-tab="talenttrack">
 		<?= wp_get_attachment_image( get_field( 'talenttrack_background' ), 'full', false, array( 'class' => 'hero__background hero__background--' . $bgalign ) ); ?>
-		<div class="container">
+		<div class="container pb-5">
 			<div class="h1 text-center w-constrained--sm"><?= esc_html( get_field( 'talenttrack_title' ) ); ?></div>
 			<div class="text-center mb-5"><?= esc_html( get_field( 'talenttrack_subtitle' ) ); ?></div>
 
