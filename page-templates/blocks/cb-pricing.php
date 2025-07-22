@@ -310,7 +310,41 @@ $talenttrack_enterprise   = get_field( 'talenttrack_enterprise' );
 					</div>
 				</div>
 			</div>
+					<div class="container pt-5" id="talenttrack-comparison">
+			<h2 class="text-center mb-5">Compare our plans</h2>
+			<?php
+			if ( have_rows( 'talenttrack_comparison' ) ) {
+				?>
+			<table class="table comparison-table">
+				<thead>
+					<tr>
+						<th>&nbsp;</th>
+						<th>Essential</th>
+						<th>Professional</th>
+						<th>Enterprise</th>
+					</tr>
+				</thead>
+				<tbody>
+				<?php
+				while ( have_rows( 'talenttrack_comparison' ) ) {
+					the_row();
+					?>
+					<tr>
+						<td><?= esc_html( get_sub_field( 'item' ) ); ?></td>
+						<td><?= get_yn_icon( get_sub_field( 'essential' ) ); ?></td>
+						<td><?= get_yn_icon( get_sub_field( 'professional' ) ); ?></td>
+						<td><?= get_yn_icon( get_sub_field( 'enterprise' ) ); ?></td>
+					</tr>
+					<?php
+				}
+				?>
+				</tbody>
+			</table>
+				<?php
+			}
+			?>
 		</div>
+	</div>
 	</div>
 </section>
 
@@ -322,8 +356,35 @@ document.addEventListener('DOMContentLoaded', function() {
 	const toggleBtns = document.querySelectorAll('.pricing-toggle__btn[data-tab]');
 	const tabs = document.querySelectorAll('.pricing-tab');
 	const priceBtns = document.querySelectorAll('.pricing-toggle__btn[data-price]');
-	const monthlyPrices = document.querySelectorAll('.pricing_card__price--monthly');
-	const annualPrices = document.querySelectorAll('.pricing_card__price--annual');
+
+	// Check URL parameter on page load
+	function checkUrlParameter() {
+		const urlParams = new URLSearchParams(window.location.search);
+		const productParam = urlParams.get('p');
+		
+		if (productParam === 'call360' || productParam === 'talenttrack') {
+			// Hide all tabs
+			tabs.forEach(t => t.classList.add('d-none'));
+			
+			// Show the target tab
+			const targetTab = document.querySelector(`.pricing-tab[data-tab="${productParam}"]`);
+			if (targetTab) {
+				targetTab.classList.remove('d-none');
+			}
+			
+			// Update button states in all toggles
+			toggleBtns.forEach(btn => {
+				if (btn.getAttribute('data-tab') === productParam) {
+					btn.classList.add('pricing-toggle__btn--active');
+				} else {
+					btn.classList.remove('pricing-toggle__btn--active');
+				}
+			});
+		}
+	}
+
+	// Run on page load
+	checkUrlParameter();
 
 	// Handle tab switching (Call360 / TalentTrack)
 	toggleBtns.forEach(btn => {
@@ -340,6 +401,15 @@ document.addEventListener('DOMContentLoaded', function() {
 			if (targetTabElement) {
 				targetTabElement.classList.remove('d-none');
 			}
+
+			// Update button states in all toggles
+			toggleBtns.forEach(b => {
+				if (b.getAttribute('data-tab') === targetTab) {
+					b.classList.add('pricing-toggle__btn--active');
+				} else {
+					b.classList.remove('pricing-toggle__btn--active');
+				}
+			});
 		});
 	});
 
