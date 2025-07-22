@@ -162,7 +162,7 @@ session_start();
 								$slug   = $menu_item['anchor_slug'] ?? '';
 								
 								// Special handling for pricing page with URL parameters.
-								if ( 0 === strpos( $current_url, '/pricing/' ) || '/pricing' === $current_url ) {
+								if ( 0 === strpos( $current_url, '/pricing/' ) || '/pricing/' === $current_url ) {
 									$product_param = '';
 									if ( isset( $_GET['p'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 										$product_param = sanitize_text_field( wp_unslash( $_GET['p'] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
