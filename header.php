@@ -159,6 +159,30 @@ session_start();
 							 */
 							function is_menu_active( $menu_item, $current_url ) {
 								$layout = $menu_item['acf_fc_layout'];
+								$slug   = $menu_item['anchor_slug'] ?? '';
+								
+								// Special handling for pricing page with URL parameters.
+								if ( 0 === strpos( $current_url, '/pricing/' ) || '/pricing' === $current_url ) {
+									$product_param = '';
+									if ( isset( $_GET['p'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+										$product_param = sanitize_text_field( wp_unslash( $_GET['p'] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+									}
+									
+									// If there's a product parameter, only activate that specific menu.
+									if ( $product_param ) {
+										if ( 'call360' === $product_param && in_array( $slug, array( 'call360', 'products' ), true ) ) {
+											return true;
+										}
+										if ( 'talenttrack' === $product_param && in_array( $slug, array( 'talenttrack', 'talent-track' ), true ) ) {
+											return true;
+										}
+										// Don't activate pricing menu when there's a specific product parameter.
+										return false;
+									} else {
+										// No product parameter - only activate the general pricing menu.
+										return 'pricing' === $slug;
+									}
+								}
 								
 								// For plain menus, check direct slug match.
 								if ( 'plain' === $layout ) {
@@ -199,6 +223,11 @@ session_start();
 										if ( ! empty( $item['link']['url'] ) && '#' !== $item['link']['url'] ) {
 											$item_url = wp_parse_url( $item['link']['url'], PHP_URL_PATH );
 											
+											// Skip pricing links - they're handled by the special case above.
+											if ( 0 === strpos( $item_url, '/pricing' ) ) {
+												continue;
+											}
+											
 											// Skip if it's the homepage link in mega menu.
 											if ( '/' === $item_url && '/' === $current_url ) {
 												continue;
@@ -229,6 +258,11 @@ session_start();
 										// Resources menu has different structure - link might be string or empty.
 										if ( ! empty( $item['link'] ) && is_string( $item['link'] ) && '#' !== $item['link'] ) {
 											$item_url = wp_parse_url( $item['link'], PHP_URL_PATH );
+											
+											// Skip pricing links - they're handled by the special case above.
+											if ( 0 === strpos( $item_url, '/pricing' ) ) {
+												continue;
+											}
 											
 											// Skip if it's the homepage link in mega menu.
 											if ( '/' === $item_url && '/' === $current_url ) {
