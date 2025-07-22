@@ -99,7 +99,7 @@ $talenttrack_enterprise   = get_field( 'talenttrack_enterprise' );
 							</div>
 							<div class="pricing_card__actions d-flex flex-column align-items-center">
 								<button class="btn btn-call360 mb-3"><?= esc_html( is_array( $call360_professional ) && isset( $call360_professional['cta']['title'] ) ? $call360_professional['cta']['title'] : 'Get Started' ); ?></button>
-								<a href="#<?= esc_attr( is_array( $call360_professional ) && isset( $call360_professional['plans_link'] ) ? $call360_professional['plans_link'] : '' ); ?>">Compare plans below</a>
+								<a href="#call360-comparison">Compare plans below</a>
 							</div>
 						</div>
 					</div>
@@ -131,7 +131,7 @@ $talenttrack_enterprise   = get_field( 'talenttrack_enterprise' );
 							</div>
 							<div class="pricing_card__actions d-flex flex-column align-items-center">
 								<button class="btn btn-call360--outline mb-3"><?= esc_html( is_array( $call360_enterprise ) && isset( $call360_enterprise['cta']['title'] ) ? $call360_enterprise['cta']['title'] : 'Get Started' ); ?></button>
-								<a href="#<?= esc_attr( is_array( $call360_enterprise ) && isset( $call360_enterprise['plans_link'] ) ? $call360_enterprise['plans_link'] : '' ); ?>">Compare plans below</a>
+								<a href="#call360-comparison">Compare plans below</a>
 							</div>
 						</div>
 					</div>
@@ -224,7 +224,7 @@ $talenttrack_enterprise   = get_field( 'talenttrack_enterprise' );
 							</div>
 							<div class="pricing_card__actions d-flex flex-column align-items-center">
 								<button class="btn btn-talent--outline mb-3"><?= esc_html( is_array( $talenttrack_essential ) && isset( $talenttrack_essential['cta']['title'] ) ? $talenttrack_essential['cta']['title'] : 'Get Started' ); ?></button>
-								<a href="#<?= esc_attr( is_array( $talenttrack_essential ) && isset( $talenttrack_essential['plans_link'] ) ? $talenttrack_essential['plans_link'] : '' ); ?>">Compare plans below</a>
+								<a href="#talenttrack-comparison">Compare plans below</a>
 							</div>
 						</div>
 					</div>
@@ -256,7 +256,7 @@ $talenttrack_enterprise   = get_field( 'talenttrack_enterprise' );
 							</div>
 							<div class="pricing_card__actions d-flex flex-column align-items-center">
 								<button class="btn btn-talent mb-3"><?= esc_html( is_array( $talenttrack_professional ) && isset( $talenttrack_professional['cta']['title'] ) ? $talenttrack_professional['cta']['title'] : 'Get Started' ); ?></button>
-								<a href="#<?= esc_attr( is_array( $talenttrack_professional ) && isset( $talenttrack_professional['plans_link'] ) ? $talenttrack_professional['plans_link'] : '' ); ?>">Compare plans below</a>
+								<a href="#talenttrack-comparison">Compare plans below</a>
 							</div>
 						</div>
 					</div>
@@ -288,7 +288,7 @@ $talenttrack_enterprise   = get_field( 'talenttrack_enterprise' );
 							</div>
 							<div class="pricing_card__actions d-flex flex-column align-items-center">
 								<button class="btn btn-talent--outline mb-3"><?= esc_html( is_array( $talenttrack_enterprise ) && isset( $talenttrack_enterprise['cta']['title'] ) ? $talenttrack_enterprise['cta']['title'] : 'Get Started' ); ?></button>
-								<a href="#<?= esc_attr( is_array( $talenttrack_enterprise ) && isset( $talenttrack_enterprise['plans_link'] ) ? $talenttrack_enterprise['plans_link'] : '' ); ?>">Compare plans below</a>
+								<a href="#talenttrack-comparison">Compare plans below</a>
 							</div>
 						</div>
 					</div>
