@@ -74,22 +74,21 @@ $integration_type_terms = get_terms(
 						</ul>
 					</div>
 					<?php endif; ?>
-
-					<!-- Clear Filters -->
-					<div class="filter-section">
-						<button class="btn btn-outline-secondary btn-sm" id="clear-filters" style="display: none;">
-							<i class="fas fa-times"></i> Clear All Filters
-						</button>
-					</div>
 				</div>
 			</div>
 
 			<!-- Main Content -->
 			<div class="col-lg-9">
-				<!-- Results Info -->
-				<div class="results-info mb-3">
-					<span id="results-count">Showing <?= count( $integrations_query->posts ); ?> integrations</span>
-					<span id="active-filters" style="display: none;"></span>
+				<div class="results-info d-flex flex-wrap gap-3 align-items-center mb-3">
+					<!-- Results Info -->
+					<div class="">
+						<span id="results-count">Showing <?= count( $integrations_query->posts ); ?> integrations</span>
+						<span id="active-filters" style="display: none;"></span>
+					</div>
+					<!-- Clear Filters -->
+					<div class="pe-auto" role="button" id="clear-filters" style="display: none;">
+						<i class="fas fa-times"></i> Clear All Filters
+					</div>
 				</div>
 
 				<div class="integrations-grid" id="integrations-container">
