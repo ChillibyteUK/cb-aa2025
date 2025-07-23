@@ -11,10 +11,10 @@
 function cb_register_taxes() {
 
 	$args = array(
-		'label'              => 'Teams',
+		'label'              => 'Integration Type',
 		'labels'             => array(
-			'name'          => 'Teams',
-			'singular_name' => 'Team',
+			'name'          => 'Types',
+			'singular_name' => 'Type',
 		),
 		'publicly_queryable' => false,
 		'hierarchical'       => true,
@@ -22,11 +22,28 @@ function cb_register_taxes() {
 		'show_admin_column'  => true,
 		'show_tagcloud'      => false,
 		'show_in_rest'       => true,
-		'rest_base'          => 'apis',
 	);
 
-	if ( post_type_exists( 'people' ) ) {
-		register_taxonomy( 'teams', array( 'people' ), $args );
+	if ( post_type_exists( 'integration' ) ) {
+		register_taxonomy( 'integration_types', array( 'integration' ), $args );
+	}
+
+	$args = array(
+		'label'              => 'Product',
+		'labels'             => array(
+			'name'          => 'Products',
+			'singular_name' => 'Product',
+		),
+		'publicly_queryable' => false,
+		'hierarchical'       => true,
+		'rewrite'            => false,
+		'show_admin_column'  => true,
+		'show_tagcloud'      => false,
+		'show_in_rest'       => true,
+	);
+
+	if ( post_type_exists( 'integration' ) ) {
+		register_taxonomy( 'product', array( 'integration' ), $args );
 	}
 }
-// add_action( 'init', 'cb_register_taxes' );
+add_action( 'init', 'cb_register_taxes' );

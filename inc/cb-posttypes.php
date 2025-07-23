@@ -43,7 +43,6 @@ function cb_register_post_types() {
 	);
 
 	register_post_type( 'integration', $args );
-
 }
 add_action( 'init', 'cb_register_post_types' );
 
@@ -96,7 +95,7 @@ function cb_create_integration_posts_from_logos() {
 			$existing_post = get_page_by_path( $slug, OBJECT, 'integration' );
 
 			if ( $existing_post ) {
-				$skipped_count++;
+				++$skipped_count;
 				$results[] = "Skipped: {$title} (already exists)";
 				continue;
 			}
@@ -115,7 +114,7 @@ function cb_create_integration_posts_from_logos() {
 			$post_id = wp_insert_post( $post_data );
 
 			if ( $post_id && ! is_wp_error( $post_id ) ) {
-				$created_count++;
+				++$created_count;
 				$results[] = "Created: {$title} (ID: {$post_id})";
 
 				// Try to set the PNG as featured image if WordPress can access it.
@@ -138,7 +137,7 @@ function cb_create_integration_posts_from_logos() {
 
 					if ( $attachment_id && ! is_wp_error( $attachment_id ) ) {
 						// Generate attachment metadata.
-						require_once( ABSPATH . 'wp-admin/includes/image.php' );
+						require_once ABSPATH . 'wp-admin/includes/image.php';
 						$attach_data = wp_generate_attachment_metadata( $attachment_id, $dest_path );
 						wp_update_attachment_metadata( $attachment_id, $attach_data );
 
@@ -171,4 +170,3 @@ function cb_create_integration_posts_from_logos() {
 	exit;
 }
 // add_action( 'admin_init', 'cb_create_integration_posts_from_logos' );
-

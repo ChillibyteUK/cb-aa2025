@@ -1,0 +1,23 @@
+{
+  "key": "group_cb_all_integrations",
+  "title": "CB All Integrations",
+  "fields": [
+    {
+      "key": "field_cb_all_integrations_title",
+      "label": "CB All Integrations",
+      "name": "title",
+      "type": "message"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf/cb-all-integrations"
+      }
+    ]
+  ],
+  "active": 1,
+  "description": ""
+}

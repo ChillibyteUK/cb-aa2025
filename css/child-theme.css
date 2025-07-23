@@ -21531,6 +21531,7 @@ strong, b {
   color: #fff !important;
 }
 
+.btn-talenttrack,
 .btn-talent {
   background-color: var(--col-talent-pink);
   color: var(--col-white);
@@ -21539,11 +21540,13 @@ strong, b {
   padding: 0.5rem 1.5rem;
   transition: background-color var(--transition), color var(--transition);
 }
+.btn-talenttrack:hover,
 .btn-talent:hover {
   background-color: color-mix(in srgb, var(--col-talent-pink), #ffffff 10%);
   color: #fff !important;
 }
 
+.btn-talenttrack--outline,
 .btn-talent--outline {
   background-color: var(--col-white);
   border: 2px solid var(--col-talent-pink);
@@ -21553,6 +21556,7 @@ strong, b {
   padding: 0.5rem 1.5rem;
   transition: background-color var(--transition), color var(--transition);
 }
+.btn-talenttrack--outline:hover,
 .btn-talent--outline:hover {
   background-color: color-mix(in srgb, var(--col-talent-pink), #ffffff 10%);
   color: #fff !important;
@@ -22678,6 +22682,152 @@ blockquote.wp-block-quote cite::before {
 
 .faq-item .card-body p {
   margin-bottom: 0;
+}
+
+.cb-all-integrations {
+  background: white;
+}
+.cb-all-integrations .integrations-search-bar {
+  background: #6c7b7f;
+  padding: 2rem 0;
+}
+.cb-all-integrations .search-wrapper {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.cb-all-integrations .search-wrapper input {
+  -webkit-padding-start: 3rem;
+  padding-inline-start: 3rem;
+}
+.cb-all-integrations .search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6c757d;
+}
+.cb-all-integrations .filter-section {
+  margin-bottom: 2rem;
+}
+.cb-all-integrations .filter-section h2, .cb-all-integrations .filter-section .h2 {
+  margin-bottom: 1rem;
+  font-size: var(--fs-menu-title);
+  font-weight: 600;
+}
+.cb-all-integrations .product-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.cb-all-integrations .product-filters .btn {
+  text-align: left;
+  border: 2px solid transparent;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+.cb-all-integrations .btn-product {
+  background: #e9ecef;
+  color: #495057;
+}
+.cb-all-integrations .btn-product.active {
+  background: #007bff;
+  color: white;
+}
+.cb-all-integrations .btn-call360 {
+  background: #e3f2fd;
+  color: #1976d2;
+  border-color: #1976d2;
+}
+.cb-all-integrations .btn-call360.active {
+  background: #1976d2;
+  color: white;
+}
+.cb-all-integrations .btn-talenttrack {
+  background: #f3e5f5;
+  color: #7b1fa2;
+  border-color: #7b1fa2;
+}
+.cb-all-integrations .btn-talenttrack.active {
+  background: #7b1fa2;
+  color: white;
+}
+.cb-all-integrations .category-filters {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.cb-all-integrations .category-filters li {
+  font-size: var(--fs-menu-intro);
+  margin-bottom: 0.5rem;
+}
+.cb-all-integrations .category-filter {
+  background: none;
+  border: none;
+  color: #6c757d;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: color 0.3s ease;
+}
+.cb-all-integrations .category-filter:hover,
+.cb-all-integrations .category-filter.active {
+  color: #007bff;
+  font-weight: 500;
+}
+.cb-all-integrations .integrations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+.cb-all-integrations .integration-item {
+  background: var(--col-off-white);
+  padding: 1.5rem;
+  text-align: center;
+}
+.cb-all-integrations .integration-logo {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cb-all-integrations .integration-logo img {
+  max-width: 100%;
+  max-height: 80px;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+.cb-all-integrations .integration-logo.placeholder {
+  background: #e9ecef;
+  border-radius: 8px;
+  color: #6c757d;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.cb-all-integrations .integration-title {
+  font-weight: 500;
+  color: #495057;
+}
+.cb-all-integrations .integration-item.hidden {
+  display: none;
+}
+.cb-all-integrations .no-integrations {
+  text-align: center;
+  color: #6c757d;
+  font-size: 1.2rem;
+  margin-top: 2rem;
+}
+@media (max-width: 768px) {
+  .cb-all-integrations .integrations-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+  .cb-all-integrations .product-filters {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 }
 
 body {
