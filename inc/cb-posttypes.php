@@ -169,4 +169,4 @@ function cb_create_integration_posts_from_logos() {
 	// Prevent further page execution.
 	exit;
 }
-// add_action( 'admin_init', 'cb_create_integration_posts_from_logos' );
+add_action( 'admin_init', 'cb_create_integration_posts_from_logos' );
