@@ -144,9 +144,9 @@ session_start();
 							<?php
 							// Get current page URL for active state.
 							$current_url = isset( $_SERVER['REQUEST_URI'] ) ? esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '';
-							
-							// Ensure homepage is always represented as '/'
-							if ( empty( $current_url ) || $current_url === '' ) {
+
+							// Ensure homepage is always represented as '/'.
+							if ( empty( $current_url ) || '' === $current_url ) {
 								$current_url = '/';
 							}
 
@@ -160,14 +160,14 @@ session_start();
 							function is_menu_active( $menu_item, $current_url ) {
 								$layout = $menu_item['acf_fc_layout'];
 								$slug   = $menu_item['anchor_slug'] ?? '';
-								
+
 								// Special handling for pricing page with URL parameters.
 								if ( 0 === strpos( $current_url, '/pricing/' ) || '/pricing/' === $current_url ) {
 									$product_param = '';
 									if ( isset( $_GET['p'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 										$product_param = sanitize_text_field( wp_unslash( $_GET['p'] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 									}
-									
+
 									// If there's a product parameter, only activate that specific menu.
 									if ( $product_param ) {
 										if ( 'call360' === $product_param ) {
@@ -191,24 +191,24 @@ session_start();
 										return 'pricing' === $slug;
 									}
 								}
-								
+
 								// For plain menus, check direct slug match.
 								if ( 'plain' === $layout ) {
 									$menu_url = '/' . $menu_item['anchor_slug'] . '/';
-									
+
 									// Handle homepage case specifically.
 									if ( '' === $menu_item['anchor_slug'] || 'home' === $menu_item['anchor_slug'] ) {
 										$menu_url = '/';
 									}
-									
+
 									return $current_url === $menu_url;
 								}
-								
+
 								// For mega menus, check all sub-links.
 								if ( 'product' === $layout ) {
 									// Check column 2 and 3 items.
 									$items_to_check = array();
-									
+
 									// Add main buttons (column 1).
 									if ( ! empty( $menu_item['column_1_button_1']['url'] ) && '#' !== $menu_item['column_1_button_1']['url'] ) {
 										$items_to_check[] = array( 'link' => array( 'url' => $menu_item['column_1_button_1']['url'] ) );
@@ -216,74 +216,74 @@ session_start();
 									if ( ! empty( $menu_item['column_1_button_2']['url'] ) && '#' !== $menu_item['column_1_button_2']['url'] ) {
 										$items_to_check[] = array( 'link' => array( 'url' => $menu_item['column_1_button_2']['url'] ) );
 									}
-									
+
 									// Add column 2 items if they exist.
 									if ( ! empty( $menu_item['column_2_items'] ) && is_array( $menu_item['column_2_items'] ) ) {
 										$items_to_check = array_merge( $items_to_check, $menu_item['column_2_items'] );
 									}
-									
+
 									// Add column 3 items if they exist.
 									if ( ! empty( $menu_item['column_3_items'] ) && is_array( $menu_item['column_3_items'] ) ) {
 										$items_to_check = array_merge( $items_to_check, $menu_item['column_3_items'] );
 									}
-									
+
 									foreach ( $items_to_check as $item ) {
 										if ( ! empty( $item['link']['url'] ) && '#' !== $item['link']['url'] ) {
 											$item_url = wp_parse_url( $item['link']['url'], PHP_URL_PATH );
-											
+
 											// Skip pricing links - they're handled by the special case above.
 											if ( 0 === strpos( $item_url, '/pricing' ) ) {
 												continue;
 											}
-											
+
 											// Skip if it's the homepage link in mega menu.
 											if ( '/' === $item_url && '/' === $current_url ) {
 												continue;
 											}
-											
+
 											if ( $current_url === $item_url ) {
 												return true;
 											}
 										}
 									}
 								}
-								
+
 								if ( 'resources' === $layout ) {
 									// Check column 2 and 3 items.
 									$items_to_check = array();
-									
+
 									// Add column 2 items if they exist.
 									if ( ! empty( $menu_item['column_2_items'] ) && is_array( $menu_item['column_2_items'] ) ) {
 										$items_to_check = array_merge( $items_to_check, $menu_item['column_2_items'] );
 									}
-									
+
 									// Add column 3 items if they exist.
 									if ( ! empty( $menu_item['column_3_items'] ) && is_array( $menu_item['column_3_items'] ) ) {
 										$items_to_check = array_merge( $items_to_check, $menu_item['column_3_items'] );
 									}
-									
+
 									foreach ( $items_to_check as $item ) {
 										// Resources menu has different structure - link might be string or empty.
 										if ( ! empty( $item['link'] ) && is_string( $item['link'] ) && '#' !== $item['link'] ) {
 											$item_url = wp_parse_url( $item['link'], PHP_URL_PATH );
-											
+
 											// Skip pricing links - they're handled by the special case above.
 											if ( 0 === strpos( $item_url, '/pricing' ) ) {
 												continue;
 											}
-											
+
 											// Skip if it's the homepage link in mega menu.
 											if ( '/' === $item_url && '/' === $current_url ) {
 												continue;
 											}
-											
+
 											if ( $current_url === $item_url ) {
 												return true;
 											}
 										}
 									}
 								}
-								
+
 								return false;
 							}
 
@@ -293,7 +293,7 @@ session_start();
 								$layout    = $menu_item['acf_fc_layout'];
 								$is_active = is_menu_active( $menu_item, $current_url ) ? ' active' : '';
 								$cc        = 'nav--' . esc_attr( $slug );
-								
+
 								if ( 'plain' === $layout ) {
 									?>
 								<li class="nav-item">

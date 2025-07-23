@@ -32,7 +32,7 @@ $talenttrack_enterprise   = get_field( 'talenttrack_enterprise' );
 
 			<div class="price-switcher d-flex justify-content-between align-items-center mb-4">
 				<div>
-					<?= get_field('call360_pricing_intro'); ?>
+					<?= esc_html( get_field( 'call360_pricing_intro' ) ); ?>
 				</div>
 				<div class="price-toggle">
 					<button class="pricing-toggle__btn pricing-toggle__btn--active" data-price="monthly">Monthly</button>
@@ -159,9 +159,9 @@ $talenttrack_enterprise   = get_field( 'talenttrack_enterprise' );
 					?>
 					<tr>
 						<td><?= esc_html( get_sub_field( 'item' ) ); ?></td>
-						<td><?= get_yn_icon( get_sub_field( 'essential' ) ); ?></td>
-						<td><?= get_yn_icon( get_sub_field( 'professional' ) ); ?></td>
-						<td><?= get_yn_icon( get_sub_field( 'enterprise' ) ); ?></td>
+						<td><?= wp_kses_post( get_yn_icon( get_sub_field( 'essential' ) ) ); ?></td>
+						<td><?= wp_kses_post( get_yn_icon( get_sub_field( 'professional' ) ) ); ?></td>
+						<td><?= wp_kses_post( get_yn_icon( get_sub_field( 'enterprise' ) ) ); ?></td>
 					</tr>
 					<?php
 				}
@@ -272,7 +272,7 @@ $talenttrack_enterprise   = get_field( 'talenttrack_enterprise' );
 		
 			<div class="price-switcher d-flex justify-content-between align-items-center mb-4">
 				<div>
-					<?= get_field('talenttrack_pricing_intro'); ?>
+					<?= esc_html( get_field( 'talenttrack_pricing_intro' ) ); ?>
 				</div>
 				<div class="price-toggle">
 					<button class="pricing-toggle__btn pricing-toggle__btn--active" data-price="monthly">Monthly</button>
@@ -399,9 +399,9 @@ $talenttrack_enterprise   = get_field( 'talenttrack_enterprise' );
 					?>
 					<tr>
 						<td><?= esc_html( get_sub_field( 'item' ) ); ?></td>
-						<td><?= get_yn_icon( get_sub_field( 'essential' ) ); ?></td>
-						<td><?= get_yn_icon( get_sub_field( 'professional' ) ); ?></td>
-						<td><?= get_yn_icon( get_sub_field( 'enterprise' ) ); ?></td>
+						<td><?= wp_kses_post( get_yn_icon( get_sub_field( 'essential' ) ) ); ?></td>
+						<td><?= wp_kses_post( get_yn_icon( get_sub_field( 'professional' ) ) ); ?></td>
+						<td><?= wp_kses_post( get_yn_icon( get_sub_field( 'enterprise' ) ) ); ?></td>
 					</tr>
 					<?php
 				}
@@ -417,7 +417,7 @@ $talenttrack_enterprise   = get_field( 'talenttrack_enterprise' );
 				<h2 class="text-center mb-5">Frequently asked questions</h2>
 				<?php
 				if ( have_rows( 'talenttrack_faqs' ) ) {
-					// Get all FAQ items first
+					// Get all FAQ items first.
 					$faqs = array();
 					while ( have_rows( 'talenttrack_faqs' ) ) {
 						the_row();
@@ -426,11 +426,11 @@ $talenttrack_enterprise   = get_field( 'talenttrack_enterprise' );
 							'answer'   => get_sub_field( 'answer' ),
 						);
 					}
-					
-					// Split into two columns
-					$total = count( $faqs );
-					$half = ceil( $total / 2 );
-					$left_column = array_slice( $faqs, 0, $half );
+
+					// Split into two columns.
+					$total        = count( $faqs );
+					$half         = ceil( $total / 2 );
+					$left_column  = array_slice( $faqs, 0, $half );
 					$right_column = array_slice( $faqs, $half );
 					?>
 					<div class="faq-columns">
@@ -499,10 +499,10 @@ $talenttrack_enterprise   = get_field( 'talenttrack_enterprise' );
 </section>
 
 <?php
-// Generate FAQ Schema markup combining both Call360 and TalentTrack FAQs
+// Generate FAQ Schema markup combining both Call360 and TalentTrack FAQs.
 $faq_items = array();
 
-// Add Call360 FAQs
+// Add Call360 FAQs.
 if ( have_rows( 'call360_faqs' ) ) {
 	while ( have_rows( 'call360_faqs' ) ) {
 		the_row();
@@ -517,7 +517,7 @@ if ( have_rows( 'call360_faqs' ) ) {
 	}
 }
 
-// Add TalentTrack FAQs
+// Add TalentTrack FAQs.
 if ( have_rows( 'talenttrack_faqs' ) ) {
 	while ( have_rows( 'talenttrack_faqs' ) ) {
 		the_row();
@@ -532,7 +532,7 @@ if ( have_rows( 'talenttrack_faqs' ) ) {
 	}
 }
 
-// Output FAQ Schema if we have FAQ items
+// Output FAQ Schema if we have FAQ items.
 if ( ! empty( $faq_items ) ) {
 	$faq_schema = array(
 		'@context'   => 'https://schema.org',
@@ -541,68 +541,11 @@ if ( ! empty( $faq_items ) ) {
 	);
 	?>
 <script type="application/ld+json">
-<?= wp_json_encode( $faq_schema, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ); ?>
+	<?= wp_json_encode( $faq_schema, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ); ?>
 </script>
 	<?php
 }
 ?>
-
-<style>
-.faq-columns {
-	display: flex;
-	gap: 0.75rem;
-}
-
-.faq-column {
-	flex: 1;
-}
-
-@media (max-width: 768px) {
-	.faq-columns {
-		flex-direction: column;
-	}
-}
-
-.faq-item-wrapper {
-	break-inside: avoid;
-	page-break-inside: avoid;
-}
-
-.faq-item .card-header div {
-	color: inherit !important;
-	border: none;
-	box-shadow: none;
-	cursor: pointer;
-	font-weight: 600;
-	font-size: var(--fs-menu-intro);
-}
-
-.faq-item .card-header div:focus {
-	box-shadow: none;
-}
-
-.faq-item .card-header div .fas {
-	transition: transform 0.3s ease;
-}
-
-.faq-item .card-header div .fas {
-	color: var(--_glow);
-	font-size: 1rem;
-}
-.faq-item .card-header div[aria-expanded="true"] .fas {
-	transform: rotate(45deg);
-	color: var(--col-dark-grey);
-}
-
-.faq-item .card-body {
-	padding-top: 1rem;
-	font-size: var(--fs-menu-descr);
-}
-.faq-item .card-body p {
-	margin-bottom: 0;
-}
-</style>
-
 <script>
 document.addEventListener('DOMContentLoaded', function() {
 	const toggleBtns = document.querySelectorAll('.pricing-toggle__btn[data-tab]');
