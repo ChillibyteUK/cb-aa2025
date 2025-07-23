@@ -168,4 +168,9 @@
             flex-wrap: wrap;
         }
     }
+
+    .results-info {
+        font-size: var(--fs-menu-descr);
+        color: var(--col-dark-grey);
+    }
 }

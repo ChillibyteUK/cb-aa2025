@@ -65,20 +65,33 @@ $integration_type_terms = get_terms(
 					<!-- Categories Filter -->
 					<?php if ( ! empty( $integration_type_terms ) && ! is_wp_error( $integration_type_terms ) ) : ?>
 					<div class="filter-section">
-						<h3>Categories</h2>
+						<h3>Categories</h3>
 						<ul class="category-filters">
-							<li><button class="category-filter active" data-category="">All Categories</button></li>
+							<li><button class="category-filter active" data-category="" data-count="<?= count( $integrations_query->posts ); ?>">All Categories <span class="count">(<?= count( $integrations_query->posts ); ?>)</span></button></li>
 							<?php foreach ( $integration_type_terms as $integration_term ) : ?>
-								<li><button class="category-filter" data-category="<?= esc_attr( $integration_term->slug ); ?>"><?= esc_html( $integration_term->name ); ?></button></li>
+								<li><button class="category-filter" data-category="<?= esc_attr( $integration_term->slug ); ?>" data-count="<?= esc_attr( $integration_term->count ); ?>"><?= esc_html( $integration_term->name ); ?> <span class="count">(<?= esc_html( $integration_term->count ); ?>)</span></button></li>
 							<?php endforeach; ?>
 						</ul>
 					</div>
 					<?php endif; ?>
+
+					<!-- Clear Filters -->
+					<div class="filter-section">
+						<button class="btn btn-outline-secondary btn-sm" id="clear-filters" style="display: none;">
+							<i class="fas fa-times"></i> Clear All Filters
+						</button>
+					</div>
 				</div>
 			</div>
 
 			<!-- Main Content -->
 			<div class="col-lg-9">
+				<!-- Results Info -->
+				<div class="results-info mb-3">
+					<span id="results-count">Showing <?= count( $integrations_query->posts ); ?> integrations</span>
+					<span id="active-filters" style="display: none;"></span>
+				</div>
+
 				<div class="integrations-grid" id="integrations-container">
 					<?php
 					if ( $integrations_query->have_posts() ) :
@@ -118,10 +131,21 @@ $integration_type_terms = get_terms(
 					wp_reset_postdata();
 					?>
 				</div>
+
+				<!-- Empty State -->
+				<div class="empty-state" id="empty-state" style="display: none;">
+					<div class="text-center py-5">
+						<i class="fas fa-search fa-3x text-muted mb-3"></i>
+						<h4>No integrations found</h4>
+						<p class="text-muted mb-3">Try adjusting your search or filters to find what you're looking for.</p>
+						<button class="btn btn-primary" id="clear-filters-empty">Clear All Filters</button>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -129,6 +153,11 @@ document.addEventListener('DOMContentLoaded', function() {
 	const productFilters = document.querySelectorAll('[data-product]');
 	const categoryFilters = document.querySelectorAll('[data-category]');
 	const integrationItems = document.querySelectorAll('.integration-item');
+	const clearFiltersBtn = document.getElementById('clear-filters');
+	const clearFiltersEmptyBtn = document.getElementById('clear-filters-empty');
+	const emptyState = document.getElementById('empty-state');
+	const integrationGrid = document.querySelector('.integrations-grid');
+	const resultsCount = document.getElementById('results-count');
 	
 	let currentProduct = 'all';
 	let currentCategory = '';
@@ -137,6 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	// Search functionality
 	searchInput.addEventListener('input', function() {
 		currentSearch = this.value.toLowerCase();
+		hasFiltersChanged = true;
 		filterIntegrations();
 	});
 
@@ -148,6 +178,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			this.classList.add('active');
 			
 			currentProduct = this.getAttribute('data-product');
+			hasFiltersChanged = true;
 			filterIntegrations();
 		});
 	});
@@ -160,15 +191,137 @@ document.addEventListener('DOMContentLoaded', function() {
 			this.classList.add('active');
 			
 			currentCategory = this.getAttribute('data-category');
+			hasFiltersChanged = true;
 			filterIntegrations();
 		});
 	});
 
-	function filterIntegrations() {
+	// Clear filters functionality
+	function clearAllFilters() {
+		currentProduct = 'all';
+		currentCategory = '';
+		currentSearch = '';
+		
+		// Reset search input
+		searchInput.value = '';
+		
+		// Reset product filters
+		productFilters.forEach(f => f.classList.remove('active'));
+		document.querySelector('[data-product="all"]').classList.add('active');
+		
+		// Reset category filters
+		categoryFilters.forEach(f => f.classList.remove('active'));
+		document.querySelector('[data-category=""]').classList.add('active');
+		
+		// Reset to initial state - reload page to restore server-rendered counts
+		location.reload();
+	}
+
+	clearFiltersBtn.addEventListener('click', clearAllFilters);
+	clearFiltersEmptyBtn.addEventListener('click', clearAllFilters);
+
+	let hasFiltersChanged = false;
+
+	function updateResultCounts() {
+		// Only update counts if filters have actually been applied
+		if (!hasFiltersChanged) {
+			return;
+		}
+		
+		const integration_type_terms = 
+		<?php
+		if ( ! empty( $integration_type_terms ) && ! is_wp_error( $integration_type_terms ) ) :
+			echo wp_json_encode(
+				array_map(
+					function ( $term ) {
+						return array(
+							'slug' => $term->slug,
+							'name' => $term->name,
+						);
+					},
+					$integration_type_terms
+				)
+			);
+		else :
+			echo '[]';
+		endif;
+		?>
+		;
+		
+		// Count items that would be visible for each category filter
+		const categoryCounts = {};
+		
+		// Initialize counts
+		categoryCounts[''] = 0; // All categories
+		if (integration_type_terms && Array.isArray(integration_type_terms)) {
+			integration_type_terms.forEach(term => {
+				categoryCounts[term.slug] = 0;
+			});
+		}
+		
+		// For each item, check if it matches current product and search filters (ignoring category filter)
 		integrationItems.forEach(item => {
-			const title = item.getAttribute('data-title');
-			const products = item.getAttribute('data-product').split(',');
-			const categories = item.getAttribute('data-category').split(',');
+			const title = item.getAttribute('data-title') || '';
+			const productAttr = item.getAttribute('data-product') || '';
+			const categoryAttr = item.getAttribute('data-category') || '';
+			
+			// Split and clean the attributes
+			const products = productAttr.split(',').map(p => p.trim()).filter(p => p !== '');
+			const categories = categoryAttr.split(',').map(c => c.trim()).filter(c => c !== '');
+			
+			// Check if item matches current product and search filters (but ignore category filter for counting)
+			let matchesProductAndSearch = true;
+			
+			// Search filter
+			if (currentSearch && currentSearch.trim() !== '' && !title.includes(currentSearch)) {
+				matchesProductAndSearch = false;
+			}
+			
+			// Product filter
+			if (currentProduct !== 'all' && !products.includes(currentProduct)) {
+				matchesProductAndSearch = false;
+			}
+			
+			// If this item matches current product and search, count it for relevant categories
+			if (matchesProductAndSearch) {
+				// Count for "All Categories"
+				categoryCounts['']++;
+				
+				// Count for each specific category this item belongs to
+				categories.forEach(category => {
+					if (category && category in categoryCounts) {
+						categoryCounts[category]++;
+					}
+				});
+			}
+		});
+		
+		console.log('Category counts after filtering:', categoryCounts);
+		
+		// Update category filter counts
+		categoryFilters.forEach(filter => {
+			const category = filter.getAttribute('data-category') || '';
+			const countSpan = filter.querySelector('.count');
+			if (countSpan) {
+				const count = category in categoryCounts ? categoryCounts[category] : 0;
+				countSpan.textContent = `(${count})`;
+			}
+		});
+		
+		return categoryCounts;
+	}
+
+	function filterIntegrations() {
+		let visibleCount = 0;
+		
+		integrationItems.forEach(item => {
+			const title = item.getAttribute('data-title') || '';
+			const productAttr = item.getAttribute('data-product') || '';
+			const categoryAttr = item.getAttribute('data-category') || '';
+			
+			// Split and clean the attributes
+			const products = productAttr.split(',').map(p => p.trim()).filter(p => p !== '');
+			const categories = categoryAttr.split(',').map(c => c.trim()).filter(c => c !== '');
 			
 			let showItem = true;
 			
@@ -189,10 +342,35 @@ document.addEventListener('DOMContentLoaded', function() {
 			
 			if (showItem) {
 				item.classList.remove('hidden');
+				visibleCount++;
 			} else {
 				item.classList.add('hidden');
 			}
 		});
+		
+		// Update result counts BEFORE we update visibility, so counts reflect available options
+		updateResultCounts();
+		
+		// Update the main results count based on what's actually visible
+		if (resultsCount) {
+			resultsCount.textContent = `Showing ${visibleCount} integration${visibleCount !== 1 ? 's' : ''}`;
+		}
+		
+		// Show/hide clear filters button
+		const hasActiveFilters = currentProduct !== 'all' || currentCategory !== '' || currentSearch !== '';
+		clearFiltersBtn.style.display = hasActiveFilters ? 'block' : 'none';
+		
+		// Show/hide empty state
+		if (visibleCount === 0) {
+			integrationGrid.style.display = 'none';
+			emptyState.style.display = 'block';
+		} else {
+			integrationGrid.style.display = 'grid';
+			emptyState.style.display = 'none';
+		}
 	}
+	
+	// Don't initialize counts on page load - preserve server-rendered counts
+	// Only update when filters are actually applied
 });
 </script>

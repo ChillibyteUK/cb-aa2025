@@ -22829,6 +22829,10 @@ blockquote.wp-block-quote cite::before {
     flex-wrap: wrap;
   }
 }
+.cb-all-integrations .results-info {
+  font-size: var(--fs-menu-descr);
+  color: var(--col-dark-grey);
+}
 
 body {
   color: var(--body-color);
