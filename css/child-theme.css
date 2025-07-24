@@ -21336,7 +21336,7 @@ strong, b {
 }
 .mega-menu--integrations .integration-title {
   font-family: var(--ff-body);
-  font-size: var(--fs-menu-intro);
+  font-size: var(--fs-menu-descr);
 }
 .mega-menu--integrations .integrations-col1 {
   background-color: var(--col-dark-grey);
