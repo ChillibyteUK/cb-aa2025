@@ -116,7 +116,7 @@ session_start();
 <header id="wrapperNavbar">
 	<div class="container">
 		<div class="prenav d-none d-md-flex align-items-center justify-content-end gap-4 pt-4">
-			<a href="#"><i class="fa-solid fa-headphones"></i> Customer Support</a>
+			<a href="/support/"><i class="fa-solid fa-headphones"></i> Customer Support</a>
 			<a href="#"><i class="fa-solid fa-globe"></i> Select Region</a>
 			<a href="/about/"><i class="fa-solid fa-circle-info"></i> About us</a>
 			<?= do_shortcode( '[social_icons]' ); ?>
@@ -281,6 +281,19 @@ session_start();
 												return true;
 											}
 										}
+									}
+								}
+
+								if ( 'integrations' === $layout ) {
+									// Check if we're on the integrations page or a single integration post.
+									if ( 0 === strpos( $current_url, '/integrations/' ) || '/integrations/' === $current_url ) {
+										return true;
+									}
+
+									// Check if we're on a single integration post.
+									global $post;
+									if ( $post && 'integration' === get_post_type( $post ) ) {
+										return true;
 									}
 								}
 

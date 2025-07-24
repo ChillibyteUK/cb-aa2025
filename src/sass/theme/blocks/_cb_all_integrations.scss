@@ -118,6 +118,11 @@
         background: var(--col-off-white);
         padding: 1.5rem;
         text-align: center;
+        border: 2px solid transparent;
+        transition: border-color var(--transition);
+        &:hover {
+            border: 2px solid var(--col-dark-grey);
+        }
     }
 
     .integration-logo {

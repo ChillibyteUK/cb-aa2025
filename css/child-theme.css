@@ -22869,6 +22869,11 @@ blockquote.wp-block-quote cite::before {
   background: var(--col-off-white);
   padding: 1.5rem;
   text-align: center;
+  border: 2px solid transparent;
+  transition: border-color var(--transition);
+}
+.cb-all-integrations .integration-item:hover {
+  border: 2px solid var(--col-dark-grey);
 }
 .cb-all-integrations .integration-logo {
   height: 80px;
@@ -22915,6 +22920,31 @@ blockquote.wp-block-quote cite::before {
 .cb-all-integrations .results-info {
   font-size: var(--fs-menu-descr);
   color: var(--col-dark-grey);
+}
+
+.image_hero {
+  background-color: var(--col-mid-grey);
+  min-height: calc(300px + var(--h-top) + 2rem);
+  padding-top: var(--h-top);
+  position: relative;
+  isolation: isolate;
+  margin-bottom: -2px;
+  overflow: hidden;
+  padding-block: calc(6rem + var(--h-top)) 4rem;
+  color: #fff;
+}
+.image_hero__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.image_hero__title {
+  max-width: 30ch;
 }
 
 body {
