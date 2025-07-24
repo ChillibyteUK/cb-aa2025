@@ -154,7 +154,7 @@
     display: grid;
     font-family: var(--ff-inter);
     @media (min-width: 992px) {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: 0.8fr 1fr 1fr;
         column-gap: 2rem;
     }
     &__title {
@@ -268,4 +268,20 @@
         }
     }
     
+}
+
+.mega-menu--resources {
+    .resources-col1 {
+        background-color: var(--col-dark-grey);
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+        .h5 {
+            font-size: var(--fs-integrations-menu-title);
+            color: var(--col-white);
+        }
+    }
 }
