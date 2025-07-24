@@ -7,6 +7,10 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// Check for product filter parameter.
+// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- This is a display filter, not a form submission.
+$initial_product_filter = isset( $_GET['p'] ) ? sanitize_text_field( wp_unslash( $_GET['p'] ) ) : 'all';
+
 // Get all integration posts for initial load.
 $integrations_query = new WP_Query(
 	array(
@@ -53,10 +57,10 @@ $integration_type_terms = get_terms(
 					<!-- Product Filter -->
 					<div class="filter-section">
 						<div class="product-filters">
-							<button class="btn btn-product active" data-product="all">All</button>
+							<button class="btn btn-product <?= 'all' === $initial_product_filter ? 'active' : ''; ?>" data-product="all">All</button>
 							<?php if ( ! empty( $product_terms ) && ! is_wp_error( $product_terms ) ) : ?>
 								<?php foreach ( $product_terms as $product_term ) : ?>
-									<button class="btn btn-<?= esc_attr( $product_term->slug ); ?>" data-product="<?= esc_attr( $product_term->slug ); ?>"><?= esc_html( $product_term->name ); ?></button>
+									<button class="btn btn-<?= esc_attr( $product_term->slug ); ?> <?= $product_term->slug === $initial_product_filter ? 'active' : ''; ?>" data-product="<?= esc_attr( $product_term->slug ); ?>"><?= esc_html( $product_term->name ); ?></button>
 								<?php endforeach; ?>
 							<?php endif; ?>
 						</div>
@@ -101,7 +105,8 @@ $integration_type_terms = get_terms(
 							$product_terms_list          = wp_get_post_terms( get_the_ID(), 'product', array( 'fields' => 'slugs' ) );
 							$integration_type_terms_list = wp_get_post_terms( get_the_ID(), 'integration_types', array( 'fields' => 'slugs' ) );
 							?>
-							<div class="integration-item" 
+							<a class="integration-item"
+								href="<?= esc_url( get_permalink() ); ?>" 
 								data-title="<?= esc_attr( strtolower( get_the_title() ) ); ?>"
 								data-product="<?= esc_attr( implode( ',', $product_terms_list ) ); ?>"
 								data-category="<?= esc_attr( implode( ',', $integration_type_terms_list ) ); ?>">
@@ -120,7 +125,7 @@ $integration_type_terms = get_terms(
 									<?php
 								}
 								?>
-							</div>
+							</a>
 							<?php
 						endwhile;
 					else :
@@ -149,8 +154,8 @@ $integration_type_terms = get_terms(
 <script>
 document.addEventListener('DOMContentLoaded', function() {
 	const searchInput = document.getElementById('integration-search');
-	const productFilters = document.querySelectorAll('[data-product]');
-	const categoryFilters = document.querySelectorAll('[data-category]');
+	const productFilters = document.querySelectorAll('.product-filters [data-product]');
+	const categoryFilters = document.querySelectorAll('.category-filters [data-category]');
 	const integrationItems = document.querySelectorAll('.integration-item');
 	const clearFiltersBtn = document.getElementById('clear-filters');
 	const clearFiltersEmptyBtn = document.getElementById('clear-filters-empty');
@@ -158,9 +163,12 @@ document.addEventListener('DOMContentLoaded', function() {
 	const integrationGrid = document.querySelector('.integrations-grid');
 	const resultsCount = document.getElementById('results-count');
 	
-	let currentProduct = 'all';
+	let currentProduct = '<?= esc_js( $initial_product_filter ); ?>';
 	let currentCategory = '';
 	let currentSearch = '';
+
+	// If we have an initial product filter, mark filters as changed and apply filtering
+	let hasFiltersChanged = '<?= esc_js( $initial_product_filter ); ?>' !== 'all';
 
 	// Search functionality
 	searchInput.addEventListener('input', function() {
@@ -171,7 +179,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	// Product filter functionality
 	productFilters.forEach(filter => {
-		filter.addEventListener('click', function() {
+		filter.addEventListener('click', function(e) {
+			e.preventDefault(); // Prevent any default behavior
+			
 			// Update active state
 			productFilters.forEach(f => f.classList.remove('active'));
 			this.classList.add('active');
@@ -184,7 +194,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	// Category filter functionality  
 	categoryFilters.forEach(filter => {
-		filter.addEventListener('click', function() {
+		filter.addEventListener('click', function(e) {
+			e.preventDefault(); // Prevent any default behavior
+			
 			// Update active state
 			categoryFilters.forEach(f => f.classList.remove('active'));
 			this.classList.add('active');
@@ -212,14 +224,14 @@ document.addEventListener('DOMContentLoaded', function() {
 		categoryFilters.forEach(f => f.classList.remove('active'));
 		document.querySelector('[data-category=""]').classList.add('active');
 		
-		// Reset to initial state - reload page to restore server-rendered counts
-		location.reload();
+		// Remove URL parameters and reload to restore original state
+		const url = new URL(window.location);
+		url.searchParams.delete('p');
+		window.location.href = url.toString();
 	}
 
 	clearFiltersBtn.addEventListener('click', clearAllFilters);
 	clearFiltersEmptyBtn.addEventListener('click', clearAllFilters);
-
-	let hasFiltersChanged = false;
 
 	function updateResultCounts() {
 		// Only update counts if filters have actually been applied
@@ -371,5 +383,10 @@ document.addEventListener('DOMContentLoaded', function() {
 	
 	// Don't initialize counts on page load - preserve server-rendered counts
 	// Only update when filters are actually applied
+	
+	// If we have an initial product filter from URL parameter, apply filtering
+	if (currentProduct !== 'all') {
+		filterIntegrations();
+	}
 });
 </script>

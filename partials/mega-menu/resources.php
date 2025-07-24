@@ -8,33 +8,34 @@
 
 $menu_data = $args['menu'];
 ?>
+<div class="py-4 px-3">
+	<div class="mega-menu mega-menu--resources">
+		<div class="mega-menu__col">
+			<?= wp_get_attachment_image( $menu_data['image'], 'medium' ); ?>
+			<h3><?= esc_html( $menu_data['column_1_title'] ); ?></h3>
+			<p><?= esc_html( $menu_data['column_1_intro'] ); ?></p>
+		</div>
 
-<div class="mega-menu mega-menu--resources">
-	<div class="mega-menu__col">
-		<?= wp_get_attachment_image( $menu_data['image'], 'medium' ); ?>
-		<h3><?= esc_html( $menu_data['column_1_title'] ); ?></h3>
-		<p><?= esc_html( $menu_data['column_1_intro'] ); ?></p>
-	</div>
-
-	<div class="mega-menu__col">
-		<?php
-		foreach ( $menu_data['column_2_items'] as $item ) {
-			?>
-			<h4><?= esc_html( $item['title'] ); ?></h4>
-			<p><?= esc_html( $item['description'] ); ?></p>
+		<div class="mega-menu__col">
 			<?php
-		}
-		?>
-	</div>
-
-	<div class="mega-menu__col">
-		<?php
-		foreach ( $menu_data['column_3_items'] as $item ) {
+			foreach ( $menu_data['column_2_items'] as $item ) {
+				?>
+				<h4><?= esc_html( $item['title'] ); ?></h4>
+				<p><?= esc_html( $item['description'] ); ?></p>
+				<?php
+			}
 			?>
-			<h4><?= esc_html( $item['title'] ); ?></h4>
-			<p><?= esc_html( $item['description'] ); ?></p>
+		</div>
+
+		<div class="mega-menu__col">
 			<?php
-		}
-		?>
+			foreach ( $menu_data['column_3_items'] as $item ) {
+				?>
+				<h4><?= esc_html( $item['title'] ); ?></h4>
+				<p><?= esc_html( $item['description'] ); ?></p>
+				<?php
+			}
+			?>
+		</div>
 	</div>
 </div>

@@ -862,16 +862,16 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "taxonomy": "category",
+                            "taxonomy": "product",
                             "add_term": 0,
                             "save_terms": 0,
                             "load_terms": 0,
-                            "return_format": "id",
-                            "field_type": "checkbox",
+                            "return_format": "object",
+                            "field_type": "select",
+                            "allow_null": 0,
                             "allow_in_bindings": 0,
                             "bidirectional": 0,
                             "multiple": 0,
-                            "allow_null": 0,
                             "bidirectional_target": []
                         },
                         {
@@ -888,16 +888,16 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "taxonomy": "category",
+                            "taxonomy": "product",
                             "add_term": 0,
                             "save_terms": 0,
                             "load_terms": 0,
-                            "return_format": "id",
-                            "field_type": "checkbox",
+                            "return_format": "object",
+                            "field_type": "select",
+                            "allow_null": 0,
                             "allow_in_bindings": 0,
                             "bidirectional": 0,
                             "multiple": 0,
-                            "allow_null": 0,
                             "bidirectional_target": []
                         }
                     ],
@@ -1272,5 +1272,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1750694555
+    "modified": 1753285549
 }

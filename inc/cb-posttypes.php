@@ -24,21 +24,25 @@ function cb_register_post_types() {
 			'name'          => 'Integrations',
 			'singular_name' => 'Integration',
 		),
-		'public'                => false,
-		'publicly_queryable'    => false,
+		'public'                => true,
+		'publicly_queryable'    => true,
 		'show_ui'               => true,
 		'show_in_rest'          => true,
 		'rest_controller_class' => 'WP_REST_Posts_Controller',
 		'has_archive'           => false,
 		'show_in_menu'          => true,
-		'show_in_nav_menus'     => false,
+		'show_in_nav_menus'     => true,
 		'menu_icon'             => 'dashicons-media-document',
-		'exclude_from_search'   => true,
+		'exclude_from_search'   => false,
 		'capability_type'       => 'post',
 		'map_meta_cap'          => true,
 		'hierarchical'          => false,
 		'query_var'             => true,
-		'supports'              => array( 'title', 'thumbnail' ),
+		'rewrite'               => array(
+			'slug'       => 'integrations',
+			'with_front' => false,
+		),
+		'supports'              => array( 'title', 'thumbnail', 'editor' ),
 		'show_in_graphql'       => false,
 	);
 
@@ -169,4 +173,8 @@ function cb_create_integration_posts_from_logos() {
 	// Prevent further page execution.
 	exit;
 }
-// add_action( 'admin_init', 'cb_create_integration_posts_from_logos' );
+
+/*
+ * Uncomment below to run the integration post creation function.
+ * add_action( 'admin_init', 'cb_create_integration_posts_from_logos' );
+ */

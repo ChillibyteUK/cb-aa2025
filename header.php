@@ -337,10 +337,8 @@ session_start();
 				$target = 'mega-' . $slug;
 				$theme  = $menu_item['theme'] ?? 'grey';
 				?>
-				<div id="<?= esc_attr( $target ); ?>" class="container mx-auto collapse mega-panel mega-panel--<?= esc_attr( $theme ); ?>" data-bs-parent=".mega-wrapper">
-					<div class="py-4">
-						<?php get_template_part( 'partials/mega-menu/' . $layout, null, array( 'menu' => $menu_item ) ); ?>
-					</div>
+				<div id="<?= esc_attr( $target ); ?>" class="container px-0 mx-auto collapse mega-panel mega-panel--<?= esc_attr( $theme ); ?>" data-bs-parent=".mega-wrapper">
+					<?php get_template_part( 'partials/mega-menu/' . $layout, null, array( 'menu' => $menu_item ) ); ?>
 				</div>
 				<?php
 			}
