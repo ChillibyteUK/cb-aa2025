@@ -11,14 +11,13 @@
     text-transform: uppercase;
     letter-spacing: 1px;
 
-    background-color: var(--col-primary-400);
+    background-color: var(--col-highlight-green);
     border: none;
     color: white;
 
     display: inline;
     padding: 0.5rem 2rem !important;
     border-radius: 0;
-    clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 50%);
     transition:
         background-color var(--transition),
         transform var(--transition),
@@ -34,16 +33,16 @@
 
     &:hover {
         color: white;
-        background-color: color-mix(in srgb, var(--col-primary-400), #ffffff 10%);
+        background-color: color-mix(in srgb, var(--col-highlight-green), #ffffff 10%);
         transform: translateY(2px);
     }
 
     &--wo {
         background-color: white;
-        color: var(--col-primary-400);
+        color: var(--col-highlight-green);
         &:hover {
-            color: var(--col-primary-400);
-            background-color: color-mix(in srgb, #ffffff, var(--col-primary-400) 10%);
+            color: var(--col-highlight-green);
+            background-color: color-mix(in srgb, #ffffff, var(--col-highlight-green) 10%);
             transform: translateY(2px);
         }
     }

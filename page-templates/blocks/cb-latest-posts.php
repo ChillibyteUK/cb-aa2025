@@ -15,11 +15,13 @@ else {
 	$theme = 'cb_latest_posts--' . sanitize_html_class( $theme );
 }
 
+$section_title = get_query_var( 'cb_latest_posts_title', get_field( 'title' ) );
+$class         = get_query_var( 'cb_latest_posts_class', '' );
 ?>
 <section class="cb_latest_posts <?= esc_attr( $theme ); ?>">
 	<div class="container">
 		<div class="d-flex justify-content-between align-items-center mb-4">
-			<h2 class="cb_latest_posts__title"><?= esc_html( get_field( 'title' ) ); ?></h2>
+			<h2 class="cb_latest_posts__title <?= esc_attr( $class ); ?>"><?= esc_html( $section_title ); ?></h2>
 		</div>
 		<div class="row">
 			<?php

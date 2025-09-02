@@ -1,0 +1,27 @@
+.trial-form {
+
+    &__hero {
+        overflow: hidden;
+        padding-top: 8rem;
+        isolation: isolate;
+    }
+
+    &__form {
+        background-color: white;
+        padding: 2rem;
+        .gform-theme--framework .gfield--type-choice .gfield_checkbox {
+            flex-direction: row;
+            flex-wrap: wrap;
+            .gchoice {
+                flex-basis: calc( 50% - 12px );
+            }
+        }
+        button.gform_button.button {
+            background-color: var(--col-highlight-green) !important;
+            color: var(--col-main-blue) !important;
+            margin-top: 1rem !important;
+            padding-block: 1rem !important;
+            width: 100% !important;
+        }
+    }
+}

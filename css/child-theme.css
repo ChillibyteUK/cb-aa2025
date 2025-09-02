@@ -21024,43 +21024,47 @@ h4, .h4 {
 }
 
 .fs-100 {
-  font-size: var(--fs-100);
+  font-size: var(--fs-100) !important;
 }
 
 .fs-200 {
-  font-size: var(--fs-200);
+  font-size: var(--fs-200) !important;
 }
 
 .fs-300 {
-  font-size: var(--fs-300);
+  font-size: var(--fs-300) !important;
 }
 
 .fs-400 {
-  font-size: var(--fs-400);
+  font-size: var(--fs-400) !important;
 }
 
 .fs-500 {
-  font-size: var(--fs-500);
+  font-size: var(--fs-500) !important;
 }
 
 .fs-600 {
-  font-size: var(--fs-600);
+  font-size: var(--fs-600) !important;
 }
 
 .fs-700 {
-  font-size: var(--fs-700);
+  font-size: var(--fs-700) !important;
 }
 
 .fs-800 {
-  font-size: var(--fs-800);
+  font-size: var(--fs-800) !important;
 }
 
 .fs-900 {
-  font-size: var(--fs-900);
+  font-size: var(--fs-900) !important;
 }
 
 .has-medium-font-size {
   font-size: var(--fs-hero-intro);
+}
+
+.lh-snug {
+  line-height: 1.333;
 }
 
 strong, b {
@@ -21541,14 +21545,12 @@ strong, b {
   font-size: var(--fs-200) !important;
   text-transform: uppercase;
   letter-spacing: 1px;
-  background-color: var(--col-primary-400);
+  background-color: var(--col-highlight-green);
   border: none;
   color: white;
   display: inline;
   padding: 0.5rem 2rem !important;
   border-radius: 0;
-  -webkit-clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 50%);
-  clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 50%);
   transition: background-color var(--transition), transform var(--transition), box-shadow var(--transition);
   align-self: flex-start;
 }
@@ -21559,16 +21561,16 @@ strong, b {
 }
 .wp-block-button__link:hover, body .gform_wrapper .gform_footer button:hover {
   color: white;
-  background-color: color-mix(in srgb, var(--col-primary-400), #ffffff 10%);
+  background-color: color-mix(in srgb, var(--col-highlight-green), #ffffff 10%);
   transform: translateY(2px);
 }
 .wp-block-button__link--wo {
   background-color: white;
-  color: var(--col-primary-400);
+  color: var(--col-highlight-green);
 }
 .wp-block-button__link--wo:hover {
-  color: var(--col-primary-400);
-  background-color: color-mix(in srgb, #ffffff, var(--col-primary-400) 10%);
+  color: var(--col-highlight-green);
+  background-color: color-mix(in srgb, #ffffff, var(--col-highlight-green) 10%);
   transform: translateY(2px);
 }
 
@@ -22110,6 +22112,30 @@ body .gform_wrapper .gform_footer button {
 .gfield_radio {
   display: flex;
   justify-content: space-around;
+}
+
+.trial-form__hero {
+  overflow: hidden;
+  padding-top: 8rem;
+  isolation: isolate;
+}
+.trial-form__form {
+  background-color: white;
+  padding: 2rem;
+}
+.trial-form__form .gform-theme--framework .gfield--type-choice .gfield_checkbox {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.trial-form__form .gform-theme--framework .gfield--type-choice .gfield_checkbox .gchoice {
+  flex-basis: calc(50% - 12px);
+}
+.trial-form__form button.gform_button.button {
+  background-color: var(--col-highlight-green) !important;
+  color: var(--col-main-blue) !important;
+  margin-top: 1rem !important;
+  padding-block: 1rem !important;
+  width: 100% !important;
 }
 
 .container-xl .container-xl {

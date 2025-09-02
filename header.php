@@ -329,7 +329,7 @@ session_start();
 						</ul>
 						<div class="d-flex gap-2 justify-content-end align-items-center">
 							<a href="#" class="nav-button-outline"><span class="icon-phone"></span> Customer Sales</a>
-							<a href="#" class="nav-button-green">Free Trial</a>
+							<a href="/free-trial/" class="nav-button-green">Free Trial</a>
 						</div>
 					</nav>
 					<?php
