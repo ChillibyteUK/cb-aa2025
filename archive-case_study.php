@@ -34,7 +34,7 @@ get_header();
 				<div class="pt-5 has-dark-grey-color fs-300"><?= get_the_date( 'j F, Y' ); ?></div>
 				<h2><?= esc_html( get_the_title() ); ?></h2>
 				<?php
-				// get first paragraph of the_content
+				// get first paragraph of the_content.
 				$content         = get_the_content();
 				$first_paragraph = explode( "\n", $content )[1];
 				echo wp_kses_post( $first_paragraph );
@@ -93,18 +93,19 @@ get_header();
 			while ( $rest_query->have_posts() ) {
 				$rest_query->the_post();
 				?>
-				<div class="col-md-4 post <?= esc_attr( get_the_terms( get_the_ID(), 'case_study_category' )[0]->slug ); ?> has-main-blue-background-color p-4">
+				<a href="<?php the_permalink(); ?>" class="col-md-4 post <?= esc_attr( get_the_terms( get_the_ID(), 'case_study_category' )[0]->slug ); ?> has-main-blue-background-color p-4">
 					<?= get_the_post_thumbnail( get_the_ID(), 'full', array( 'class' => 'case_study__image' ) ); ?>
 					<div class="fs-300 has-mid-grey-color mb-2"><?= get_the_date( 'j F, Y' ); ?></div>
 					<h3 class="fs-400 fw-700 text-white mb-4"><?= esc_html( get_the_title() ); ?></h3>
-					<div class="fs-300 has-mid-grey-color"><?php
-					// get first paragraph of the_content.
-					$content         = get_the_content();
-					$first_paragraph = explode( "\n", $content )[1];
-					echo wp_kses_post( $first_paragraph );
-					?>
+					<div class="fs-300 has-mid-grey-color">
+						<?php
+						// get first paragraph of the_content.
+						$content         = get_the_content();
+						$first_paragraph = explode( "\n", $content )[1];
+						echo wp_kses_post( $first_paragraph );
+						?>
 					</div>
-				</div>
+				</a>
 				<?php
 			}
 		} else {

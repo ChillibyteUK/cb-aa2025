@@ -197,12 +197,6 @@ function core_image_block_type_args( $args, $name ) {
 	if ( 'core/quote' === $name ) {
         $args['render_callback'] = 'modify_core_quote';
     }
-	// if ( in_array( $name, array( 'core/paragraph', 'core/list' ), true ) ) {
-    //     $args['render_callback'] = 'modify_core_add_container';
-    // }
-	// if ( 'core/heading' === $name ) {
-    //     $args['render_callback'] = 'modify_core_heading';
-    // }
 
     return $args;
 }
@@ -212,13 +206,14 @@ add_filter( 'register_block_type_args', 'core_image_block_type_args', 10, 2 );
 /**
  * Adds a container wrapper around the content of certain core blocks.
  *
- * @param array  $attributes The block attributes.
- * @param string $content    The block content.
+ * @param array    $attributes The block attributes.
+ * @param string   $content    The block content.
+ * @param WP_Block $block      The block instance.
  * @return string The modified block content with a container wrapper.
  */
 function modify_core_add_container( $attributes, $content, $block ) {
-    // Only wrap if not inside a core/quote
-    if ( ! empty( $block->context['parentName'] ) && $block->context['parentName'] === 'core/quote' ) {
+    // Only wrap if not inside a core/quote.
+    if ( ! empty( $block->context['parentName'] ) && 'core/quote' === $block->context['parentName'] ) {
         return $content;
     }
     ob_start();
@@ -234,8 +229,9 @@ function modify_core_add_container( $attributes, $content, $block ) {
 /**
  * Modifies the core heading block by adding a container wrapper and an ID.
  *
- * @param array  $attributes The block attributes.
- * @param string $content    The block content.
+ * @param array    $attributes The block attributes.
+ * @param string   $content    The block content.
+ * @param WP_Block $block      The block instance.
  * @return string The modified block content with a container wrapper and ID.
  */
 function modify_core_heading( $attributes, $content, $block ) {
@@ -254,12 +250,13 @@ function modify_core_heading( $attributes, $content, $block ) {
 /**
  * Modifies the core quote block by wrapping its contents in a container.
  *
- * @param array  $attributes The block attributes.
- * @param string $content    The block content.
+ * @param array    $attributes The block attributes.
+ * @param string   $content    The block content.
+ * @param WP_Block $block      The block instance.
  * @return string The modified block content.
  */
 function modify_core_quote( $attributes, $content, $block ) {
-    // Wrap everything inside <blockquote> with <div class="container">
+    // Wrap everything inside <blockquote> with <div class="container">.
     $content = preg_replace(
         '/<blockquote([^>]*)>(.*?)<\/blockquote>/is',
         '<blockquote$1><div class="container">$2</div></blockquote>',

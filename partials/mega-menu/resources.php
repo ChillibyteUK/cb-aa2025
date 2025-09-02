@@ -35,9 +35,15 @@ $menu_data = $args['menu'];
 	<div class="mega-menu__col resources-col2 my-4 px-3">
 		<?php
 		foreach ( $menu_data['column_2_items'] as $item ) {
+			$menu_link = '';
+			if ( isset( $item['link'] ) && is_array( $item['link'] ) && ! empty( $item['link']['url'] ) ) {
+				$menu_link = $item['link']['url'];
+			}
 			?>
-			<h4><?= esc_html( $item['title'] ); ?></h4>
-			<p><?= esc_html( $item['description'] ); ?></p>
+		<a href="<?= esc_url( $menu_link ); ?>" class="mega-menu__link">
+			<div class="h4"><?= esc_html( $item['title'] ); ?></div>
+			<p class="small"><?= esc_html( $item['description'] ); ?></p>
+		</a>
 			<?php
 		}
 		?>
@@ -46,9 +52,15 @@ $menu_data = $args['menu'];
 	<div class="mega-menu__col resources-col3 my-4 px-3">
 		<?php
 		foreach ( $menu_data['column_3_items'] as $item ) {
+			$menu_link = '';
+			if ( isset( $item['link'] ) && is_array( $item['link'] ) && ! empty( $item['link']['url'] ) ) {
+				$menu_link = $item['link']['url'];
+			}
 			?>
+		<a href="<?= esc_url( $menu_link ); ?>" class="mega-menu__link">
 			<h4><?= esc_html( $item['title'] ); ?></h4>
 			<p><?= esc_html( $item['description'] ); ?></p>
+		</a>
 			<?php
 		}
 		?>
