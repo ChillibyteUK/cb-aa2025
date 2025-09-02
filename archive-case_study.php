@@ -35,9 +35,8 @@ get_header();
 				<h2><?= esc_html( get_the_title() ); ?></h2>
 				<?php
 				// get first paragraph of the_content.
-				$content         = get_the_content();
-				$first_paragraph = explode( "\n", $content )[1];
-				echo wp_kses_post( $first_paragraph );
+				$content = wp_strip_all_tags( get_the_content() );
+				echo wp_kses_post( wp_trim_words( $content, 30 ) );
 				?>
 				<div class="d-flex align-items-center">
 					<a href="<?php the_permalink(); ?>" class="blue-arrow">Learn more</a>
@@ -93,19 +92,21 @@ get_header();
 			while ( $rest_query->have_posts() ) {
 				$rest_query->the_post();
 				?>
-				<a href="<?php the_permalink(); ?>" class="col-md-4 post <?= esc_attr( get_the_terms( get_the_ID(), 'case_study_category' )[0]->slug ); ?> has-main-blue-background-color p-4">
-					<?= get_the_post_thumbnail( get_the_ID(), 'full', array( 'class' => 'case_study__image' ) ); ?>
-					<div class="fs-300 has-mid-grey-color mb-2"><?= get_the_date( 'j F, Y' ); ?></div>
-					<h3 class="fs-400 fw-700 text-white mb-4"><?= esc_html( get_the_title() ); ?></h3>
-					<div class="fs-300 has-mid-grey-color">
-						<?php
-						// get first paragraph of the_content.
-						$content         = get_the_content();
-						$first_paragraph = explode( "\n", $content )[1];
-						echo wp_kses_post( $first_paragraph );
-						?>
-					</div>
-				</a>
+				<div class="col-md-4 post <?= esc_attr( get_the_terms( get_the_ID(), 'case_study_category' )[0]->slug ); ?>">
+					<a href="<?php the_permalink(); ?>" class="d-flex gap-2 flex-column justify-content-start h-100 has-main-blue-background-color p-4">
+						<?= get_the_post_thumbnail( get_the_ID(), 'full', array( 'class' => 'case_study__image' ) ); ?>
+						<div class="fs-300 has-mid-grey-color"><?= get_the_date( 'j F, Y' ); ?></div>
+						<h3 class="fs-400 fw-700 text-white mb-2"><?= esc_html( get_the_title() ); ?></h3>
+						<div class="fs-300 has-mid-grey-color mb-2">
+							<?php
+							// get first paragraph of the_content.
+							$content = wp_strip_all_tags( get_the_content() );
+							echo wp_kses_post( wp_trim_words( $content, 30 ) );
+							?>
+						</div>
+						<div class="green-arrow mt-auto">Learn more</div>
+					</a>
+				</div>
 				<?php
 			}
 		} else {

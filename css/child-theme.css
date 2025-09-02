@@ -23133,7 +23133,6 @@ for (; i < all.length; i++) {
   height: 100%;
   -o-object-fit: cover;
   object-fit: cover;
-  margin-bottom: 0.75rem;
 }
 
 .has-blue-color,
