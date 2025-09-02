@@ -234,7 +234,7 @@ function modify_core_add_container( $attributes, $content, $block ) {
  * @param WP_Block $block      The block instance.
  * @return string The modified block content with a container wrapper and ID.
  */
-function modify_core_heading( $attributes, $content, $block ) {
+function modify_core_heading( $attributes, $content, $block ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter
     ob_start();
     $id = strtolower( wp_strip_all_tags( $content ) );
     $id = cbslugify( $id );
@@ -255,7 +255,7 @@ function modify_core_heading( $attributes, $content, $block ) {
  * @param WP_Block $block      The block instance.
  * @return string The modified block content.
  */
-function modify_core_quote( $attributes, $content, $block ) {
+function modify_core_quote( $attributes, $content, $block ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter
     // Wrap everything inside <blockquote> with <div class="container">.
     $content = preg_replace(
         '/<blockquote([^>]*)>(.*?)<\/blockquote>/is',

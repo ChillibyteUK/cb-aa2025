@@ -8,14 +8,17 @@
 
 $integration_menu = $args['menu'];
 
+$call360_term_slug     = isset( $args['call360_term_slug'] ) ? $args['call360_term_slug'] : '';
+$talenttrack_term_slug = isset( $args['talenttrack_term_slug'] ) ? $args['talenttrack_term_slug'] : '';
+
 $call360_integrations = get_posts(
 	array(
 		'post_type' => 'integration',
-		'tax_query' => array(
+		'tax_query' => array(  // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
 			array(
 				'taxonomy' => 'integration_type',
 				'field'    => 'slug',
-				'terms'    => $integration_menu['call360_term_slug'],
+				'terms'    => array( $call360_term_slug ),
 			),
 		),
 	)
@@ -24,11 +27,11 @@ $call360_integrations = get_posts(
 $talenttrack_integrations = get_posts(
 	array(
 		'post_type' => 'integration',
-		'tax_query' => array(
+		'tax_query' => array(  // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
 			array(
 				'taxonomy' => 'integration_type',
 				'field'    => 'slug',
-				'terms'    => $integration_menu['talenttrack_term_slug'],
+				'terms'    => array( $talenttrack_term_slug ),
 			),
 		),
 	)
@@ -49,7 +52,7 @@ $talenttrack_integrations = get_posts(
 			$column_2_integrations = get_posts(
 				array(
 					'post_type'   => 'integration',
-					'tax_query'   => array(
+					'tax_query'   => array(  // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
 						array(
 							'taxonomy' => 'product',
 							'field'    => 'slug',
@@ -97,8 +100,8 @@ $talenttrack_integrations = get_posts(
 			// select 10 integration posts having the product term slug and display the featured image and title.
 			$column_3_integrations = get_posts(
 				array(
-					'post_type' => 'integration',
-					'tax_query' => array(
+					'post_type'   => 'integration',
+					'tax_query'   => array(  // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
 						array(
 							'taxonomy' => 'product',
 							'field'    => 'slug',

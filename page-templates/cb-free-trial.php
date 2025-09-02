@@ -11,7 +11,7 @@ get_header();
 ?>
 <main id="main" class="trial-form">
 	<section class="trial-form__hero has-background-blue-background-color">
-		<?= get_the_post_thumbnail( get_the_ID(),'full', array( 'class' => 'hero__background' ) ); ?>
+		<?= get_the_post_thumbnail( get_the_ID(), 'full', array( 'class' => 'hero__background' ) ); ?>
 		<div class="container py-5">
 			<div class="row g-5">
 				<div class="col-md-4 text-white my-auto">

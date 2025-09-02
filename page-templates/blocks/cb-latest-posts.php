@@ -10,8 +10,7 @@ defined( 'ABSPATH' ) || exit;
 $theme = strtolower( get_field( 'theme' ) );
 if ( ! $theme ) {
 	$theme = '';
-}
-else {
+} else {
 	$theme = 'cb_latest_posts--' . sanitize_html_class( $theme );
 }
 
