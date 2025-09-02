@@ -21714,6 +21714,32 @@ strong, b {
   color: var(--col-white);
 }
 
+.blue-arrow {
+  background-color: transparent;
+  color: var(--col-main-blue);
+  font-weight: var(--fw-bold);
+  position: relative;
+  padding-right: 2.5rem;
+}
+.blue-arrow::after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 20px;
+  height: 21px;
+  top: 0.25rem;
+  -webkit-margin-start: 1rem;
+  margin-inline-start: 1rem;
+  transition: color var(--transition);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='12' viewBox='0 0 20 12'%3E%3Cg id='Group_28' data-name='Group 28' transform='translate(0)'%3E%3Cpath id='Vector_5_Stroke_' data-name='Vector 5 (Stroke)' d='M1313.874,4719.94l5.216,5.186a.811.811,0,0,1,0,1.152l-5.216,5.185a.823.823,0,0,1-1.159,0,.811.811,0,0,1,0-1.152l3.817-3.794h-17.2v-1.629h17.2l-3.817-3.794a.811.811,0,0,1,0-1.152A.823.823,0,0,1,1313.874,4719.94Z' transform='translate(-1299.33 -4719.701)' fill='%23112C4D'/%3E%3C/g%3E%3C/svg%3E%0A");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.blue-arrow:hover {
+  color: color-mix(in srgb, var(--col-main-blue), #ffffff 10%);
+}
+
 .button-green {
   min-width: 180px;
   padding: 0.5rem 1.5rem;
@@ -23083,6 +23109,33 @@ for (; i < all.length; i++) {
     }
 }
 */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+  border-bottom: 1px solid var(--col-dark-grey);
+  margin-bottom: 3rem;
+}
+.filters li {
+  padding-block: 1rem;
+  color: var(--col-dark-grey);
+  cursor: pointer;
+}
+.filters li.active {
+  color: white;
+  font-weight: var(--fw-600);
+}
+
+.case_study__image {
+  aspect-ratio: 4/3;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  margin-bottom: 0.75rem;
+}
+
 .has-blue-color,
 .has-blue-color:visited {
   color: #0d6efd;
