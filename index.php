@@ -10,7 +10,7 @@ defined( 'ABSPATH' ) || exit;
 
 get_header();
 ?>
-<main id="main" class="cs-archive  has-background-blue-background-color" style="isolation:isolate;">
+<main id="main" class="cs-archive pt-5 has-background-blue-background-color" style="isolation:isolate;">
 	<img src="<?= esc_url( get_stylesheet_directory_uri() . '/img/bg-aurora.jpg' ); ?>" class="hero__background" alt="">
 	<section class="container pt-5 mt-5 pb-5">
 		<h1 class="h2 text-white pb-5">News & Insights</h1>

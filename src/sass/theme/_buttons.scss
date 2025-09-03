@@ -164,6 +164,7 @@
     font-weight: var(--fw-bold);
     position: relative;
     padding-right: 2.5rem;
+    display: inline-block;
 
     &::after {
         content: "";
@@ -190,6 +191,7 @@
     font-weight: var(--fw-bold);
     position: relative;
     padding-right: 2.5rem;
+    display: inline-block;
 
     &::after {
         content: "";
