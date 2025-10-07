@@ -24,6 +24,7 @@ get_header();
     </section>
     <div class="container-xl">
 		<h1 class="single_blog__title"><?= esc_html( get_the_title() ); ?></h1>
+		<?= apply_filters( 'the_content', $content ); ?>
     </div>
 </main>
 <?php
