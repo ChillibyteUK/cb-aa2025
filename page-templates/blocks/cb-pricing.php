@@ -15,6 +15,9 @@ $talenttrack_essential    = get_field( 'talenttrack_essential' );
 $talenttrack_professional = get_field( 'talenttrack_professional' );
 $talenttrack_enterprise   = get_field( 'talenttrack_enterprise' );
 
+$bgalign = strtolower( get_field( 'background_alignment' ) );
+$bgalign = $bgalign ? $bgalign : 'bottom';
+
 ?>
 <section class="hero pb-0">
 	<div class="call360_tab pricing-tab" data-tab="call360">
