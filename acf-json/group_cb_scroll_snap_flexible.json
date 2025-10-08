@@ -1,10 +1,10 @@
 {
-    "key": "group_cb_scroll_snap",
-    "title": "CB Scroll Snap",
+    "key": "group_cb_scroll_snap_flexible",
+    "title": "CB Scroll Snap Flexible",
     "fields": [
         {
-            "key": "field_cb_scroll_snap_title",
-            "label": "CB Scroll Snap",
+            "key": "field_cb_scroll_snap_flexible_title",
+            "label": "CB Scroll Snap Flexible",
             "name": "",
             "aria-label": "",
             "type": "message",
@@ -21,7 +21,7 @@
             "new_lines": "wpautop"
         },
         {
-            "key": "field_685424c8eacce",
+            "key": "field_68e63d50f00b0",
             "label": "Title",
             "name": "title",
             "aria-label": "",
@@ -42,7 +42,7 @@
             "append": ""
         },
         {
-            "key": "field_6878fa39e8e0c",
+            "key": "field_68e63d69f00b1",
             "label": "Colour",
             "name": "colour",
             "aria-label": "",
@@ -69,7 +69,7 @@
             "save_other_choice": 0
         },
         {
-            "key": "field_6878fa58e8e0d",
+            "key": "field_68e63d81f00b2",
             "label": "Width",
             "name": "width",
             "aria-label": "",
@@ -86,7 +86,7 @@
                 "Constrained": "Constrained",
                 "Full": "Full"
             },
-            "default_value": "Constrained",
+            "default_value": "",
             "return_format": "value",
             "allow_null": 0,
             "other_choice": 0,
@@ -95,7 +95,7 @@
             "save_other_choice": 0
         },
         {
-            "key": "field_685424d4eaccf",
+            "key": "field_68e63d95f00b3",
             "label": "Sections",
             "name": "sections",
             "aria-label": "",
@@ -109,14 +109,14 @@
                 "id": ""
             },
             "layouts": {
-                "layout_default_section": {
-                    "key": "layout_default_section",
+                "layout_68e63d9a91112": {
+                    "key": "layout_68e63d9a91112",
                     "name": "default_section",
                     "label": "Default Section",
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_6878d5e91fb8c",
+                            "key": "field_68e63dc6f00b4",
                             "label": "Icon",
                             "name": "icon",
                             "aria-label": "",
@@ -137,39 +137,12 @@
                             "max_width": "",
                             "max_height": "",
                             "max_size": "",
-                            "mime_types": "svg",
+                            "mime_types": "",
                             "allow_in_bindings": 0,
                             "preview_size": "thumbnail"
                         },
                         {
-                            "key": "field_68e63e62f8fe9",
-                            "label": "Theme",
-                            "name": "theme",
-                            "aria-label": "",
-                            "type": "radio",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "Blue": "Blue",
-                                "Pink": "Pink",
-                                "White": "White"
-                            },
-                            "default_value": "Pink",
-                            "return_format": "value",
-                            "allow_null": 0,
-                            "other_choice": 0,
-                            "allow_in_bindings": 0,
-                            "layout": "vertical",
-                            "save_other_choice": 0
-                        },
-                        {
-                            "key": "field_685424dceacd0",
+                            "key": "field_68e63ddff00b5",
                             "label": "Title",
                             "name": "title",
                             "aria-label": "",
@@ -178,7 +151,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "50",
+                                "width": "",
                                 "class": "",
                                 "id": ""
                             },
@@ -190,34 +163,7 @@
                             "append": ""
                         },
                         {
-                            "key": "field_68542d2a67f7e",
-                            "label": "Theme",
-                            "name": "theme",
-                            "aria-label": "",
-                            "type": "radio",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "blue": "Blue",
-                                "pink": "Pink",
-                                "white": "White"
-                            },
-                            "default_value": "white",
-                            "return_format": "value",
-                            "allow_null": 0,
-                            "other_choice": 0,
-                            "allow_in_bindings": 0,
-                            "layout": "vertical",
-                            "save_other_choice": 0
-                        },
-                        {
-                            "key": "field_685424f0eacd1",
+                            "key": "field_68e63decf00b6",
                             "label": "Content",
                             "name": "content",
                             "aria-label": "",
@@ -238,7 +184,7 @@
                             "delay": 0
                         },
                         {
-                            "key": "field_68542511eacd2",
+                            "key": "field_68e63dfef00b7",
                             "label": "Trial Link",
                             "name": "trial_link",
                             "aria-label": "",
@@ -255,7 +201,7 @@
                             "allow_in_bindings": 0
                         },
                         {
-                            "key": "field_68542520eacd3",
+                            "key": "field_68e63e11f00b8",
                             "label": "More Link",
                             "name": "more_link",
                             "aria-label": "",
@@ -272,7 +218,7 @@
                             "allow_in_bindings": 0
                         },
                         {
-                            "key": "field_6854252aeacd4",
+                            "key": "field_68e63e1ef00b9",
                             "label": "Image",
                             "name": "image",
                             "aria-label": "",
@@ -300,11 +246,63 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_68e64331a1a44": {
+                    "key": "layout_68e64331a1a44",
+                    "name": "full_width",
+                    "label": "Full Width",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_68e64719e5cef",
+                            "label": "Title",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_68e64728e5cf0",
+                            "label": "Content",
+                            "name": "content",
+                            "aria-label": "",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "allow_in_bindings": 0,
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
-            "button_label": "Add Section",
             "min": "",
-            "max": ""
+            "max": "",
+            "button_label": "Add Row"
         }
     ],
     "location": [
@@ -312,7 +310,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/cb-scroll-snap"
+                "value": "acf\/cb-scroll-snap-flexible"
             }
         ]
     ],
@@ -325,5 +323,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1759920638
+    "modified": 1759921968
 }

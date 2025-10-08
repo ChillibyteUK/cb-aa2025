@@ -18,6 +18,23 @@ function acf_blocks() {
 
         acf_register_block_type(
             array(
+                'name'            => 'cb_scroll_snap_flexible',
+                'title'           => __( 'CB Scroll Snap Flexible' ),
+                'category'        => 'layout',
+                'icon'            => 'cover-image',
+                'render_template' => 'page-templates/blocks/cb-scroll-snap-flexible.php',
+                'mode'            => 'edit',
+                'supports'        => array(
+                    'mode'      => false,
+                    'anchor'    => true,
+                    'className' => true,
+                    'align'     => true,
+                ),
+            )
+        );
+
+        acf_register_block_type(
+            array(
                 'name'            => 'cb_image_hero',
                 'title'           => __( 'CB Image Hero' ),
                 'category'        => 'layout',
