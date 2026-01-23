@@ -139,7 +139,7 @@ session_start();
 
 				if ( $menus ) {
 					?>
-					<nav class="main-nav w-100 d-flex justify-content-between">
+					<nav class="main-nav w-100 d-flex justify-content-end">
 						<ul class="nav-list nav justify-content-start">
 							<?php
 							// Get current page URL for active state.
