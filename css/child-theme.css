@@ -21609,7 +21609,8 @@ strong, b {
   color: var(--_button-bg, var(--col-main-blue)) !important;
 }
 
-.btn-call360 {
+.btn-call360,
+.btn-call {
   background-color: var(--col-call360-blue);
   color: var(--col-white);
   font-weight: var(--fw-bold);
@@ -21617,12 +21618,14 @@ strong, b {
   padding: 0.5rem 1.5rem;
   transition: background-color var(--transition), color var(--transition);
 }
-.btn-call360:hover {
+.btn-call360:hover,
+.btn-call:hover {
   background-color: color-mix(in srgb, var(--col-call360-blue), #ffffff 10%);
   color: #fff !important;
 }
 
-.btn-call360--outline {
+.btn-call360--outline,
+.btn-call--outline {
   background-color: var(--col-white);
   border: 2px solid var(--col-call360-blue);
   color: var(--col-call360-blue);
@@ -21631,7 +21634,8 @@ strong, b {
   padding: 0.5rem 1.5rem;
   transition: background-color var(--transition), color var(--transition);
 }
-.btn-call360--outline:hover {
+.btn-call360--outline:hover,
+.btn-call--outline:hover {
   background-color: color-mix(in srgb, var(--col-call360-blue), #ffffff 10%);
   color: #fff !important;
 }
@@ -22746,30 +22750,38 @@ blockquote.wp-block-quote cite::before {
   color: var(--_glow);
 }
 
-.call360_tab {
+.call360_tab,
+.call_tab {
   --_glow: var(--col-call360-blue);
 }
-.call360_tab ul {
+.call360_tab ul,
+.call_tab ul {
   -webkit-margin-start: 1.5rem;
   margin-inline-start: 1.5rem;
 }
-.call360_tab strong {
+.call360_tab strong,
+.call_tab strong {
   color: var(--col-call360-blue);
 }
-.call360_tab .fa-li {
+.call360_tab .fa-li,
+.call_tab .fa-li {
   color: var(--col-call360-blue);
 }
 
+.recruitment_tab,
 .talenttrack_tab {
   --_glow: var(--col-talent-pink);
 }
+.recruitment_tab ul,
 .talenttrack_tab ul {
   -webkit-margin-start: 1.5rem;
   margin-inline-start: 1.5rem;
 }
+.recruitment_tab strong,
 .talenttrack_tab strong {
   color: var(--col-talent-pink);
 }
+.recruitment_tab .fa-li,
 .talenttrack_tab .fa-li {
   color: var(--col-talent-pink);
 }
@@ -22794,7 +22806,7 @@ blockquote.wp-block-quote cite::before {
   border-bottom: none;
 }
 .comparison-table th {
-  color: var(--_glow);
+  color: var(--_glow, #999);
   font-size: var(--fs-menu-subtitle) !important;
 }
 .comparison-table .fa-solid {
@@ -22802,7 +22814,7 @@ blockquote.wp-block-quote cite::before {
   color: var(--col-dark-grey);
 }
 .comparison-table .fa-solid.fa-check {
-  color: var(--_glow);
+  color: var(--_glow, #999);
 }
 .comparison-table tr > td:nth-child(1) {
   font-size: var(--fs-menu-descr);
@@ -22818,6 +22830,16 @@ blockquote.wp-block-quote cite::before {
 .comparison-table tr > *:nth-child(4) {
   background-color: hsl(var(--hsl-dark-grey)/0.25);
   font-size: var(--fs-smallest);
+}
+.comparison-table tr > *:nth-child(5) {
+  background-color: hsl(var(--hsl-dark-grey)/0.35);
+  font-size: var(--fs-smallest);
+}
+.comparison-table .comparison-table__group-header td {
+  background-color: hsl(var(--hsl-dark-grey)/0.4);
+  font-size: var(--fs-menu-intro);
+  padding: 0.75rem 1rem !important;
+  color: var(--_glow, #fff);
 }
 
 .faq-item-wrapper {

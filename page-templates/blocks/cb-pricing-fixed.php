@@ -16,7 +16,7 @@ $talenttrack_professional = get_field( 'talenttrack_professional' );
 $talenttrack_enterprise   = get_field( 'talenttrack_enterprise' );
 
 ?>
-<section class="hero">
+<section class="hero ff">
 	<div class="call360_tab pricing-tab" data-tab="call360">
 		<?= wp_get_attachment_image( get_field( 'call360_background' ), 'full', false, array( 'class' => 'hero__background hero__background--' . $bgalign ) ); ?>
 		<div class="container">
