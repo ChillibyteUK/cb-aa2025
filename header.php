@@ -116,6 +116,7 @@ session_start();
 <header id="wrapperNavbar">
 	<div class="container">
 		<div class="prenav d-none d-md-flex align-items-center justify-content-end gap-4 pt-4">
+			<a href="#"><i class="fa-solid fa-phone"></i> Customer Sales</a>
 			<a href="/support/"><i class="fa-solid fa-headphones"></i> Customer Support</a>
 			<a href="#"><i class="fa-solid fa-globe"></i> Select Region</a>
 			<a href="/about/"><i class="fa-solid fa-circle-info"></i> About us</a>
@@ -140,7 +141,7 @@ session_start();
 				if ( $menus ) {
 					?>
 					<nav class="main-nav w-100 d-flex justify-content-end">
-						<ul class="nav-list nav justify-content-start">
+						<ul class="nav-list nav w-100 justify-content-around">
 							<?php
 							// Get current page URL for active state.
 							$current_url = isset( $_SERVER['REQUEST_URI'] ) ? esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '';
@@ -328,7 +329,6 @@ session_start();
 							?>
 						</ul>
 						<div class="d-flex gap-2 justify-content-end align-items-center">
-							<a href="#" class="nav-button-outline"><span class="icon-phone"></span> Customer Sales</a>
 							<a href="/free-trial/" class="nav-button-green">Free Trial</a>
 						</div>
 					</nav>

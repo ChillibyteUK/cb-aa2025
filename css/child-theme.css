@@ -21242,8 +21242,8 @@ strong, b {
   background-size: contain;
   display: inline-block;
   background-image: url(../img/aa-logo.svg);
-  aspect-ratio: 232/28;
-  width: 232px;
+  aspect-ratio: 402/110;
+  width: 157px;
 }
 #wrapperNavbar.hidden {
   transform: translateY(-100%);
