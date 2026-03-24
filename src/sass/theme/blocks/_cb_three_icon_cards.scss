@@ -1,7 +1,11 @@
 .three-icon-cards {
     background-color: var(--col-background-blue);
     color: var(--col-white);
+
     svg {
         color: var(--col-highlight-green);
+    }
+    h3 {
+        min-height: 3em;
     }
 }

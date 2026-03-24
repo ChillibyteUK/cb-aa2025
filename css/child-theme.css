@@ -23046,6 +23046,9 @@ blockquote.wp-block-quote cite::before {
 .three-icon-cards svg {
   color: var(--col-highlight-green);
 }
+.three-icon-cards h3, .three-icon-cards .h3 {
+  min-height: 3em;
+}
 
 body {
   color: var(--body-color);
