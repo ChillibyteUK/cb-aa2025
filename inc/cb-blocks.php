@@ -18,6 +18,23 @@ function acf_blocks() {
 
         acf_register_block_type(
             array(
+                'name'            => 'cb_three_icon_cards',
+                'title'           => __( 'CB Three Icon Cards' ),
+                'category'        => 'layout',
+                'icon'            => 'cover-image',
+                'render_template' => 'blocks/cb-three-icon-cards.php',
+                'mode'            => 'edit',
+                'supports'        => array(
+                    'mode'      => false,
+                    'anchor'    => true,
+                    'className' => true,
+                    'align'     => true,
+                ),
+            )
+        );
+
+        acf_register_block_type(
+            array(
                 'name'            => 'cb_logo_carousel',
                 'title'           => __( 'CB Logo Carousel' ),
                 'category'        => 'layout',
