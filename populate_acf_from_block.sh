@@ -55,6 +55,8 @@ def labelize_field_name(name: str) -> str:
 def infer_type(name: str, usage: dict | None = None) -> str:
     n = name.lower()
     usage = usage or {}
+    if usage.get("gallery_attachment"):
+        return "gallery"
     if usage.get("attachment_image"):
         return "image"
     if n.startswith(("is_", "has_", "show_", "enable_", "disable_")):
@@ -117,6 +119,22 @@ def field_template(prefix: str, name: str, ftype: str, usage: dict | None = None
             "preview_size": "medium",
             "library": "all"
         })
+    elif ftype == "gallery":
+        field.update({
+            "return_format": "id" if usage.get("gallery_attachment") else "array",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min": "",
+            "max": "",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "insert": "append"
+        })
     elif ftype == "true_false":
         field.update({
             "default_value": 0,
@@ -162,6 +180,18 @@ attachment_fn_re = re.compile(
     re.MULTILINE,
 )
 
+assignment_re = re.compile(
+    r"\$(?P<var>[a-zA-Z_][a-zA-Z0-9_]*)\s*=\s*(?P<fn>get_field|the_field|get_sub_field|the_sub_field)\s*\(\s*['\"](?P<name>[a-zA-Z0-9_\-]+)['\"]\s*\)",
+    re.MULTILINE,
+)
+
+foreach_re = re.compile(
+    r"foreach\s*\(\s*\$(?P<collection>[a-zA-Z_][a-zA-Z0-9_]*)\s+as\s+\$(?P<item>[a-zA-Z_][a-zA-Z0-9_]*)",
+    re.MULTILINE,
+)
+
+attachment_var_re_template = r"\b(?:wp_get_attachment_image|wp_get_attachment_image_url|wp_get_attachment_image_src|wp_get_attachment_image_srcset|wp_get_attachment_image_sizes)\s*\(\s*\${var}\b"
+
 seen_order = []
 field_usage = {}
 for m in fn_re.finditer(php):
@@ -173,6 +203,25 @@ for m in fn_re.finditer(php):
 for m in attachment_fn_re.finditer(php):
     name = m.group("name")
     field_usage.setdefault(name, {})["attachment_image"] = True
+
+field_vars = {}
+for m in assignment_re.finditer(php):
+    field_vars[m.group("var")] = m.group("name")
+    field_usage.setdefault(m.group("name"), {})
+
+for m in foreach_re.finditer(php):
+    collection_var = m.group("collection")
+    item_var = m.group("item")
+    field_name = field_vars.get(collection_var)
+    if not field_name:
+        continue
+
+    usage = field_usage.setdefault(field_name, {})
+    usage["iterated"] = True
+
+    attachment_var_re = re.compile(attachment_var_re_template.format(var=re.escape(item_var)), re.MULTILINE)
+    if attachment_var_re.search(php):
+        usage["gallery_attachment"] = True
 
 top_fields = []
 repeaters = []
@@ -273,6 +322,16 @@ def sync_field_config(field: dict, name: str, ftype: str, usage: dict | None = N
         "return_format",
         "preview_size",
         "library",
+        "min",
+        "max",
+        "min_width",
+        "min_height",
+        "min_size",
+        "max_width",
+        "max_height",
+        "max_size",
+        "mime_types",
+        "insert",
         "ui",
         "ui_on_text",
         "ui_off_text",
@@ -283,6 +342,7 @@ def sync_field_config(field: dict, name: str, ftype: str, usage: dict | None = N
         "textarea": {"default_value", "placeholder", "rows", "new_lines"},
         "link": {"return_format"},
         "image": {"return_format", "preview_size", "library"},
+        "gallery": {"return_format", "preview_size", "library", "min", "max", "min_width", "min_height", "min_size", "max_width", "max_height", "max_size", "mime_types", "insert"},
         "true_false": {"default_value", "ui", "ui_on_text", "ui_off_text"},
     }.get(ftype, set())
     for key in removable_keys - keep_keys:
@@ -326,6 +386,28 @@ def sync_field_config(field: dict, name: str, ftype: str, usage: dict | None = N
         for key, value in {
             "preview_size": "medium",
             "library": "all",
+        }.items():
+            if field.get(key) != value:
+                field[key] = value
+                changed = True
+    elif ftype == "gallery":
+        desired_return_format = "id" if usage.get("gallery_attachment") else "array"
+        if field.get("return_format") != desired_return_format:
+            field["return_format"] = desired_return_format
+            changed = True
+        for key, value in {
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min": "",
+            "max": "",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "insert": "append",
         }.items():
             if field.get(key) != value:
                 field[key] = value
