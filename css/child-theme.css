@@ -23016,7 +23016,6 @@ blockquote.wp-block-quote cite::before {
  */
 .cb-logo-carousel {
   padding-block: 3rem;
-  background-color: var(--col-background-blue);
 }
 .cb-logo-carousel__marquee {
   overflow: hidden;

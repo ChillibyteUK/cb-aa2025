@@ -10,20 +10,28 @@ defined( 'ABSPATH' ) || exit;
 // Block ID.
 $block_id = $block['id'] ?? '';
 
+// Support Gutenberg color picker.
+$bg = ! empty( $block['backgroundColor'] ) ? 'has-' . $block['backgroundColor'] . '-background-color' : '';
+$fg = ! empty( $block['textColor'] ) ? 'has-' . $block['textColor'] . '-color' : '';
+
+if ( 'has-blue-400-background-color' === $bg ) {
+        $fg = 'has-white-color';
+}
+
 ?>
-<section id="<?php echo esc_attr( $block_id ); ?>" class="cb-logo-carousel">
+<section id="<?php echo esc_attr( $block_id ); ?>" class="cb-logo-carousel <?= esc_attr( $bg . ' ' . $fg ); ?>">
 	<?php
 	if ( get_field( 'title' ) ) {
 		?>
 	<div class="container">
-		<h2 class="cb-logo-carousel__title has-white-color mb-4">
+		<h2 class="cb-logo-carousel__title mb-4">
 			<?= esc_html( get_field( 'title' ) ); ?>
 		</h2>
 	</div>
 		<?php
 	}
 	?>
-	<div class="container cb-logo-carousel__marquee">
+	<div class="cb-logo-carousel__marquee">
 		<div class="cb-logo-carousel__track">
 			<div class="cb-logo-carousel__slides">
 				<?php
