@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
 $bg = ! empty( $block['backgroundColor'] ) ? 'has-' . $block['backgroundColor'] . '-background-color' : '';
 $fg = ! empty( $block['textColor'] ) ? 'has-' . $block['textColor'] . '-color' : '';
 
-$classes = $block['className'] ?? 'py-5';
+$classes = $block['attrs']['className'] ?? 'py-5';
 
 ?>
 <section class="product-visualisation <?php echo esc_attr( $bg . ' ' . $fg . ' ' . $classes ); ?>">
