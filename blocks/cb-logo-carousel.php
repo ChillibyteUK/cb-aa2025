@@ -16,7 +16,7 @@ $block_id = $block['id'] ?? '';
 	if ( get_field( 'title' ) ) {
 		?>
 	<div class="container">
-		<h2 class="cb-logo-carousel__title has-white-color">
+		<h2 class="cb-logo-carousel__title has-white-color mb-4">
 			<?= esc_html( get_field( 'title' ) ); ?>
 		</h2>
 	</div>
