@@ -23028,7 +23028,6 @@ blockquote.wp-block-quote cite::before {
   column-gap: 4rem;
 }
 .cb-logo-carousel__logo {
-  filter: invert(1);
   height: 50px !important;
   width: auto;
   flex: 0 0 auto;
