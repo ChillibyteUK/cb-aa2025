@@ -22,7 +22,7 @@
   --fs-hero-intro: 22px;
   --fs-integrations-menu-title: 20px;
   --fs-hero-subtitle: 36px;
-  --fs-blockquote: 40px;
+  --fs-blockquote: 28px;
   --fs-menu-title: 24px;
   --fs-menu-intro: 16px;
   --fs-menu-subtitle: 18px;
@@ -22089,10 +22089,10 @@ body .gform_wrapper .gform_footer button {
 
 blockquote.wp-block-quote {
   background-color: var(--col-off-white);
-  padding-block: 10rem;
+  padding-block: 6rem;
 }
 blockquote.wp-block-quote p {
-  margin-bottom: 8rem;
+  margin-bottom: 3rem;
   font-family: var(--ff-title);
   color: var(--col-main-blue);
   font-size: var(--fs-blockquote);
