@@ -23009,6 +23009,37 @@ blockquote.wp-block-quote cite::before {
   }
 }
 
+/**
+ * CB Logo Slider Block Styles
+ *
+ * @package  cb-identity2025
+ */
+.cb-logo-carousel {
+  padding-block: 3rem;
+  background-color: var(--col-background-blue);
+}
+.cb-logo-carousel__marquee {
+  overflow: hidden;
+  width: 100%;
+}
+.cb-logo-carousel__track .cb-logo-carousel__slides {
+  display: flex;
+  -moz-column-gap: 4rem;
+  column-gap: 4rem;
+}
+.cb-logo-carousel__logo {
+  filter: invert(1);
+  height: 50px !important;
+  width: auto;
+  flex: 0 0 auto;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+.cb-logo-carousel__slide {
+  flex: 0 0 auto;
+  width: auto;
+}
+
 body {
   color: var(--body-color);
 }

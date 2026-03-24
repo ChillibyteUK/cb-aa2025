@@ -18,6 +18,24 @@ function acf_blocks() {
 
         acf_register_block_type(
             array(
+                'name'            => 'cb_logo_carousel',
+                'title'           => __( 'CB Logo Carousel' ),
+                'category'        => 'layout',
+                'icon'            => 'cover-image',
+                'render_template' => 'blocks/cb-logo-carousel.php',
+                'mode'            => 'edit',
+                'supports'        => array(
+                    'mode'      => false,
+                    'anchor'    => true,
+                    'className' => true,
+                    'align'     => true,
+                ),
+            )
+        );
+
+
+        acf_register_block_type(
+            array(
                 'name'            => 'cb_product_visualisation',
                 'title'           => __( 'CB Product Visualisation' ),
                 'category'        => 'layout',
