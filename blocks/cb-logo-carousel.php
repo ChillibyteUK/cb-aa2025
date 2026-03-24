@@ -18,6 +18,8 @@ if ( 'has-blue-400-background-color' === $bg ) {
         $fg = 'has-white-color';
 }
 
+$logo_size_map = array( 'Small' => 50, 'Medium' => 75, 'Large' => 100 );
+$logo_size     = $logo_size_map[ get_field( 'logo_size' ) ] ?? 50;
 ?>
 <section id="<?php echo esc_attr( $block_id ); ?>" class="cb-logo-carousel <?= esc_attr( $bg . ' ' . $fg ); ?>">
 	<?php
@@ -33,7 +35,7 @@ if ( 'has-blue-400-background-color' === $bg ) {
 	?>
 	<div class="cb-logo-carousel__marquee">
 		<div class="cb-logo-carousel__track">
-			<div class="cb-logo-carousel__slides">
+			<div class="cb-logo-carousel__slides" style="--_logo-size: <?= esc_attr( $logo_size ); ?>px;">
 				<?php
 				$logos = get_field( 'logos' );
 				if ( $logos ) {

@@ -67,6 +67,33 @@
             "mime_types": "",
             "insert": "append",
             "preview_size": "thumbnail"
+        },
+        {
+            "key": "field_69c2a7c7ac191",
+            "label": "Logo Size",
+            "name": "logo_size",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "Small": "Small",
+                "Medium": "Medium",
+                "Large": "Large"
+            },
+            "default_value": "Small",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "allow_in_bindings": 0,
+            "layout": "horizontal",
+            "save_other_choice": 0
         }
     ],
     "location": [
@@ -87,5 +114,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1774358300
+    "modified": 1774364645
 }

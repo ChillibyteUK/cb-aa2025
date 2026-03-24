@@ -23027,7 +23027,7 @@ blockquote.wp-block-quote cite::before {
   column-gap: 4rem;
 }
 .cb-logo-carousel__logo {
-  height: 50px !important;
+  height: var(--_logo-size, 50px) !important;
   width: auto;
   flex: 0 0 auto;
   -o-object-fit: contain;
