@@ -1,77 +1,114 @@
 {
-  "key": "group_cb_product_visualisation",
-  "title": "CB Product Visualisation",
-  "fields": [
-    {
-      "key": "field_cb_product_visualisation_title",
-      "label": "CB Product Visualisation",
-      "name": "",
-      "type": "message"
-    },
-    {
-      "key": "field_cb_product_visualisation_icons_3e50cb23",
-      "label": "Icons",
-      "name": "icons",
-      "type": "repeater",
-      "instructions": "",
-      "required": 0,
-      "conditional_logic": 0,
-      "wrapper": {
-        "width": "",
-        "class": "",
-        "id": ""
-      },
-      "layout": "block",
-      "button_label": "Add Row",
-      "sub_fields": [
+    "key": "group_cb_product_visualisation",
+    "title": "CB Product Visualisation",
+    "fields": [
         {
-          "key": "field_cb_product_visualisation_icons_icon_b1ff7bc7",
-          "label": "Icon",
-          "name": "icon",
-          "type": "image",
-          "instructions": "",
-          "required": 0,
-          "conditional_logic": 0,
-          "wrapper": {
-            "width": "",
-            "class": "",
-            "id": ""
-          },
-          "return_format": "id",
-          "preview_size": "medium",
-          "library": "all"
+            "key": "field_cb_product_visualisation_title",
+            "label": "CB Product Visualisation",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "esc_html": 0,
+            "new_lines": "wpautop"
         },
         {
-          "key": "field_cb_product_visualisation_icons_title_e134e74c",
-          "label": "Title",
-          "name": "title",
-          "type": "text",
-          "instructions": "",
-          "required": 0,
-          "conditional_logic": 0,
-          "wrapper": {
-            "width": "",
-            "class": "",
-            "id": ""
-          },
-          "default_value": "",
-          "placeholder": "",
-          "prepend": "",
-          "append": ""
+            "key": "field_cb_product_visualisation_icons_3e50cb23",
+            "label": "Icons",
+            "name": "icons",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Row",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_cb_product_visualisation_icons_icon_b1ff7bc7",
+                    "label": "Icon",
+                    "name": "icon",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "id",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": 0,
+                    "min_height": 0,
+                    "min_size": 0,
+                    "max_width": 0,
+                    "max_height": 0,
+                    "max_size": 0,
+                    "mime_types": "",
+                    "parent_repeater": "field_cb_product_visualisation_icons_3e50cb23"
+                },
+                {
+                    "key": "field_cb_product_visualisation_icons_title_e134e74c",
+                    "label": "Title",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "parent_repeater": "field_cb_product_visualisation_icons_3e50cb23"
+                }
+            ]
         }
-      ]
-    }
-  ],
-  "location": [
-    [
-      {
-        "param": "block",
-        "operator": "==",
-        "value": "acf/cb-product-visualisation"
-      }
-    ]
-  ],
-  "active": 1,
-  "description": "",
-  "modified": 1774353242
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/cb-product-visualisation"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1774355824
 }
