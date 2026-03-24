@@ -22,7 +22,7 @@ function acf_blocks() {
                 'title'           => __( 'CB Pricing 2' ),
                 'category'        => 'layout',
                 'icon'            => 'cover-image',
-                'render_template' => 'page-templates/blocks/cb-pricing-2.php',
+                'render_template' => 'blocks/cb-pricing-2.php',
                 'mode'            => 'edit',
                 'supports'        => array(
                     'mode'      => false,
@@ -39,7 +39,7 @@ function acf_blocks() {
                 'title'           => __( 'CB Scroll Snap Flexible' ),
                 'category'        => 'layout',
                 'icon'            => 'cover-image',
-                'render_template' => 'page-templates/blocks/cb-scroll-snap-flexible.php',
+                'render_template' => 'blocks/cb-scroll-snap-flexible.php',
                 'mode'            => 'edit',
                 'supports'        => array(
                     'mode'      => false,
@@ -56,7 +56,7 @@ function acf_blocks() {
                 'title'           => __( 'CB Image Hero' ),
                 'category'        => 'layout',
                 'icon'            => 'cover-image',
-                'render_template' => 'page-templates/blocks/cb-image-hero.php',
+                'render_template' => 'blocks/cb-image-hero.php',
                 'mode'            => 'edit',
                 'supports'        => array(
                     'mode'      => false,
@@ -73,7 +73,7 @@ function acf_blocks() {
                 'title'           => __( 'CB All Integrations' ),
                 'category'        => 'layout',
                 'icon'            => 'cover-image',
-                'render_template' => 'page-templates/blocks/cb-all-integrations.php',
+                'render_template' => 'blocks/cb-all-integrations.php',
                 'mode'            => 'edit',
                 'supports'        => array(
                     'mode'      => false,
@@ -90,7 +90,7 @@ function acf_blocks() {
                 'title'           => __( 'CB Pricing' ),
                 'category'        => 'layout',
                 'icon'            => 'cover-image',
-                'render_template' => 'page-templates/blocks/cb-pricing.php',
+                'render_template' => 'blocks/cb-pricing.php',
                 'mode'            => 'edit',
                 'supports'        => array(
                     'mode'      => false,
@@ -107,7 +107,7 @@ function acf_blocks() {
                 'title'           => __( 'CB Contact' ),
                 'category'        => 'layout',
                 'icon'            => 'cover-image',
-                'render_template' => 'page-templates/blocks/cb-contact.php',
+                'render_template' => 'blocks/cb-contact.php',
                 'mode'            => 'edit',
                 'supports'        => array(
                     'mode'      => false,
@@ -124,7 +124,7 @@ function acf_blocks() {
                 'title'           => __( 'CB Hero' ),
                 'category'        => 'layout',
                 'icon'            => 'cover-image',
-                'render_template' => 'page-templates/blocks/cb-hero.php',
+                'render_template' => 'blocks/cb-hero.php',
                 'mode'            => 'edit',
                 'supports'        => array(
                     'mode'      => false,
@@ -141,7 +141,7 @@ function acf_blocks() {
                 'title'           => __( 'CB Latest Posts' ),
                 'category'        => 'layout',
                 'icon'            => 'cover-image',
-                'render_template' => 'page-templates/blocks/cb-latest-posts.php',
+                'render_template' => 'blocks/cb-latest-posts.php',
                 'mode'            => 'edit',
                 'supports'        => array(
                     'mode'      => false,
@@ -158,7 +158,7 @@ function acf_blocks() {
 				'title'           => __( 'CB Video' ),
 				'category'        => 'layout',
 				'icon'            => 'cover-image',
-				'render_template' => 'page-templates/blocks/cb-video.php',
+				'render_template' => 'blocks/cb-video.php',
 				'mode'            => 'edit',
 				'supports'        => array(
 					'mode'      => false,
@@ -174,7 +174,7 @@ function acf_blocks() {
 				'title'           => __( 'CB Case Study Slider' ),
 				'category'        => 'layout',
 				'icon'            => 'cover-image',
-				'render_template' => 'page-templates/blocks/cb-case-study-slider.php',
+				'render_template' => 'blocks/cb-case-study-slider.php',
 				'mode'            => 'edit',
 				'supports'        => array(
 					'mode'      => false,
@@ -190,7 +190,7 @@ function acf_blocks() {
 				'title'           => __( 'CB Scroll Snap' ),
 				'category'        => 'layout',
 				'icon'            => 'cover-image',
-				'render_template' => 'page-templates/blocks/cb-scroll-snap.php',
+				'render_template' => 'blocks/cb-scroll-snap.php',
 				'mode'            => 'edit',
 				'supports'        => array(
 					'mode'      => false,
@@ -206,7 +206,7 @@ function acf_blocks() {
 				'title'           => __( 'CB Home Hero' ),
 				'category'        => 'layout',
 				'icon'            => 'cover-image',
-				'render_template' => 'page-templates/blocks/cb-home-hero.php',
+				'render_template' => 'blocks/cb-home-hero.php',
 				'mode'            => 'edit',
 				'supports'        => array(
 					'mode'      => false,
