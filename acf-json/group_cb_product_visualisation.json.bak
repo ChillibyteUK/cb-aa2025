@@ -1,0 +1,59 @@
+{
+  "key": "group_cb_product_visualisation",
+  "title": "CB Product Visualisation",
+  "fields": [
+    {
+      "key": "field_cb_product_visualisation_title",
+      "label": "CB Product Visualisation",
+      "name": "",
+      "type": "message"
+    },
+    {
+      "key": "field_cb_product_visualisation_icons_3e50cb23",
+      "label": "Icons",
+      "name": "icons",
+      "type": "repeater",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "button_label": "Add Row",
+      "sub_fields": [
+        {
+          "key": "field_cb_product_visualisation_icons_icon_b1ff7bc7",
+          "label": "Icon",
+          "name": "icon",
+          "type": "image",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "id",
+          "preview_size": "medium",
+          "library": "all"
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf/cb-product-visualisation"
+      }
+    ]
+  ],
+  "active": 1,
+  "description": "",
+  "modified": 1774353137
+}
