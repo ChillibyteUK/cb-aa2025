@@ -52,8 +52,11 @@ def labelize_field_name(name: str) -> str:
     cleaned = re.sub(r"^cb[_\-]+", "", name.strip(), flags=re.IGNORECASE)
     return titleize(cleaned)
 
-def infer_type(name: str) -> str:
+def infer_type(name: str, usage: dict | None = None) -> str:
     n = name.lower()
+    usage = usage or {}
+    if usage.get("attachment_image"):
+        return "image"
     if n.startswith(("is_", "has_", "show_", "enable_", "disable_")):
         return "true_false"
     if any(k in n for k in ["image", "icon", "logo", "photo", "thumbnail"]):
@@ -73,7 +76,8 @@ def safe_key(prefix: str, name: str) -> str:
     digest = hashlib.sha1(f"{prefix}:{name}".encode("utf-8")).hexdigest()[:8]
     return f"field_{prefix}_{n}_{digest}"
 
-def field_template(prefix: str, name: str, ftype: str):
+def field_template(prefix: str, name: str, ftype: str, usage: dict | None = None):
+    usage = usage or {}
     field = {
         "key": safe_key(prefix, name),
         "label": labelize_field_name(name),
@@ -109,7 +113,7 @@ def field_template(prefix: str, name: str, ftype: str):
         })
     elif ftype == "image":
         field.update({
-            "return_format": "array",
+            "return_format": "id" if usage.get("attachment_image") else "array",
             "preview_size": "medium",
             "library": "all"
         })
@@ -153,9 +157,22 @@ fn_re = re.compile(
     re.MULTILINE,
 )
 
+attachment_fn_re = re.compile(
+    r"\b(?:wp_get_attachment_image|wp_get_attachment_image_url|wp_get_attachment_image_src|wp_get_attachment_image_srcset|wp_get_attachment_image_sizes)\s*\(\s*(?P<expr>(?:get_field|the_field|get_sub_field|the_sub_field)\s*\(\s*['\"](?P<name>[a-zA-Z0-9_\-]+)['\"])",
+    re.MULTILINE,
+)
+
 seen_order = []
+field_usage = {}
 for m in fn_re.finditer(php):
-    seen_order.append((m.group("fn"), m.group("name")))
+    fn = m.group("fn")
+    name = m.group("name")
+    seen_order.append((fn, name))
+    field_usage.setdefault(name, {})
+
+for m in attachment_fn_re.finditer(php):
+    name = m.group("name")
+    field_usage.setdefault(name, {})["attachment_image"] = True
 
 top_fields = []
 repeaters = []
@@ -216,6 +233,8 @@ def normalize_labels(field_list):
         # Keep message field labels/messages exactly as authored
         # (e.g. scaffolded block heading from add_block.sh).
         if fld.get("type") == "message":
+            if fld.get("name"):
+                fld["name"] = ""
             sub = fld.get("sub_fields")
             if isinstance(sub, list):
                 normalize_labels(sub)
@@ -230,21 +249,109 @@ def normalize_labels(field_list):
 
 normalize_labels(fields)
 
-# Map existing fields by name.
+# Map existing fields by name, but ignore scaffold message placeholders.
 existing = {}
 for idx, fld in enumerate(fields):
     nm = fld.get("name")
-    if nm:
+    if nm and fld.get("type") != "message":
         existing[nm] = idx
 
 added = []
+updated = []
+
+def sync_field_config(field: dict, name: str, ftype: str, usage: dict | None = None) -> bool:
+    usage = usage or {}
+    changed = False
+
+    removable_keys = {
+        "default_value",
+        "placeholder",
+        "prepend",
+        "append",
+        "rows",
+        "new_lines",
+        "return_format",
+        "preview_size",
+        "library",
+        "ui",
+        "ui_on_text",
+        "ui_off_text",
+    }
+    keep_keys = {
+        "text": {"default_value", "placeholder", "prepend", "append"},
+        "url": {"default_value", "placeholder", "prepend", "append"},
+        "textarea": {"default_value", "placeholder", "rows", "new_lines"},
+        "link": {"return_format"},
+        "image": {"return_format", "preview_size", "library"},
+        "true_false": {"default_value", "ui", "ui_on_text", "ui_off_text"},
+    }.get(ftype, set())
+    for key in removable_keys - keep_keys:
+        if key in field:
+            del field[key]
+            changed = True
+
+    if field.get("type") != ftype:
+        field["type"] = ftype
+        changed = True
+
+    if ftype in ("text", "url"):
+        for key, value in {
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+        }.items():
+            if key not in field:
+                field[key] = value
+                changed = True
+    elif ftype == "textarea":
+        for key, value in {
+            "default_value": "",
+            "placeholder": "",
+            "rows": 4,
+            "new_lines": "br",
+        }.items():
+            if key not in field:
+                field[key] = value
+                changed = True
+    elif ftype == "link":
+        if field.get("return_format") != "array":
+            field["return_format"] = "array"
+            changed = True
+    elif ftype == "image":
+        desired_return_format = "id" if usage.get("attachment_image") else "array"
+        if field.get("return_format") != desired_return_format:
+            field["return_format"] = desired_return_format
+            changed = True
+        for key, value in {
+            "preview_size": "medium",
+            "library": "all",
+        }.items():
+            if field.get(key) != value:
+                field[key] = value
+                changed = True
+    elif ftype == "true_false":
+        for key, value in {
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": "",
+        }.items():
+            if key not in field:
+                field[key] = value
+                changed = True
+
+    return changed
 
 # Add top-level fields from get_field/the_field
 for name in top_fields:
+    usage = field_usage.get(name)
+    ftype = infer_type(name, usage)
     if name in existing:
+        if sync_field_config(fields[existing[name]], name, ftype, usage):
+            updated.append(name)
         continue
-    ftype = infer_type(name)
-    fields.append(field_template(block_slug, name, ftype))
+    fields.append(field_template(block_slug, name, ftype, usage))
     existing[name] = len(fields) - 1
     added.append(name)
 
@@ -269,18 +376,27 @@ if sub_fields:
 
         existing_sub = {sf.get("name") for sf in rep_field["sub_fields"] if isinstance(sf, dict)}
         for sf_name in sub_fields:
+            usage = field_usage.get(sf_name)
+            sf_type = infer_type(sf_name, usage)
             if sf_name in existing_sub:
+                for sf in rep_field["sub_fields"]:
+                    if isinstance(sf, dict) and sf.get("name") == sf_name:
+                        if sync_field_config(sf, sf_name, sf_type, usage):
+                            updated.append(f"{rep_name}.{sf_name}")
+                        break
                 continue
-            sf_type = infer_type(sf_name)
-            rep_field["sub_fields"].append(field_template(f"{block_slug}_{rep_name}", sf_name, sf_type))
+            rep_field["sub_fields"].append(field_template(f"{block_slug}_{rep_name}", sf_name, sf_type, usage))
             added.append(f"{rep_name}.{sf_name}")
     elif len(repeaters) == 0:
         # No explicit repeater found, promote sub fields as top-level to avoid data loss.
         for sf_name in sub_fields:
+            usage = field_usage.get(sf_name)
+            sf_type = infer_type(sf_name, usage)
             if sf_name in existing:
+                if sync_field_config(fields[existing[sf_name]], sf_name, sf_type, usage):
+                    updated.append(sf_name)
                 continue
-            sf_type = infer_type(sf_name)
-            fields.append(field_template(block_slug, sf_name, sf_type))
+            fields.append(field_template(block_slug, sf_name, sf_type, usage))
             existing[sf_name] = len(fields) - 1
             added.append(sf_name)
         warnings.append("Found get_sub_field()/the_sub_field() without have_rows(); added them as top-level fields.")
@@ -307,6 +423,11 @@ if added:
         print(f"   - {x}")
 else:
     print("ℹ️ No new fields were added (already up to date).")
+
+if updated:
+    print("♻️ Updated fields:")
+    for x in updated:
+        print(f"   - {x}")
 
 for w in warnings:
     print(f"⚠️ {w}")
