@@ -10,6 +10,15 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <section class="three-icon-cards">
 	<div class="container py-5">
+		<?php
+		if ( get_field( 'title' ) ) {
+			?>
+		<h2 class="three-icon-cards__title has-white-color text-center mb-5">
+			<?= esc_html( get_field( 'title' ) ); ?>
+		</h2>
+			<?php
+		}
+		?>
 		<div class="row text-center">
 			<div class="col-md-4 d-flex flex-column">
 				<?= cb_sanitise_svg( get_field( 'icon_1' ), 'mx-auto mb-3', 90, 90 ); ?>
