@@ -7,8 +7,12 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// Support Gutenberg color picker.
+$bg = ! empty( $block['backgroundColor'] ) ? 'has-' . $block['backgroundColor'] . '-background-color' : '';
+$fg = ! empty( $block['textColor'] ) ? 'has-' . $block['textColor'] . '-color' : '';
+
 ?>
-<section class="product-visualisation">
+<section class="product-visualisation <?php echo esc_attr( $bg . ' ' . $fg ); ?>">
 	<div class="container">
 		<?php
 		$icons       = get_field( 'icons' );

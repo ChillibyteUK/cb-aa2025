@@ -22938,9 +22938,6 @@ blockquote.wp-block-quote cite::before {
   max-width: 30ch;
 }
 
-.product-visualisation {
-  background-color: var(--col-background-blue);
-}
 .product-visualisation .container, .product-visualisation .wp-block-group.alignfull > .wp-block-group__inner-container {
   display: flex;
   justify-content: start;
@@ -22971,7 +22968,6 @@ blockquote.wp-block-quote cite::before {
 .product-visualisation__title {
   text-align: center;
   font-size: var(--fs-200);
-  color: white;
 }
 .product-visualisation__arrow-wrapper {
   display: flex;

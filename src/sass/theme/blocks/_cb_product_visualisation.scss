@@ -1,5 +1,4 @@
 .product-visualisation {
-    background-color: var(--col-background-blue);
 
     .container {
         display: flex;
@@ -28,7 +27,7 @@
     &__title {
         text-align: center;
         font-size: var(--fs-200);
-        color: white;
+
     }
     &__arrow-wrapper {
         display: flex;
