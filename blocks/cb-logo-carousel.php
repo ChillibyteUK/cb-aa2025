@@ -12,7 +12,18 @@ $block_id = $block['id'] ?? '';
 
 ?>
 <section id="<?php echo esc_attr( $block_id ); ?>" class="cb-logo-carousel">
-	<div class="id-container cb-logo-carousel__marquee">
+	<?php
+	if ( get_field( 'title' ) ) {
+		?>
+	<div class="container">
+		<h2 class="cb-logo-carousel__title">
+			<?= esc_html( get_field( 'title' ) ); ?>
+		</h2>
+	</div>
+		<?php
+	}
+	?>
+	<div class="container cb-logo-carousel__marquee">
 		<div class="cb-logo-carousel__track">
 			<div class="cb-logo-carousel__slides">
 				<?php
