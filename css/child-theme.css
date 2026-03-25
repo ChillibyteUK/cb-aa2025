@@ -22331,7 +22331,7 @@ blockquote.wp-block-quote cite::before {
   max-width: unset !important;
 }
 .cb_latest_posts:not(.cb_latest_posts--dark) {
-  padding-block: 6rem;
+  padding-block: 3rem 6rem;
   --_colour: var(--col-main-blue);
   --_background: var(--col-white);
 }
