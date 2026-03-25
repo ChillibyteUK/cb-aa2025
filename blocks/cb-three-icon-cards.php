@@ -7,13 +7,19 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// Support Gutenberg color picker.
+$bg = ! empty( $block['backgroundColor'] ) ? 'has-' . $block['backgroundColor'] . '-background-color' : '';
+$fg = ! empty( $block['textColor'] ) ? 'has-' . $block['textColor'] . '-color' : '';
+
+$classes = $block['attrs']['className'] ?? 'py-5';
+
 ?>
-<section class="three-icon-cards">
+<section class="three-icon-cards <?php echo esc_attr( $bg . ' ' . $fg . ' ' . $classes ); ?>">
 	<div class="container py-5">
 		<?php
 		if ( get_field( 'title' ) ) {
 			?>
-		<h2 class="three-icon-cards__title has-white-color text-center mb-5">
+		<h2 class="three-icon-cards__title <?php echo esc_attr( $fg ); ?> text-center mb-5">
 			<?= esc_html( get_field( 'title' ) ); ?>
 		</h2>
 			<?php

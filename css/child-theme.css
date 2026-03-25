@@ -23034,10 +23034,6 @@ blockquote.wp-block-quote cite::before {
   width: auto;
 }
 
-.three-icon-cards {
-  background-color: var(--col-background-blue);
-  color: var(--col-white);
-}
 .three-icon-cards svg {
   color: var(--col-highlight-green);
 }
