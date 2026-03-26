@@ -32,6 +32,15 @@ $logo_size     = $logo_size_map[ get_field( 'logo_size' ) ] ?? 50;
 	</div>
 		<?php
 	}
+	if ( get_field( 'intro' ) ) {
+		?>
+	<div class="container">
+		<div class="cb-logo-carousel__intro mb-4">
+			<?= wp_kses_post( get_field( 'intro' ) ); ?>
+		</div>
+	</div>
+		<?php
+	}
 	?>
 	<div class="cb-logo-carousel__marquee">
 		<div class="cb-logo-carousel__track">

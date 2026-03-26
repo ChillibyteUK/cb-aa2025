@@ -41,6 +41,26 @@
             "maxlength": ""
         },
         {
+            "key": "field_cb_logo_carousel_intro_2c9e2ad7",
+            "label": "Intro",
+            "name": "intro",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "rows": 4,
+            "new_lines": "br",
+            "maxlength": ""
+        },
+        {
             "key": "field_69b425ae5b350",
             "label": "Logos",
             "name": "logos",
