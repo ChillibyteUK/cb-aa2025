@@ -10,6 +10,8 @@ defined( 'ABSPATH' ) || exit;
 // Block ID.
 $block_id = $block['id'] ?? '';
 
+$classes = $block['attrs']['className'] ?? 'py-5';
+
 // Support Gutenberg color picker.
 $bg = ! empty( $block['backgroundColor'] ) ? 'has-' . $block['backgroundColor'] . '-background-color' : '';
 $fg = ! empty( $block['textColor'] ) ? 'has-' . $block['textColor'] . '-color' : '';
@@ -21,12 +23,12 @@ if ( 'has-blue-400-background-color' === $bg ) {
 $logo_size_map = array( 'Small' => 50, 'Medium' => 75, 'Large' => 100 );
 $logo_size     = $logo_size_map[ get_field( 'logo_size' ) ] ?? 50;
 ?>
-<section id="<?php echo esc_attr( $block_id ); ?>" class="cb-logo-carousel <?= esc_attr( $bg . ' ' . $fg ); ?>">
+<section id="<?php echo esc_attr( $block_id ); ?>" class="cb-logo-carousel <?= esc_attr( $bg . ' ' . $fg . ' ' . $classes ); ?> ">
 	<?php
 	if ( get_field( 'title' ) ) {
 		?>
 	<div class="container">
-		<h2 class="cb-logo-carousel__title mb-4">
+		<h2 class="cb-logo-carousel__title mb-4 text-center">
 			<?= esc_html( get_field( 'title' ) ); ?>
 		</h2>
 	</div>
