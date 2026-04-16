@@ -113,14 +113,40 @@ session_start();
     <?php
 	do_action( 'wp_body_open' );
 	?>
+<header id="wrapperNavbar" class="fixed-top">
+	<nav id="navbar" class="navbar navbar-expand-md d-block p-0 pt-2 pt-md-0" aria-labelledby="main-nav-label">
+		<div class="container-xl mb-2 d-block d-md-flex">
+			<div class="d-flex w-md-auto justify-content-between align-items-center px-2">
+				<a href="/" class="logo" aria-label="Home"></a>
+				<button class="navbar-toggler input-button" id="navToggle" data-bs-toggle="collapse" data-bs-target=".navbars" type="button" aria-label="Navigation"><i class="fa fa-navicon"></i></button>
+			</div>
+			<div class="d-flex flex-column-reverse flex-md-column w-100">
+				<div id="topNav" class="prenav d-none d-md-flex justify-content-end px-2 px-md-0 mb-2 collapse navbar-collapse navbars">
+					<a href="#"><i class="fa-solid fa-globe"></i> Select Region</a>
+				</div>
+				<?php
+					wp_nav_menu(
+						array(
+							'theme_location'  => 'primary_nav',
+							'container_class' => 'pt-2 px-0 p-md-0 collapse navbar-collapse navbars',
+							'container_id'    => 'primaryNav',
+							'menu_class'      => 'navbar-nav justify-content-between align-items-md-end mt-2 mt-md-0 w-100 ms-md-5',
+							'fallback_cb'     => '',
+							'menu_id'         => 'main-menu',
+							'depth'           => 2,
+							'walker'          => new Understrap_WP_Bootstrap_Navwalker(),
+						)
+					);
+				?>
+			</div>
+		</div>
+	</nav>
+</header>
+<!--
 <header id="wrapperNavbar">
 	<div class="container">
 		<div class="prenav d-none d-md-flex align-items-center justify-content-end gap-4 pt-4">
-			<a href="#"><i class="fa-solid fa-phone"></i> Customer Sales</a>
-			<a href="/support/"><i class="fa-solid fa-headphones"></i> Customer Support</a>
 			<a href="#"><i class="fa-solid fa-globe"></i> Select Region</a>
-			<a href="/about/"><i class="fa-solid fa-circle-info"></i> About us</a>
-			<?= do_shortcode( '[social_icons]' ); ?>
 		</div>
 	</div>
 	<nav class="navbar navbar-expand-md">
@@ -136,7 +162,6 @@ session_start();
 
 			<div id="navbar" class="collapse navbar-collapse">
                 <div class="w-100 d-flex flex-column justify-content-lg-between align-items-lg-center ps-5">
-                    <!-- Navigation -->
                     <?php
                     wp_nav_menu(
                         array(
@@ -154,3 +179,4 @@ session_start();
 		</div>
 	</nav>
 </header>
+-->

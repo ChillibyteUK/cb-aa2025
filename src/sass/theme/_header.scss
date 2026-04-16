@@ -63,16 +63,17 @@
     position: relative;
     font-size: var(--fs-menu-descr);
 
-    &::after {
-      content: "\f107";
-      font-family: var(--ff-fa);
-      font-weight: 600;
-      display: block;
-      width: 100%;
-      text-align: center;
-      color: var(--col-dark-grey);
-      transition: transform var(--transition);
-    }
+    // &::after {
+    //   content: "\f107";
+    //   font-family: var(--ff-fa);
+    //   font-weight: 600;
+    //   display: inline;
+    //   margin-inline-start: 0.5rem;
+    //   width: 100%;
+    //   text-align: center;
+    //   color: var(--col-dark-grey);
+    //   transition: transform var(--transition);
+    // }
   }
 
   .logo {
@@ -83,13 +84,18 @@
     background-image: url(../img/aa-logo.svg);
     aspect-ratio: 402/110;
     width: 157px;
+    @media (min-width: 768px) {
+      background-image: url(../img/aa-logo-horiz.svg);
+      aspect-ratio: 4.7 / 1;
+      width: 200px;
+    }
   }
 
   transition: transform var(--transition);
 
-  &.hidden {
-    transform: translateY(-100%);
-  }
+  // &.hidden {
+  //   transform: translateY(-100%);
+  // }
 
   .nav-button-outline,
   .nav-button-green {
@@ -124,8 +130,8 @@
     background-repeat: no-repeat;
   }
 
-  .dropdown-toggle::after {
-    border-top: none;
-  }
+  // .dropdown-toggle::after {
+  //   border-top: none;
+  // }
 }
 
