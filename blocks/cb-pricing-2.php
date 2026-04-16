@@ -27,13 +27,13 @@ $bgalign = $bgalign ? $bgalign : 'bottom';
 		<div class="container pb-5">
 			<h1 class="text-center w-constrained--sm"><?= esc_html( get_field( 'call_title' ) ); ?></h1>
 			<div class="text-center mb-5"><?= esc_html( get_field( 'call_subtitle' ) ); ?></div>
-
+<!-- 
 			<div class="switcher mb-5">
 				<div class="pricing-toggle">
 					<button class="pricing-toggle__btn pricing-toggle__btn--active" data-tab="call">Call</button>
 					<button class="pricing-toggle__btn" data-tab="recruitment">Recruitment</button>
 				</div>
-			</div>
+			</div> -->
 
 			<div class="price-switcher d-flex justify-content-between align-items-center mb-4">
 				<div>
