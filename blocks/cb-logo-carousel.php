@@ -44,7 +44,7 @@ $logo_size     = $logo_size_map[ get_field( 'logo_size' ) ] ?? 50;
 		<?php
 	}
 	?>
-	<div class="cb-logo-carousel__marquee">
+	<div class="cb-logo-carousel__marquee py-4">
 		<div class="cb-logo-carousel__track">
 			<div class="cb-logo-carousel__slides" style="--_logo-size: <?= esc_attr( $logo_size ); ?>px;">
 				<?php
