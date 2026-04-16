@@ -16,14 +16,13 @@ get_header();
 			<div class="col-md-6 text-white">
 				<h1>Educate &amp; Learn</h1>
 				<div class="fs-500 mb-3">Discover a wealth of insightful materials meticulously crafted to provide you with a comprehensive understanding of the latest trends.</div>
-				<div class="fs-400">Lorem ipsum dolor sit amet, consetetur sadipscin eirmod tempor invidunt ut labore et dolore magna aliquyam erat voluptua. Lorem ipsum dolor sit amet.</div>
 			</div>
 		</div>
 		<div class="row g-3">
 			<div class="col-md-8">
 				<div class="has-white-background-color h-100 p-3">
 					<div class="row">
-						<div class="col-md-7 d-flex flex-column">
+						<div class="col-md-7">
 							<h3 class="mb-4">Podcasts</h3>
 							<div class="fs-500 mb-3">Welcome to “Automated Analytics Podcast,” the podcast where data meets automation to transform the way businesses make decisions. </div>
 							<div class="fs-400 mb-4">Join us on a journey through the fascinating world of Automated Analytics, as we explore cutting-edge technologies, industry trends, and real-world applications that are reshaping the landscape of data-driven decision-making.</div>
@@ -62,18 +61,24 @@ get_header();
 					?>
 				</div>
 			</div>
-			<div class="col-md-6">
-				<div class="has-main-blue-background-color text-white h-100 p-3 d-flex flex-column">
-					<div class="d-flex column-gap-5 justify-content-start mb-4" style="column-gap: 2rem;">
-						<img src="<?= esc_url( get_stylesheet_directory_uri() . '/img/white-paper.jpg' ); ?>" alt="" width=224 height=290>
-						<img src="<?= esc_url( get_stylesheet_directory_uri() . '/img/cop-cover.jpg' ); ?>" alt="" width=224 height=290>
-					</div>
+		</div>
+		<section class="hub__ebooks has-main-blue-background-color text-white my-4">
+			<div class="hub__ebooks-inner">
+				<div class="hub__ebook-frame">
+					<img src="<?= esc_url( get_stylesheet_directory_uri() . '/img/white-paper.jpg' ); ?>" class="hub__ebook-cover" alt="" width="224" height="290">
+				</div>
+				<div class="hub__ebook-frame">
+					<img src="<?= esc_url( get_stylesheet_directory_uri() . '/img/cop-cover.jpg' ); ?>" class="hub__ebook-cover" alt="" width="224" height="290">
+				</div>
+				<div class="hub__ebooks-copy">
 					<h3 class="mb-3">E-books</h3>
 					<div class="fs-300 mb-4">Lorem ipsum dolor sit amet, consetetur sadipscin eirmod et teute labore et dolore magna aliquyam erat voluptua sum dolor sit.</div>
 					<a href="/e-books/" class="green-arrow mt-auto">Learn more</a>
 				</div>
 			</div>
-			<div class="col-md-3">
+		</section>
+		<div class="row">
+			<!-- <div class="col-md-3">
 				<div class="has-light-green-background-color h-100 p-3 d-flex flex-column">
 					<img src="<?= esc_url( get_stylesheet_directory_uri() . '/img/customer-guides.jpg' ); ?>" class="hub__cover126 mb-4" alt="">
 					<h3 class="mb-3">Customer guides</h3>
@@ -88,7 +93,7 @@ get_header();
 					<div class="fs-300 mb-4">Lorem ipsum dolor sit amet, consetetur sadipsc eirmod tempor invidunt ut labore.</div>
 					<a href="/developer-guides/" class="blue-arrow mt-auto">Learn more</a>
 				</div>
-			</div>
+			</div> -->
 			<div class="col-md-3">
 				<div class="has-dark-grey-background-color text-white h-100 p-3 d-flex flex-column">
 					<h3 class="mb-4 pt-5">Case Studies</h3>

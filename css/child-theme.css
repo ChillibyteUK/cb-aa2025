@@ -22033,6 +22033,32 @@ body .gform_wrapper .gform_footer button {
   width: 100% !important;
 }
 
+.hub__ebooks {
+  padding: 1.5rem;
+}
+.hub__ebooks-inner {
+  display: grid;
+  grid-template-columns: 224px 224px minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+.hub__ebook-frame {
+  width: 224px;
+  aspect-ratio: 224/290;
+  overflow: hidden;
+}
+.hub__ebook-cover {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  display: block;
+}
+.hub__ebooks-copy {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
 .hub__post {
   display: grid;
   grid-template-columns: 80px 1fr;
@@ -22069,6 +22095,25 @@ body .gform_wrapper .gform_footer button {
   height: auto;
   -o-object-fit: cover;
   object-fit: cover;
+}
+@media (max-width: 991.98px) {
+  .hub__ebooks-inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .hub__ebooks-copy {
+    grid-column: 1/-1;
+  }
+}
+@media (max-width: 575.98px) {
+  .hub__ebooks {
+    padding: 1rem;
+  }
+  .hub__ebooks-inner {
+    grid-template-columns: 1fr;
+  }
+  .hub__ebook-frame {
+    width: 100%;
+  }
 }
 
 .container-xl .container-xl {

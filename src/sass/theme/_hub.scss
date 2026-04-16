@@ -1,4 +1,34 @@
 .hub {
+    &__ebooks {
+        padding: 1.5rem;
+    }
+
+    &__ebooks-inner {
+        display: grid;
+        grid-template-columns: 224px 224px minmax(0, 1fr);
+        gap: 1.5rem;
+        align-items: start;
+    }
+
+    &__ebook-frame {
+        width: 224px;
+        aspect-ratio: 224 / 290;
+        overflow: hidden;
+    }
+
+    &__ebook-cover {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    &__ebooks-copy {
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+    }
+
     &__post {
         display: grid;
         grid-template-columns: 80px 1fr;
@@ -31,5 +61,29 @@
         width: 100%;
         height: auto;
         object-fit: cover;
+    }
+
+    @media (max-width: 991.98px) {
+        &__ebooks-inner {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        &__ebooks-copy {
+            grid-column: 1 / -1;
+        }
+    }
+
+    @media (max-width: 575.98px) {
+        &__ebooks {
+            padding: 1rem;
+        }
+
+        &__ebooks-inner {
+            grid-template-columns: 1fr;
+        }
+
+        &__ebook-frame {
+            width: 100%;
+        }
     }
 }
