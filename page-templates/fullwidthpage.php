@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit;
 get_header();
 ?>
 <main class="site-main" id="main" role="main">
-	<div class="container">
+	<div class="container" style="padding-top: 100px;">
 		<?php
 		while ( have_posts() ) {
 			the_post();
