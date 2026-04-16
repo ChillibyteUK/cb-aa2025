@@ -1,0 +1,44 @@
+{
+  "key": "group_cb_integrations_hero",
+  "title": "CB Integrations Hero",
+  "fields": [
+    {
+      "key": "field_cb_integrations_hero_title",
+      "label": "CB Integrations Hero",
+      "name": "title",
+      "type": "message"
+    },
+        {
+            "key": "field_688222dee0113",
+            "label": "Title",
+            "name": "title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf/cb-integrations-hero"
+      }
+    ]
+  ],
+  "active": 1,
+  "description": ""
+}

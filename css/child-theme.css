@@ -23097,6 +23097,26 @@ blockquote.wp-block-quote cite::before {
   color: var(--col-main-blue);
 }
 
+.integrations-hero {
+  min-height: calc(300px + var(--h-top) + 2rem);
+  padding-top: var(--h-top);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: calc(5rem + var(--h-top)) 4rem;
+  background-color: var(--col-background-blue);
+  color: #fff;
+}
+.integrations-hero canvas {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.5;
+}
+.integrations-hero__title {
+  max-width: 30ch;
+}
+
 body {
   color: var(--body-color);
 }
