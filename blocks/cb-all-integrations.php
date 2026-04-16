@@ -51,6 +51,8 @@ $integration_type_terms = get_terms(
 
 	<div class="container py-5">
 		<div class="row">
+			<?php
+			/*
 			<!-- Left Sidebar -->
 			<div class="col-lg-3">
 				<div class="integrations-sidebar">
@@ -94,7 +96,10 @@ $integration_type_terms = get_terms(
 						<i class="fas fa-times"></i> Clear All Filters
 					</div>
 				</div>
-
+			*/
+			?>
+				
+			<div class="col-12">
 				<div class="integrations-grid" id="integrations-container">
 					<?php
 					if ( $integrations_query->have_posts() ) :
