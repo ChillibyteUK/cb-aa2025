@@ -76,6 +76,17 @@
     // }
   }
 
+  .dropdown-menu {
+    border-radius: 0;
+    box-shadow: none;
+    border-color: transparent;
+    font-size: var(--fs-menu-descr);
+  }
+
+  .dropdown-item {
+    font-size: var(--fs-menu-descr);
+  }
+
   .logo {
     background-position: center;
     background-repeat: no-repeat;
@@ -134,4 +145,3 @@
   //   border-top: none;
   // }
 }
-
