@@ -5,27 +5,67 @@
  */
 
 .cb-logo-carousel {
-  padding-block: 3rem;
-  // border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-  &__marquee {
-    overflow: hidden;
-    width: 100%;
-  }
-  &__track {
-    .cb-logo-carousel__slides {
-      display: flex;
-      column-gap: 4rem;
-    }
-  }
-  &__logo {
-    // filter: invert(1);
-    height: var(--_logo-size, 50px) !important;
-    width: auto;
-    flex: 0 0 auto;
-    object-fit: contain;
-  }
-  &__slide {
-    flex: 0 0 auto;
-    width: auto;
-  }
+	padding-block: 3rem;
+
+	&__marquee {
+		overflow: hidden;
+		width: 100%;
+	}
+
+	&__track {
+		.cb-logo-carousel__slides {
+			display: flex;
+			align-items: center;
+			column-gap: 4rem;
+		}
+	}
+
+	&__slide {
+		flex: 0 0 auto;
+		width: auto;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__logo {
+		display: block;
+		height: var(--_logo-size, 50px) !important;
+		width: auto;
+		max-width: none;
+		object-fit: contain;
+	}
+
+	&__grid {
+		row-gap: 2rem;
+	}
+
+	&__grid-item {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: calc(var(--_logo-size, 50px) + 2rem);
+	}
+
+	&--static {
+		.cb-logo-carousel__logo {
+			height: auto !important;
+			max-height: var(--_logo-size, 50px);
+			max-width: 100%;
+			width: auto;
+		}
+	}
+
+	@media (max-width: 767px) {
+		&--static {
+			.cb-logo-carousel__grid-item {
+				min-height: 80px;
+			}
+
+			.cb-logo-carousel__logo {
+				max-height: 60px;
+				max-width: 160px;
+			}
+		}
+	}
 }

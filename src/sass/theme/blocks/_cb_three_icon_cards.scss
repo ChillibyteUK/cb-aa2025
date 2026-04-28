@@ -3,6 +3,10 @@
 	position: relative;
 	z-index: 2;
 
+    @media (max-width: 768px) {
+		padding-bottom: 1rem;
+	}
+
 	&--overlap {
 		margin-top: -20rem;
 		z-index: 5;

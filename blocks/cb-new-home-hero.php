@@ -14,7 +14,7 @@ defined( 'ABSPATH' ) || exit;
 	<div class="cb_home_hero__overlay"></div>
 
 	<div class="cb_home_hero__content container">
-		<div class="cb_home_hero__inner mt-5 col-12 col-md-6 mx-auto text-center gap-4">
+		<div class="cb_home_hero__inner mt-5 mb-3 col-12 col-md-6 mx-auto text-center gap-4">
 
 			<h1 class="cb_home_hero__title">
 				<?= esc_html( get_field( 'title' ) ); ?>
