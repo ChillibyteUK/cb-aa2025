@@ -1,8 +1,48 @@
 .three-icon-cards {
+    padding: 5rem 0;
+	position: relative;
+	z-index: 2;
+
+	&--overlap {
+		margin-top: -20rem;
+		z-index: 5;
+	}
+    &__title {
+        margin-bottom: 2rem;
+        text-wrap: initial;
+    }
+
+	.container {
+		padding-top: 0 !important;
+	}
+    
+    .three-icon-cards__row {
+        margin-left: -2rem;
+	    margin-right: -2rem;
+    }
+    .three-icon-cards__col {
+        padding-left: 2rem;
+	    padding-right: 2rem;
+    }
+    .three-icon-cards__card {
+        height: 100%;
+        padding: 3rem 2rem;
+        background: #112C4D;
+        text-align: left;
+    }
+
     svg {
         color: var(--col-highlight-green);
     }
     h3 {
         min-height: 3em;
+    }
+    @media (max-width: 768px) {
+        .three-icon-cards__col {
+            margin-bottom: 2rem;
+        }
+        .three-icon-cards__card {
+            padding: 1rem 2rem;
+        }
     }
 }

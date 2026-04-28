@@ -1,0 +1,58 @@
+.cb-solutions-hero {
+	position: relative;
+	overflow: visible;
+    padding-top: 8rem;
+	padding-bottom: 18rem;
+	background: var(--col-background-blue);
+	color: #fff;
+
+	&__background {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		z-index: 1;
+	}
+
+	&__overlay {
+		position: absolute;
+		inset: 0;
+		z-index: 2;
+		background: linear-gradient(
+			to bottom,
+			rgba(8, 33, 67, 0.1) 0%,
+			rgba(8, 33, 67, 0.35) 45%,
+			rgba(8, 33, 67, 1) 100%
+		);
+	}
+
+    &__title {
+		margin-bottom: 2rem;
+	}
+
+	&__intro {
+		margin: 0 auto 5rem;
+		max-width: 760px;
+	}
+
+	&__image {
+		display: block;
+		width: 100%;
+		object-fit: cover;
+        border-radius: 7px;
+	}
+
+	@media (max-width: 768px) {
+
+		&__intro {
+			margin-bottom: 3rem;
+		}
+	}
+
+	.container {
+		position: relative;
+		z-index: 3;
+	}
+
+}

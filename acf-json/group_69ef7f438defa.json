@@ -1,76 +1,29 @@
 {
-    "key": "group_cb_video",
-    "title": "CB Video",
+    "key": "group_69ef7f438defa",
+    "title": "CB Single Quote",
     "fields": [
         {
-            "key": "field_cb_video_title",
-            "label": "CB Video",
+            "key": "field_69ef7f438f34f",
+            "label": "CB Single Quote",
             "name": "",
             "aria-label": "",
             "type": "message",
             "instructions": "",
             "required": 0,
-            "conditional_logic": false,
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
             "message": "",
-            "esc_html": 0,
-            "new_lines": "wpautop"
+            "new_lines": "wpautop",
+            "esc_html": 0
         },
         {
-            "key": "field_69f07712e142c",
-            "label": "Cover image",
-            "name": "cover_image",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "allow_in_bindings": 0,
-            "preview_size": "medium"
-        },
-        {
-            "key": "field_68592ca73c069",
-            "label": "Vimeo Video ID",
-            "name": "video_id",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_69ef4f498ae61",
-            "label": "Description",
-            "name": "description",
+            "key": "field_69ef7f438f358",
+            "label": "Content",
+            "name": "content",
             "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
@@ -85,12 +38,12 @@
             "allow_in_bindings": 0,
             "tabs": "all",
             "toolbar": "full",
-            "media_upload": 0,
+            "media_upload": 1,
             "delay": 0
         },
         {
-            "key": "field_69ef4f5d8ae62",
-            "label": "Person name",
+            "key": "field_69ef7f438f35d",
+            "label": "Person Name",
             "name": "person_name",
             "aria-label": "",
             "type": "text",
@@ -110,8 +63,8 @@
             "append": ""
         },
         {
-            "key": "field_69ef4f6c8ae63",
-            "label": "Person role",
+            "key": "field_69ef7f9b53a13",
+            "label": "Person Role",
             "name": "person_role",
             "aria-label": "",
             "type": "text",
@@ -136,7 +89,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/cb-video"
+                "value": "acf\/cb-single-quote"
             }
         ]
     ],
@@ -152,5 +105,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1777366816
+    "modified": 1777303482
 }

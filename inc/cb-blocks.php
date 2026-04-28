@@ -35,6 +35,23 @@ function acf_blocks() {
 
         acf_register_block_type(
             array(
+                'name'            => 'cb_solutions_hero',
+                'title'           => __( 'CB Solutions Hero' ),
+                'category'        => 'layout',
+                'icon'            => 'cover-image',
+                'render_template' => 'blocks/cb-solutions-hero.php',
+                'mode'            => 'edit',
+                'supports'        => array(
+                    'mode'      => false,
+                    'anchor'    => true,
+                    'className' => true,
+                    'align'     => true,
+                ),
+            )
+        );
+
+        acf_register_block_type(
+            array(
                 'name'            => 'cb_two_quotes',
                 'title'           => __( 'CB Two Quotes' ),
                 'category'        => 'layout',
@@ -78,6 +95,69 @@ function acf_blocks() {
                 'category'        => 'layout',
                 'icon'            => 'cover-image',
                 'render_template' => 'blocks/cb-logo-carousel.php',
+                'mode'            => 'edit',
+                'supports'        => array(
+                    'mode'      => false,
+                    'anchor'    => true,
+                    'className' => true,
+                    'align'     => true,
+					'color'		=> array(
+						'background' => true,
+						'text'       => true,
+					),
+                ),
+            )
+        );
+
+        acf_register_block_type(
+            array(
+                'name'            => 'cb_faqs',
+                'title'           => __( 'CB Faqs' ),
+                'category'        => 'layout',
+                'icon'            => 'cover-image',
+                'render_template' => 'blocks/cb-faqs.php',
+                'mode'            => 'edit',
+                'supports'        => array(
+                    'mode'      => false,
+                    'anchor'    => true,
+                    'className' => true,
+                    'align'     => true,
+					'color'		=> array(
+						'background' => true,
+						'text'       => true,
+					),
+                ),
+            )
+        );
+
+        acf_register_block_type(
+            array(
+                'name'            => 'cb_image_text',
+                'title'           => __( 'CB Image Text' ),
+                'category'        => 'layout',
+                'icon'            => 'cover-image',
+                'render_template' => 'blocks/cb-image-text.php',
+                'mode'            => 'edit',
+                'supports'        => array(
+                    'mode'      => false,
+                    'anchor'    => true,
+                    'className' => true,
+                    'align'     => true,
+					'color'		=> array(
+						'background' => true,
+						'text'       => true,
+					),
+                ),
+            )
+        );
+
+        acf_register_block_type(
+            array(
+                'name'            => 'cb_single_quote',
+                'title'           => __( 'CB Single Quote' ),
+                'category'        => 'layout',
+                'icon'            => 'cover-image',
+                'render_template' => 'blocks/cb-single-quote.php',
                 'mode'            => 'edit',
                 'supports'        => array(
                     'mode'      => false,
@@ -182,6 +262,66 @@ function acf_blocks() {
             )
         );
 
+        acf_register_block_type([
+            'name'            => 'cb-three-image-cards',
+            'title'           => __('CB Three Image Cards'),
+            'description'     => __('A custom Three Image Cards block.'),
+            'render_template' => 'blocks/cb-three-image-cards.php',
+            'category'        => 'formatting',
+            'icon'            => 'cover-image',
+            'mode'            => 'edit',
+                'supports'        => array(
+                    'mode'      => false,
+                    'anchor'    => true,
+                    'className' => true,
+                    'align'     => true,
+                    'color'		=> array(
+						'background' => true,
+						'text'       => true,
+					),
+                ),
+        ]);
+
+        acf_register_block_type([
+            'name'            => 'cb-why-you-need',
+            'title'           => __('CB Why You Need'),
+            'description'     => __('Why you need section with before + after image'),
+            'render_template' => 'blocks/cb-why-you-need.php',
+            'category'        => 'formatting',
+            'icon'            => 'cover-image',
+            'mode'            => 'edit',
+                'supports'        => array(
+                    'mode'      => false,
+                    'anchor'    => true,
+                    'className' => true,
+                    'align'     => true,
+                    'color'		=> array(
+						'background' => true,
+						'text'       => true,
+					),
+                ),
+        ]);
+
+        acf_register_block_type([
+            'name'            => 'cb-feature-grid',
+            'title'           => __('CB Feature Grid'),
+            'description'     => __('Feature Grid'),
+            'render_template' => 'blocks/cb-feature-grid.php',
+            'category'        => 'formatting',
+            'icon'            => 'cover-image',
+            'mode'            => 'edit',
+                'supports'        => array(
+                    'mode'      => false,
+                    'anchor'    => true,
+                    'className' => true,
+                    'align'     => true,
+                    'color'		=> array(
+						'background' => true,
+						'text'       => true,
+					),
+                ),
+        ]);
+
         acf_register_block_type(
             array(
                 'name'            => 'cb_all_integrations',
@@ -263,6 +403,10 @@ function acf_blocks() {
                     'anchor'    => true,
                     'className' => true,
                     'align'     => true,
+                    'color'		=> array(
+						'background' => true,
+						'text'       => true,
+					),
                 ),
             )
         );

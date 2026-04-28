@@ -1,0 +1,33 @@
+.three-image-cards {
+
+	&__title {
+		text-wrap: initial;
+		font-size: var(--fs-h2);
+	}
+
+	&__row {
+		margin-top: 2rem;
+	}
+
+	&__image {
+		aspect-ratio: 16 / 5;
+		object-fit: cover;
+		display: block;
+	}
+
+	p {
+		max-width: 350px;
+		line-height: 1.55;
+	}
+
+	@media (max-width: 767px) {
+		.d-flex {
+			flex-direction: column;
+			align-items: flex-start !important;
+		}
+
+		&__image {
+			aspect-ratio: 16 / 7;
+		}
+	}
+}

@@ -1,0 +1,27 @@
+.cb-quote {
+	position: relative;
+	padding: 5rem 0;
+	color: var(--col-main-blue);
+
+	.container {
+		position: relative;
+		z-index: 1;
+	}
+
+	&__content {
+		line-height: 1.25;
+        font-size: var(--fs-600);
+
+		p:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__credit {
+		margin-top: 2.5rem;
+
+		strong {
+			font-weight: 700;
+		}
+	}
+}

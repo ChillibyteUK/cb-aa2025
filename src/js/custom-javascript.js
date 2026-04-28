@@ -66,3 +66,43 @@ window.addEventListener("load", function () {
     once: true,
   });
 });
+
+document.addEventListener('click', function (event) {
+	const button = event.target.closest('.cb-faq__question');
+
+	if (!button) {
+		return;
+	}
+
+	const item = button.closest('.cb-faq__item');
+	const answer = item.querySelector('.cb-faq__answer');
+	const isOpen = item.classList.contains('is-open');
+
+	item.classList.toggle('is-open', !isOpen);
+	button.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+
+	if (isOpen) {
+		answer.setAttribute('hidden', '');
+	} else {
+		answer.removeAttribute('hidden');
+	}
+});
+
+document.addEventListener('click', function (e) {
+	const player = e.target.closest('.cb_video__player');
+
+	if (!player) {
+		return;
+	}
+
+	const videoId = player.dataset.videoId;
+
+	const iframe = document.createElement('iframe');
+	iframe.className = 'cb_video__iframe';
+	iframe.src = `https://player.vimeo.com/video/${videoId}?autoplay=1&title=0&byline=0&portrait=0`;
+	iframe.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture');
+	iframe.setAttribute('allowfullscreen', '');
+	iframe.setAttribute('title', 'Video');
+
+	player.replaceWith(iframe);
+});

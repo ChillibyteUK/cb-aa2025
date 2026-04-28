@@ -13,11 +13,16 @@ if ( ! $theme ) {
 } else {
 	$theme = 'cb_latest_posts--' . sanitize_html_class( $theme );
 }
+// Support Gutenberg color picker.
+$bg = ! empty( $block['backgroundColor'] ) ? 'has-' . $block['backgroundColor'] . '-background-color' : '';
+$fg = ! empty( $block['textColor'] ) ? 'has-' . $block['textColor'] . '-color' : '';
+
+$classes = $block['attrs']['className'] ?? 'py-5';
 
 $section_title = get_query_var( 'cb_latest_posts_title', get_field( 'title' ) );
 $class         = get_query_var( 'cb_latest_posts_class', '' );
 ?>
-<section class="cb_latest_posts <?= esc_attr( $theme ); ?>">
+<section class="cb_latest_posts <?php echo esc_attr( $bg . ' ' . $fg . ' ' . $classes ); ?>">
 	<div class="container">
 		<div class="d-flex justify-content-between align-items-center mb-4">
 			<h2 class="cb_latest_posts__title <?= esc_attr( $class ); ?>"><?= esc_html( $section_title ); ?></h2>

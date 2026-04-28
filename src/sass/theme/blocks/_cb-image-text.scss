@@ -1,0 +1,38 @@
+.cb-image-text {
+	padding: 5rem 0;
+
+	&__image {
+		display: block;
+		width: 100%;
+
+		&--mobile {
+			display: none;
+		}
+	}
+
+	&__content-col {
+		padding-top: 2rem;
+
+		@media (min-width: 992px) {
+			padding-top: 3rem;
+		}
+	}
+
+	&__title {
+		margin-bottom: 1.5rem;
+	}
+
+	&__content {
+		max-width: 420px;
+	}
+
+	@media (max-width: 767px) {
+		&__image--desktop {
+			display: none;
+		}
+
+		&__image--mobile {
+			display: block;
+		}
+	}
+}
