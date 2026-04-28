@@ -40,21 +40,24 @@
 
 	&__grid {
 		row-gap: 2rem;
+		justify-content: center;
 	}
 
 	&__grid-item {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		height: 90px;
+		min-height: 90px;
 	}
 
 	&--static {
 		.cb-logo-carousel__logo {
-			height: auto !important;
-			max-height: var(--_logo-size, 50px);
-			max-width: 100%;
+			display: block;
 			width: auto;
+			height: auto !important;
+			max-width: 200px;
+      max-height: 110px;
+			object-fit: contain;
 		}
 	}
 

@@ -23154,18 +23154,22 @@ blockquote.wp-block-quote cite::before {
 }
 .cb-logo-carousel__grid {
   row-gap: 2rem;
+  justify-content: center;
 }
 .cb-logo-carousel__grid-item {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 90px;
+  min-height: 90px;
 }
 .cb-logo-carousel--static .cb-logo-carousel__logo {
-  height: auto !important;
-  max-height: var(--_logo-size, 50px);
-  max-width: 100%;
+  display: block;
   width: auto;
+  height: auto !important;
+  max-width: 200px;
+  max-height: 110px;
+  -o-object-fit: contain;
+  object-fit: contain;
 }
 @media (max-width: 767px) {
   .cb-logo-carousel__slide, .cb-logo-carousel__grid-item {
