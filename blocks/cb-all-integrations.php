@@ -40,14 +40,14 @@ $integration_type_terms = get_terms(
 
 <div class="cb-all-integrations">
 	<!-- Search Bar -->
-	<div class="integrations-search-bar">
+	<!--<div class="integrations-search-bar">
 		<div class="container">
 			<div class="search-wrapper">
 				<input type="text" id="integration-search" placeholder="Search integrations" class="form-control">
 				<i class="fas fa-search search-icon"></i>
 			</div>
 		</div>
-	</div>
+	</div>-->
 
 	<div class="container py-5">
 		<div class="row">
@@ -111,7 +111,6 @@ $integration_type_terms = get_terms(
 							$integration_type_terms_list = wp_get_post_terms( get_the_ID(), 'integration_types', array( 'fields' => 'slugs' ) );
 							?>
 							<a class="integration-item"
-								href="<?= esc_url( get_permalink() ); ?>" 
 								data-title="<?= esc_attr( strtolower( get_the_title() ) ); ?>"
 								data-product="<?= esc_attr( implode( ',', $product_terms_list ) ); ?>"
 								data-category="<?= esc_attr( implode( ',', $integration_type_terms_list ) ); ?>">

@@ -23,11 +23,11 @@ defined( 'ABSPATH' ) || exit;
 					<button class="button button-green" type="button" id="footer-button">Stay informed</button>
 				</div>
             </div>
-            <div class="col-sm-6 col-lg-2 offset-lg-2 mb-2 pt-4">
+            <div class="col-sm-6 col-lg-2 offset-lg-2 mb-2 pt-4 invisible">
                 <div class="footer__title">Contact</div>
                 <?php wp_nav_menu( array( 'theme_location' => 'footer_menu1' ) ); ?>
             </div>
-            <div class="col-sm-6 col-lg-2 mb-2 pt-4">
+            <div class="col-sm-6 col-lg-2 mb-2 pt-4 invisible">
                 <div class="footer__title">Support</div>
                 <?php wp_nav_menu( array( 'theme_location' => 'footer_menu2' ) ); ?>
             </div>
