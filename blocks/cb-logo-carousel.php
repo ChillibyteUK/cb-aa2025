@@ -57,7 +57,7 @@ $logos        = get_field( 'logos' );
 			<div class="container">
 				<div class="row justify-content-center align-items-center cb-logo-carousel__grid" style="--_logo-size: <?= esc_attr( $logo_size ); ?>px;">
 					<?php foreach ( $logos as $logo ) : ?>
-						<div class="col-6 col-md-3 col-lg-2 cb-logo-carousel__grid-item">
+						<div class="col-6 col-sm-4 col-md-3 col-lg-2 cb-logo-carousel__grid-item">
 							<?= wp_get_attachment_image(
 								$logo,
 								'full',

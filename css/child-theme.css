@@ -23137,16 +23137,18 @@ blockquote.wp-block-quote cite::before {
 }
 .cb-logo-carousel__slide {
   flex: 0 0 auto;
-  width: auto;
+  width: 180px;
+  height: 90px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .cb-logo-carousel__logo {
   display: block;
-  height: var(--_logo-size, 50px) !important;
   width: auto;
-  max-width: none;
+  height: auto !important;
+  max-width: 100%;
+  max-height: var(--_logo-size, 50px);
   -o-object-fit: contain;
   object-fit: contain;
 }
@@ -23157,7 +23159,7 @@ blockquote.wp-block-quote cite::before {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: calc(var(--_logo-size, 50px) + 2rem);
+  height: 90px;
 }
 .cb-logo-carousel--static .cb-logo-carousel__logo {
   height: auto !important;
@@ -23166,12 +23168,13 @@ blockquote.wp-block-quote cite::before {
   width: auto;
 }
 @media (max-width: 767px) {
-  .cb-logo-carousel--static .cb-logo-carousel__grid-item {
-    min-height: 80px;
+  .cb-logo-carousel__slide, .cb-logo-carousel__grid-item {
+    height: 80px;
+    width: 140px;
   }
-  .cb-logo-carousel--static .cb-logo-carousel__logo {
+  .cb-logo-carousel__logo {
     max-height: 60px;
-    max-width: 160px;
+    max-width: 140px;
   }
 }
 
