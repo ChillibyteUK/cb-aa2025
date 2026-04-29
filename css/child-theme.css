@@ -20998,6 +20998,7 @@ body {
   font-family: var(--ff-body);
   font-weight: var(--fw-400);
   font-size: var(--fs-400);
+  color: var(--col-main-blue);
   line-height: 1.556;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
