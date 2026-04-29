@@ -10,6 +10,19 @@
 
 @import "../assets/bootstrap5/functions";
 @import "../assets/bootstrap5/variables";
+
+// Override spacer scale
+$spacer: 1rem;
+
+$spacers: (
+  0: 0,
+  1: $spacer * .25,
+  2: $spacer * .5,
+  3: $spacer,
+  4: $spacer * 2,
+  5: $spacer * 5
+);
+
 @import "../assets/bootstrap5/utilities";
 
 $utilities: map-merge( 

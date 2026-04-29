@@ -19,12 +19,12 @@ $title   = get_field( 'title' );
 $content = get_field( 'content' );
 $reverse = get_field( 'reverse' );
 
-$image_col   = 'col-lg-6';
-$content_col = 'col-lg-5 offset-lg-1 cb-image-text__content-col';
+$image_col   = 'col-lg-8';
+$content_col = 'col-lg-4 cb-image-text__content-col';
 
 if ( $reverse ) {
-	$image_col   .= ' order-lg-2';
-	$content_col = 'col-lg-5 offset-lg-0 me-lg-auto cb-image-text__content-col order-lg-1';
+	$image_col   .= ' order-lg-8';
+	$content_col = 'col-lg-4 offset-lg-0 me-lg-auto cb-image-text__content-col order-lg-1';
 }
 ?>
 

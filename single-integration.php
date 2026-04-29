@@ -7,25 +7,65 @@
 
 defined( 'ABSPATH' ) || exit;
 get_header();
+
+$acf_logo = get_field( 'integration_logo' );
 ?>
+
 <main id="main" class="single_integration">
-    <?php
-    $content = get_the_content();
-    $blocks  = parse_blocks( $content );
-    $sidebar = array();
-    $after;
-    ?>
-    <section class="breadcrumbs container-xl">
-    <?php
-    if ( function_exists( 'yoast_breadcrumb' ) ) {
-        yoast_breadcrumb( '<p id="breadcrumbs">', '</p>' );
-    }
-    ?>
-    </section>
-    <div class="container-xl">
-		<h1 class="single_blog__title"><?= esc_html( get_the_title() ); ?></h1>
-		<?= apply_filters( 'the_content', $content ); ?>
+
+	
+
+	<section class="single_integration__hero">
+		<div class="container-xl">
+			<div class="single_integration__hero-inner">
+
+				<div class="single_integration__logo">
+
+                    <?php if ( $acf_logo ) : ?>
+
+                        <?= wp_get_attachment_image(
+                            $acf_logo,
+                            'large',
+                            false,
+                            array(
+                                'class' => 'single_integration__logo-image',
+                                'alt'   => esc_attr( get_the_title() ),
+                            )
+                        ); ?>
+
+                    <?php elseif ( has_post_thumbnail() ) : ?>
+
+                        <?= get_the_post_thumbnail(
+                            get_the_ID(),
+                            'large',
+                            array(
+                                'class' => 'single_integration__logo-image',
+                                'alt'   => esc_attr( get_the_title() ),
+                            )
+                        ); ?>
+
+                    <?php endif; ?>
+
+                </div>
+
+			</div>
+		</div>
+	</section>
+
+	<div class="container-xl py-5">
+            <div class="col-12 col-md-9 mx-auto">
+                <?php
+                $integration_title = get_field( 'integration_title' );
+                ?>
+
+                <h1 class="single_integration__title">
+                    <?= esc_html( $integration_title ?: get_the_title() ); ?>
+                </h1>
+                <?= apply_filters( 'the_content', get_the_content() ); ?>
+            </div>
     </div>
+
 </main>
+
 <?php
 get_footer();

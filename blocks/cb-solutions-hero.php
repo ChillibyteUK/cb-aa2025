@@ -60,7 +60,7 @@ $feature_image    = get_field( 'feature_image' );
 
 		<?php if ( $feature_image ) : ?>
 			<div class="row justify-content-center">
-				<div class="col-lg-10">
+				<div class="col-lg-12">
 					<?= wp_get_attachment_image(
 						$feature_image,
 						'large',

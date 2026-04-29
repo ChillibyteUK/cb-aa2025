@@ -7,11 +7,11 @@
 
 defined( 'ABSPATH' ) || exit;
 
-$classes = $block['attrs']['className'] ?? 'py-5';
+$classes = $block['attrs']['className'] ?? 'py-4';
 ?>
 
 <section class="three-image-cards <?php echo esc_attr( $classes ); ?>">
-	<div class="container py-5">
+	<div class="container py-4">
 
 		<div class="row align-items-center mb-5">
 			<div class="col-lg-6">

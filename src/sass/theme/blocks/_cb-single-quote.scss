@@ -10,7 +10,8 @@
 
 	&__content {
 		line-height: 1.25;
-        font-size: var(--fs-600);
+        font-size: var(--fs-900);
+		font-family: var(--ff-title);
 
 		p:last-child {
 			margin-bottom: 0;

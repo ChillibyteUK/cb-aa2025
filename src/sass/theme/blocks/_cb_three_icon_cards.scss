@@ -12,7 +12,7 @@
 		z-index: 5;
 	}
     &__title {
-        margin-bottom: 2rem;
+        margin-bottom: 4rem;
         text-wrap: initial;
     }
 
@@ -30,7 +30,7 @@
     }
     .three-icon-cards__card {
         height: 100%;
-        padding: 3rem 2rem;
+        padding: 2rem;
         background: #112C4D;
         text-align: left;
     }
@@ -40,6 +40,7 @@
     }
     h3 {
         min-height: 3em;
+        font-size: var(--fs-900);
     }
     @media (max-width: 768px) {
         .three-icon-cards__col {

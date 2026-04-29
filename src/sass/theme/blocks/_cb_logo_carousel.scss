@@ -15,7 +15,7 @@
 	&__track {
 		.cb-logo-carousel__slides {
 			display: flex;
-			align-items: center;
+			align-items: flex-end;
 			column-gap: 4rem;
 		}
 	}
@@ -25,7 +25,7 @@
 		width: 180px;
 		height: 90px;
 		display: flex;
-		align-items: center;
+		align-items: flex-end;
 		justify-content: center;
 	}
 
@@ -33,7 +33,7 @@
 		display: block;
 		width: auto;
 		height: auto !important;
-		max-width: 100%;
+		max-width: 150px;
 		max-height: var(--_logo-size, 50px);
 		object-fit: contain;
 	}
@@ -45,7 +45,7 @@
 
 	&__grid-item {
 		display: flex;
-		align-items: center;
+		align-items: flex-end;
 		justify-content: center;
 		min-height: 90px;
 	}
@@ -56,16 +56,19 @@
 			width: auto;
 			height: auto !important;
 			max-width: 200px;
-      max-height: 110px;
+			max-height: 110px;
 			object-fit: contain;
 		}
 	}
 
 	@media (max-width: 767px) {
-		&__slide,
-		&__grid-item {
+		&__slide {
 			height: 80px;
 			width: 140px;
+		}
+
+		&__grid-item {
+			min-height: 80px;
 		}
 
 		&__logo {

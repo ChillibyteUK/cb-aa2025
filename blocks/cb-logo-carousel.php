@@ -10,7 +10,7 @@ defined( 'ABSPATH' ) || exit;
 // Block ID.
 $block_id = $block['id'] ?? '';
 
-$classes = $block['attrs']['className'] ?? 'py-5';
+$classes = $block['attrs']['className'] ?? 'pt-3 pb-5';
 
 // Support Gutenberg color picker.
 $bg = ! empty( $block['backgroundColor'] ) ? 'has-' . $block['backgroundColor'] . '-background-color' : '';
@@ -32,7 +32,9 @@ $is_static    = 'static' === $display_mode;
 $logos        = get_field( 'logos' );
 ?>
 
-<section id="<?php echo esc_attr( $block_id ); ?>" class="cb-logo-carousel cb-logo-carousel--<?php echo esc_attr( $display_mode ); ?> <?php echo esc_attr( $bg . ' ' . $fg . ' ' . $classes ); ?>">
+<section id="<?php echo esc_attr( $block_id ); ?>"
+	class="cb-logo-carousel cb-logo-carousel--<?php echo esc_attr( $display_mode ); ?> <?php echo esc_attr( $bg . ' ' . $fg . ' ' . $classes ); ?>"
+	style="--_logo-size: <?= esc_attr( $logo_size ); ?>px;">
 
 	<?php if ( get_field( 'title' ) ) : ?>
 		<div class="container">
@@ -55,7 +57,7 @@ $logos        = get_field( 'logos' );
 		<?php if ( $is_static ) : ?>
 
 			<div class="container">
-				<div class="row justify-content-center align-items-center cb-logo-carousel__grid" style="--_logo-size: <?= esc_attr( $logo_size ); ?>px;">
+				<div class="row justify-content-center align-items-center cb-logo-carousel__grid">
 					<?php foreach ( $logos as $logo ) : ?>
 						<div class="col-6 col-md-3 cb-logo-carousel__grid-item">
 							<?= wp_get_attachment_image(
@@ -76,7 +78,7 @@ $logos        = get_field( 'logos' );
 
 			<div class="cb-logo-carousel__marquee py-4">
 				<div class="cb-logo-carousel__track">
-					<div class="cb-logo-carousel__slides" style="--_logo-size: <?= esc_attr( $logo_size ); ?>px;">
+					<div class="cb-logo-carousel__slides">
 						<?php foreach ( $logos as $logo ) : ?>
 							<div class="cb-logo-carousel__slide">
 								<?= wp_get_attachment_image(
