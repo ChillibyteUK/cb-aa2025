@@ -21906,11 +21906,10 @@ strong, b {
 }
 
 .single_integration {
-  margin-top: calc(var(--h-top) + 1rem);
+  /*margin-top: calc( var(--h-top) + 1rem);*/
 }
 .single_integration__hero {
   padding: 4rem 0;
-  background: #435f50;
   color: #fff;
   text-align: center;
 }
@@ -21926,8 +21925,7 @@ strong, b {
 }
 .single_integration__logo-image {
   display: block;
-  max-width: 140px;
-  max-height: 100px;
+  max-width: 350px;
   width: auto;
   height: auto;
   -o-object-fit: contain;

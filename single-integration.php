@@ -15,7 +15,7 @@ $acf_logo = get_field( 'integration_logo' );
 
 	
 
-	<section class="single_integration__hero">
+	<section class="single_integration__hero has-off-white-background-color">
 		<div class="container-xl">
 			<div class="single_integration__hero-inner">
 
