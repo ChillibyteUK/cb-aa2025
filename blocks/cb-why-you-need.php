@@ -28,7 +28,7 @@ $classes = $block['attrs']['className'] ?? 'py-5';
 		<?php endif; ?>
 
 		<div class="row align-items-start cb-why-you-need__comparison">
-			<div class="col-md-5">
+			<div class="col-md-6">
 				<?php if ( get_field( 'before_title' ) ) : ?>
 					<h3 class="cb-why-you-need__label">
 						<?= esc_html( get_field( 'before_title' ) ); ?>
