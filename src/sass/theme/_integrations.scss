@@ -1,5 +1,5 @@
 .single_integration {
-	/*margin-top: calc( var(--h-top) + 1rem);*/
+	margin-top: calc( var(--h-top) - 1rem);
 	&__hero {
 		padding: 4rem 0;
 		color: #fff;
@@ -20,7 +20,7 @@
 
 	&__logo-image {
 		display: block;
-		max-width: 350px;
+		max-width: 350px!important;
 		width: auto;
 		height: auto;
 		object-fit: contain;

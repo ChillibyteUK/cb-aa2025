@@ -111,6 +111,7 @@ $integration_type_terms = get_terms(
 							$integration_type_terms_list = wp_get_post_terms( get_the_ID(), 'integration_types', array( 'fields' => 'slugs' ) );
 							?>
 							<a class="integration-item"
+								href="<?= esc_url( get_the_permalink() ); ?>"
 								data-title="<?= esc_attr( strtolower( get_the_title() ) ); ?>"
 								data-product="<?= esc_attr( implode( ',', $product_terms_list ) ); ?>"
 								data-category="<?= esc_attr( implode( ',', $integration_type_terms_list ) ); ?>">
