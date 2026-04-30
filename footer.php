@@ -62,8 +62,8 @@ if ( get_field( 'gtm_property', 'options' ) ) {
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 	<?php
-}
-
+} 
+?>
 
 <?php if ( $portal_id = get_field( 'hs_property', 'options' ) ) : ?>
 	<script
