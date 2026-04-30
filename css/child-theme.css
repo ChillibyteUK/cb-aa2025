@@ -21932,6 +21932,14 @@ strong, b {
   -o-object-fit: contain;
   object-fit: contain;
 }
+.single_integration .single_integration_content .wp-block-heading,
+.single_integration .single_integration_content p,
+.single_integration .single_integration_content .wp-block-list {
+  margin-bottom: 2rem;
+}
+.single_integration .single_integration_content .wp-block-list li {
+  margin-bottom: 1rem;
+}
 .single_integration__title {
   margin-bottom: 4rem;
 }

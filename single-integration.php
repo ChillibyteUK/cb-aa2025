@@ -53,7 +53,7 @@ $acf_logo = get_field( 'integration_logo' );
 	</section>
 
 	<div class="container-xl py-5">
-            <div class="col-12 col-md-9 mx-auto">
+            <div class="col-12 col-md-9 mx-auto single_integration__content">
                 <?php
                 $integration_title = get_field( 'integration_title' );
                 ?>
