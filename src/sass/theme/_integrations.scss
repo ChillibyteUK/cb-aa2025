@@ -25,12 +25,12 @@
 		height: auto;
 		object-fit: contain;
 	}
-	.single_integration_content .wp-block-heading, 
-	.single_integration_content p, 
-	.single_integration_content .wp-block-list {
+	&__content .wp-block-heading, 
+	&__content p, 
+	&__content .wp-block-list {
 		margin-bottom: 2rem;
 	}
-	.single_integration_content .wp-block-list li {
+	&__content .wp-block-list li {
 		margin-bottom: 1rem;
 	}
 

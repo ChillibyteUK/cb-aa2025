@@ -134,3 +134,24 @@ add_filter(
     99,
     2
 );
+
+add_action(
+	'init',
+	function () {
+		register_block_style(
+			'core/button',
+			array(
+				'name'  => 'primary-arrow',
+				'label' => __( 'Primary Arrow Button', 'cb-aa2025' ),
+			)
+		);
+
+		register_block_style(
+			'core/button',
+			array(
+				'name'  => 'text-arrow',
+				'label' => __( 'Text Arrow Link', 'cb-aa2025' ),
+			)
+		);
+	}
+);

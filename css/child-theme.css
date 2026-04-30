@@ -21405,17 +21405,17 @@ strong, b {
 
 .wp-block-button__link, body .gform_wrapper .gform_footer button {
   position: relative;
-  font-family: var(--ff-title);
+  /*font-family: var(--ff-title);
   font-weight: var(--fw-600);
-  font-size: var(--fs-200) !important;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  font-size: var(--fs-200) !important;*/
+  /*text-transform: uppercase;*/
+  /*letter-spacing: 1px;*/
   background-color: var(--col-highlight-green);
   border: none;
   color: white;
   display: inline;
-  padding: 0.5rem 2rem !important;
-  border-radius: 0;
+  padding: 0.5rem 1.5rem !important;
+  border-radius: 0.5rem !important;
   transition: background-color var(--transition), transform var(--transition), box-shadow var(--transition);
   align-self: flex-start;
 }
@@ -21440,7 +21440,7 @@ strong, b {
 }
 
 .btn {
-  border-radius: 0.25rem;
+  border-radius: 0.5rem !important;
   padding: 0.5rem 2rem !important;
   min-width: 200px;
   text-align: center;
@@ -21557,7 +21557,7 @@ strong, b {
   color: var(--col-main-blue);
 }
 
-.green-arrow {
+.green-arrow, .wp-block-button.is-style-text-arrow .wp-block-button__link, .wp-block-button.is-style-text-arrow body .gform_wrapper .gform_footer button, body .gform_wrapper .gform_footer .wp-block-button.is-style-text-arrow button {
   background-color: transparent;
   color: var(--col-highlight-green);
   font-weight: var(--fw-bold);
@@ -21565,7 +21565,7 @@ strong, b {
   padding-right: 2.5rem;
   display: inline-block;
 }
-.green-arrow::after {
+.green-arrow::after, .wp-block-button.is-style-text-arrow .wp-block-button__link::after, .wp-block-button.is-style-text-arrow body .gform_wrapper .gform_footer button::after, body .gform_wrapper .gform_footer .wp-block-button.is-style-text-arrow button::after {
   content: "";
   position: absolute;
   display: inline-block;
@@ -21580,7 +21580,7 @@ strong, b {
   background-repeat: no-repeat;
   background-size: contain;
 }
-.green-arrow:hover {
+.green-arrow:hover, .wp-block-button.is-style-text-arrow .wp-block-button__link:hover, .wp-block-button.is-style-text-arrow body .gform_wrapper .gform_footer button:hover, body .gform_wrapper .gform_footer .wp-block-button.is-style-text-arrow button:hover {
   color: var(--col-white);
 }
 
@@ -21611,7 +21611,7 @@ strong, b {
   color: color-mix(in srgb, var(--col-main-blue), #ffffff 10%);
 }
 
-.button-green {
+.button-green, .wp-block-button.is-style-primary-arrow .wp-block-button__link, .wp-block-button.is-style-primary-arrow body .gform_wrapper .gform_footer button, body .gform_wrapper .gform_footer .wp-block-button.is-style-primary-arrow button {
   min-width: 180px;
   padding: 0.5rem 1.5rem;
   background-color: var(--col-highlight-green);
@@ -21624,19 +21624,19 @@ strong, b {
   transition: background-color 0.2s ease;
 }
 
-.button-green:hover {
+.button-green:hover, .wp-block-button.is-style-primary-arrow .wp-block-button__link:hover, .wp-block-button.is-style-primary-arrow body .gform_wrapper .gform_footer button:hover, body .gform_wrapper .gform_footer .wp-block-button.is-style-primary-arrow button:hover {
   background-color: var(--col-highlight-green);
   color: var(--col-main-blue);
 }
 
-.button-green--arrow {
+.button-green--arrow, .wp-block-button.is-style-primary-arrow .wp-block-button__link, .wp-block-button.is-style-primary-arrow body .gform_wrapper .gform_footer button, body .gform_wrapper .gform_footer .wp-block-button.is-style-primary-arrow button {
   display: inline-flex;
   justify-content: space-between;
   align-items: center;
   gap: 0.5rem;
 }
 
-.button-green--arrow::after {
+.button-green--arrow::after, .wp-block-button.is-style-primary-arrow .wp-block-button__link::after, .wp-block-button.is-style-primary-arrow body .gform_wrapper .gform_footer button::after, body .gform_wrapper .gform_footer .wp-block-button.is-style-primary-arrow button::after {
   content: "";
   display: inline-block;
   width: 20px;
@@ -21648,8 +21648,23 @@ strong, b {
   transition: transform 0.2s ease;
 }
 
-.button-green--arrow:hover::after {
+.button-green--arrow:hover::after, .wp-block-button.is-style-primary-arrow .wp-block-button__link:hover::after, .wp-block-button.is-style-primary-arrow body .gform_wrapper .gform_footer button:hover::after, body .gform_wrapper .gform_footer .wp-block-button.is-style-primary-arrow button:hover::after {
   transform: translateX(4px);
+}
+
+.wp-block-button.is-style-primary-arrow .wp-block-button__link, .wp-block-button.is-style-primary-arrow body .gform_wrapper .gform_footer button, body .gform_wrapper .gform_footer .wp-block-button.is-style-primary-arrow button {
+  margin-top: 1rem;
+}
+
+.wp-block-button.is-style-text-arrow .wp-block-button__link, .wp-block-button.is-style-text-arrow body .gform_wrapper .gform_footer button, body .gform_wrapper .gform_footer .wp-block-button.is-style-text-arrow button {
+  margin-top: 1rem;
+  padding-left: 0 !important;
+}
+.wp-block-button.is-style-text-arrow .wp-block-button__link::after, .wp-block-button.is-style-text-arrow body .gform_wrapper .gform_footer button::after, body .gform_wrapper .gform_footer .wp-block-button.is-style-text-arrow button::after {
+  top: 0.65rem;
+}
+.wp-block-button.is-style-text-arrow .wp-block-button__link:hover, .wp-block-button.is-style-text-arrow body .gform_wrapper .gform_footer button:hover, body .gform_wrapper .gform_footer .wp-block-button.is-style-text-arrow button:hover {
+  color: var(--col-main-blue);
 }
 
 .deal {
@@ -21932,12 +21947,10 @@ strong, b {
   -o-object-fit: contain;
   object-fit: contain;
 }
-.single_integration .single_integration_content .wp-block-heading,
-.single_integration .single_integration_content p,
-.single_integration .single_integration_content .wp-block-list {
+.single_integration__content .wp-block-heading, .single_integration__content p, .single_integration__content .wp-block-list {
   margin-bottom: 2rem;
 }
-.single_integration .single_integration_content .wp-block-list li {
+.single_integration__content .wp-block-list li {
   margin-bottom: 1rem;
 }
 .single_integration__title {
