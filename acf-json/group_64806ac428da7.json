@@ -255,6 +255,27 @@
             "append": ""
         },
         {
+            "key": "field_69f3094b034e2",
+            "label": "Hubspot Property",
+            "name": "hs_property",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_648c442a338f6",
             "label": "Google Site Verification",
             "name": "google_site_verification",
@@ -313,5 +334,8 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1774351084
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1777535324
 }
