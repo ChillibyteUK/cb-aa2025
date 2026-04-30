@@ -230,7 +230,7 @@ $bgalign = $bgalign ? $bgalign : 'bottom';
 				if ( $tfooter_notes ) :
 					?>
 					<div class="comparison-table__footnotes">
-						<?= nl2br( esc_html( $tfooter_notes ) ); ?>
+						<?= wp_kses_post( wpautop( $tfooter_notes ) ); ?>
 					</div>
 					<?php
 				endif;
