@@ -9,7 +9,7 @@ defined( 'ABSPATH' ) || exit;
 
 $bg      = ! empty( $block['backgroundColor'] ) ? 'has-' . $block['backgroundColor'] . '-background-color' : '';
 $fg      = ! empty( $block['textColor'] ) ? 'has-' . $block['textColor'] . '-color' : '';
-$classes = $block['attrs']['className'] ?? 'py-5';
+$classes = $block['attrs']['className'] ?? 'pt-5 pb-4';
 ?>
 
 <section class="cb-feature-grid <?php echo esc_attr( $bg . ' ' . $fg . ' ' . $classes ); ?>">
