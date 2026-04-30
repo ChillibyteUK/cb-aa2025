@@ -22920,6 +22920,11 @@ blockquote.wp-block-quote cite::before {
   margin-bottom: 0;
 }
 
+.comparison-table__footnotes {
+  font-size: var(--fs-menu-descr);
+  padding-top: 1rem;
+}
+
 .cb-all-integrations {
   background: white;
 }

@@ -195,6 +195,7 @@ $bgalign = $bgalign ? $bgalign : 'bottom';
 				$current_group = '';
 				while ( have_rows( 'call_comparison' ) ) {
 					the_row();
+
 					$group = get_sub_field( 'group' );
 					
 					// Output group header if group has changed and is not empty
@@ -222,6 +223,18 @@ $bgalign = $bgalign ? $bgalign : 'bottom';
 				<?php
 			}
 			?>
+
+			<?php
+				$tfooter_notes = get_field( 'tfooter_note' );
+
+				if ( $tfooter_notes ) :
+					?>
+					<div class="comparison-table__footnotes">
+						<?= nl2br( esc_html( $tfooter_notes ) ); ?>
+					</div>
+					<?php
+				endif;
+				?>
 		</div>
 		<section class="has-off-white-background-color has-main-blue-color" id="call_faq">
 			<div class="container py-5">

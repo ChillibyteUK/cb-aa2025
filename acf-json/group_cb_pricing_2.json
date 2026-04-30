@@ -844,6 +844,27 @@
             ]
         },
         {
+            "key": "field_69f35c1afbf6d",
+            "label": "Table footer notes",
+            "name": "tfooter_note",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": "",
+            "placeholder": "",
+            "new_lines": "wpautop"
+        },
+        {
             "key": "field_69778eb71ac71",
             "label": "FAQs",
             "name": "call_faqs",
@@ -1824,5 +1845,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1777554780
+    "modified": 1777557328
 }
