@@ -65,16 +65,14 @@ if ( get_field( 'gtm_property', 'options' ) ) {
 }
 
 
-if ( get_field( 'hs_property', 'options' ) ) {
-    ?>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe
-        src="https://www.googletagmanager.com/ns.html?id=<?= esc_attr( get_field( 'hs_property', 'options' ) ); ?>"
-        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-	<?php
-}
-?>
+<?php if ( $portal_id = get_field( 'hs_property', 'options' ) ) : ?>
+	<script
+		id="hs-script-loader"
+		async
+		defer
+		src="<?php echo esc_url( "//js-eu1.hs-scripts.com/{$portal_id}.js" ); ?>">
+	</script>
+<?php endif; ?>
 
 </body>
 
