@@ -22,24 +22,50 @@ get_header();
 					<ul class="fa-ul">
 						<?php
 						$field   = strip_tags( get_field( 'checklist' ), '<br />' );
-    					$bullets = preg_split( "/\r\n|\n|\r/", $field );
-    					foreach ( $bullets as $b ) {
-        					if ( '' === $b ) {
-            					continue;
-        					}
-    						?>
-        					<li class="mb-2"><span class="fa-li"><i class="fa-solid fa-check fs-500 has-highlight-green-color"></i></span> <?= wp_kses_post( $b ); ?></li>
+						$bullets = preg_split( "/\r\n|\n|\r/", $field );
+
+						foreach ( $bullets as $b ) {
+							if ( '' === $b ) {
+								continue;
+							}
+							?>
+							<li class="mb-2"><span class="fa-li"><i class="fa-solid fa-check fs-500 has-highlight-green-color"></i></span> <?= wp_kses_post( $b ); ?></li>
 							<?php
-    					}
+						}
 						?>
 					</ul>
 				</div>
+
 				<div class="col-md-6 offset-md-1">
 					<div class="trial-form__form">
 						<div class="has-main-blue-color fs-600">Sign up for a <strong>free trial</strong></div>
-						<?= do_shortcode( '[gravityform id="' . get_field( 'form_id' ) . '" title="false"]' ); ?>
+
+						<?php
+						$hubspot_portal_id = get_field( 'hs_property', 'option' );
+						$hubspot_form_id   = get_field( 'hubspot_form_id' );
+						?>
+
+						<?php if ( $hubspot_portal_id && $hubspot_form_id ) : ?>
+							<script
+								src="https://js-eu1.hsforms.net/forms/embed/<?= esc_attr( $hubspot_portal_id ); ?>.js"
+								defer>
+							</script>
+
+							<div
+								class="hs-form-frame"
+								data-region="eu1"
+								data-form-id="<?= esc_attr( $hubspot_form_id ); ?>"
+								data-portal-id="<?= esc_attr( $hubspot_portal_id ); ?>">
+							</div>
+						<?php endif; ?>
+
+						<?php
+						// Gravity Forms fallback/previous implementation.
+						// echo do_shortcode( '[gravityform id="' . get_field( 'form_id' ) . '" title="false"]' );
+						?>
 					</div>
 				</div>
+
 				<div class="col-md-10 offset-md-1 pt-5 my-5">
 					<div class="fs-600 text-white lh-snug mb-4">
 						<?= wp_kses_post( get_field( 'quote' ) ); ?>
@@ -51,11 +77,12 @@ get_header();
 			</div>
 		</div>
 	</section>
-    <?php
+
+	<?php
 	set_query_var( 'cb_latest_posts_title', 'More stories for you' );
 	set_query_var( 'cb_latest_posts_class', 'fs-600' );
 	get_template_part( 'page-templates/blocks/cb-latest-posts' );
-    ?>
+	?>
 </main>
 <?php
 get_footer();

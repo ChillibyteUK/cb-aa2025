@@ -129,6 +129,27 @@
             "append": ""
         },
         {
+            "key": "field_69fb111fab5c4",
+            "label": "Hubspot Form ID",
+            "name": "hubspot_form_id",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_68b6a804f61a5",
             "label": "Quote",
             "name": "quote",
@@ -189,5 +210,8 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1756801050
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1778061624
 }
