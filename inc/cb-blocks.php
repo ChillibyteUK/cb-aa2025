@@ -172,6 +172,27 @@ function acf_blocks() {
             )
         );
 
+        acf_register_block_type(
+            array(
+                'name'            => 'cb_cta',
+                'title'           => __( 'CB CTA' ),
+                'category'        => 'layout',
+                'icon'            => 'cover-image',
+                'render_template' => 'blocks/cb-cta.php',
+                'mode'            => 'edit',
+                'supports'        => array(
+                    'mode'      => false,
+                    'anchor'    => true,
+                    'className' => true,
+                    'align'     => true,
+					'color'		=> array(
+						'background' => true,
+						'text'       => true,
+					),
+                ),
+            )
+        );
+
 
         acf_register_block_type(
             array(

@@ -23607,6 +23607,50 @@ blockquote.wp-block-quote cite::before {
   font-weight: 700;
 }
 
+.cb-cta-banner {
+  position: relative;
+  overflow: hidden;
+  padding: 7rem 0;
+  background: var(--col-off-white);
+  color: var(--col-main-blue);
+}
+.cb-cta-banner__background {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 100%;
+  max-width: 1500px;
+  height: auto;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.8;
+}
+.cb-cta-banner .container, .cb-cta-banner .wp-block-group.alignfull > .wp-block-group__inner-container {
+  position: relative;
+  z-index: 2;
+}
+.cb-cta-banner h2, .cb-cta-banner .h2 {
+  margin-bottom: 2rem;
+}
+.cb-cta-banner__content {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.cb-cta-banner__content p:last-child {
+  margin-bottom: 0;
+}
+@media (max-width: 767px) {
+  .cb-cta-banner {
+    padding: 5rem 0;
+  }
+  .cb-cta-banner__background {
+    width: 180%;
+  }
+  .cb-cta-banner__buttons {
+    flex-direction: column;
+  }
+}
+
 body {
   color: var(--body-color);
 }
