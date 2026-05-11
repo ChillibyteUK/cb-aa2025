@@ -23630,6 +23630,7 @@ blockquote.wp-block-quote cite::before {
   z-index: 2;
 }
 .cb-cta-banner h2, .cb-cta-banner .h2 {
+  font-size: var(--fs-h2);
   margin-bottom: 2rem;
 }
 .cb-cta-banner__content {
