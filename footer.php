@@ -48,7 +48,7 @@ defined( 'ABSPATH' ) || exit;
             <div>&copy; <?= esc_html( gmdate( 'Y' ) ); ?> Automated Analytics LLC. All Rights Reserved.</div>
             <div class="colophon__links">
                 <a href="/terms/">Terms &amp; Conditions</a> |
-                <a href="/privacy/">Privacy Policy</a> |
+                <a href="/privacy-policy/">Privacy Policy</a> |
                 <a href="/cookies/">Cookie Preferences</a>
             </div>
         </div>
