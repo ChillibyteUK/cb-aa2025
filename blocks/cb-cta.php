@@ -14,8 +14,8 @@ $fg = ! empty( $block['textColor'] ) ? 'has-' . $block['textColor'] . '-color' :
 $classes = $block['attrs']['className'] ?? '';
 
 $background_image = get_field( 'bg_image' );
-$primary_link     = get_field( 'primary_link' );
-$secondary_link   = get_field( 'secondary_link' );
+$primary_link     = get_field( 'trial_link' );
+$secondary_link   = get_field( 'more_link' );
 ?>
 
 <section class="cb-cta-banner <?php echo esc_attr( $bg . ' ' . $fg . ' ' . $classes ); ?>">
