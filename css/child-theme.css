@@ -23634,7 +23634,6 @@ blockquote.wp-block-quote cite::before {
   margin-bottom: 2rem;
 }
 .cb-cta-banner__content {
-  max-width: 720px;
   margin: 0 auto;
 }
 .cb-cta-banner__content p:last-child {

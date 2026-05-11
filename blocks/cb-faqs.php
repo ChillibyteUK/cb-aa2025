@@ -47,7 +47,7 @@ $schema = array(
 			</h2>
 		<?php endif; ?>
 
-		<div class="row justify-content-center cb-faq__grid">
+		<div class="row justify-content-start cb-faq__grid">
 
 			<?php foreach ( $faqs as $index => $faq ) : ?>
 				<?php
