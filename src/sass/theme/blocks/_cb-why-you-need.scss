@@ -60,6 +60,10 @@
 	}
 
 	@media (max-width: 767px) {
+
+		h2 {
+			font-size: var(--fs-700);
+		}
 		&__after {
 			margin-top: 4rem;
 

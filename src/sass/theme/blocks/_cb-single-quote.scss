@@ -25,4 +25,9 @@
 			font-weight: 700;
 		}
 	}
+	@media (max-width: 768px) {
+		&__content {
+			font-size: var(--fs-600);
+		}
+	}
 }

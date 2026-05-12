@@ -94,4 +94,9 @@
 			font-weight: 700;
 		}
 	}
+	@media (max-width: 768px) { 
+		&__description {
+			font-size: var(--fs-600);
+		}
+	}
 }

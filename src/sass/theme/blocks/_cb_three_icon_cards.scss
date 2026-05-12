@@ -3,7 +3,7 @@
 	position: relative;
 	z-index: 2;
 
-    @media (max-width: 768px) {
+	@media (max-width: 768px) {
 		padding-bottom: 1rem;
 	}
 
@@ -11,6 +11,7 @@
 		margin-top: -20rem;
 		z-index: 5;
 	}
+
     &__title {
         margin-bottom: 4rem;
         text-wrap: initial;
@@ -20,15 +21,17 @@
 		padding-top: 0 !important;
 	}
     
-    .three-icon-cards__row {
+    &__row {
         margin-left: -2rem;
 	    margin-right: -2rem;
     }
-    .three-icon-cards__col {
+
+    &__col {
         padding-left: 2rem;
 	    padding-right: 2rem;
     }
-    .three-icon-cards__card {
+
+    &__card {
         height: 100%;
         padding: 2rem;
         background: #112C4D;
@@ -38,15 +41,23 @@
     svg {
         color: var(--col-highlight-green);
     }
+
     h3 {
         min-height: 3em;
         font-size: var(--fs-800);
     }
+
     @media (max-width: 768px) {
-        .three-icon-cards__col {
+        h3 {
+            font-size: var(--fs-700);
+            min-height: unset;
+        }
+
+        &__col {
             margin-bottom: 2rem;
         }
-        .three-icon-cards__card {
+
+        &__card {
             padding: 1rem 2rem;
         }
     }

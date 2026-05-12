@@ -22067,19 +22067,68 @@ body .gform_wrapper .gform_footer button {
   background-color: white;
   padding: 2rem;
 }
-.trial-form__form .gform-theme--framework .gfield--type-choice .gfield_checkbox {
+.trial-form__form .hs-form {
+  padding-top: 1.5rem;
+}
+.trial-form__form .hs-form fieldset {
+  max-width: unset;
+}
+.trial-form__form .hs-form .hs-form-field {
+  margin-bottom: 1rem;
+}
+.trial-form__form .hs-form .hs-form-field label {
+  font-weight: var(--fw-600);
+  font-size: var(--fs-menu-intro);
+  display: flex;
+  align-items: baseline;
+}
+.trial-form__form .hs-form .hs-form-field .hs-error-msgs {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0.5rem;
+}
+.trial-form__form .hs-form input:not([type=checkbox]):not([type=radio]),
+.trial-form__form .hs-form select,
+.trial-form__form .hs-form textarea {
+  width: 100% !important;
+  background-color: var(--col-off-white);
+  border-color: var(--col-off-white);
+  border-style: solid;
+}
+.trial-form__form .hs-form .inputs-list.multi-container,
+.trial-form__form .hs-form .inputs-list.hs-form-checkboxes {
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
 }
-.trial-form__form .gform-theme--framework .gfield--type-choice .gfield_checkbox .gchoice {
+.trial-form__form .hs-form .inputs-list.multi-container .hs-form-checkbox,
+.trial-form__form .hs-form .inputs-list.multi-container .hs-form-radio,
+.trial-form__form .hs-form .inputs-list.hs-form-checkboxes .hs-form-checkbox,
+.trial-form__form .hs-form .inputs-list.hs-form-checkboxes .hs-form-radio {
   flex-basis: calc(50% - 12px);
 }
-.trial-form__form button.gform_button.button {
+.trial-form__form .hs-form .hs-submit {
+  margin-top: 1rem;
+}
+.trial-form__form .hs-form .hs-fieldtype-booleancheckbox ul {
+  list-style: none;
+  margin: 0;
+  padding: 10px 0;
+}
+.trial-form__form .hs-form .legal-consent-container .hs-richtext {
+  font-size: var(--fs-menu-descr);
+  margin-bottom: 0.5rem;
+}
+.trial-form__form .hs-form .hs-button,
+.trial-form__form .hs-form input[type=submit] {
   background-color: var(--col-highlight-green) !important;
   color: var(--col-main-blue) !important;
+  font-weight: var(--fw-700);
   margin-top: 1rem !important;
   padding-block: 1rem !important;
   width: 100% !important;
+  border: 0;
 }
 
 .hub__ebooks {
@@ -22486,6 +22535,11 @@ blockquote.wp-block-quote cite::before {
 .cb_video__credit strong {
   font-weight: 700;
 }
+@media (max-width: 768px) {
+  .cb_video__description {
+    font-size: var(--fs-600);
+  }
+}
 
 .cb_latest_posts {
   --_colour: var(--col-white);
@@ -22559,6 +22613,11 @@ blockquote.wp-block-quote cite::before {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+}
+@media (max-width: 768px) {
+  .cb_latest_posts__title {
+    font-size: var(--fs-700);
+  }
 }
 
 .hero {
@@ -23261,15 +23320,15 @@ blockquote.wp-block-quote cite::before {
 .three-icon-cards .container, .three-icon-cards .wp-block-group.alignfull > .wp-block-group__inner-container {
   padding-top: 0 !important;
 }
-.three-icon-cards .three-icon-cards__row {
+.three-icon-cards__row {
   margin-left: -2rem;
   margin-right: -2rem;
 }
-.three-icon-cards .three-icon-cards__col {
+.three-icon-cards__col {
   padding-left: 2rem;
   padding-right: 2rem;
 }
-.three-icon-cards .three-icon-cards__card {
+.three-icon-cards__card {
   height: 100%;
   padding: 2rem;
   background: #112C4D;
@@ -23283,10 +23342,14 @@ blockquote.wp-block-quote cite::before {
   font-size: var(--fs-800);
 }
 @media (max-width: 768px) {
-  .three-icon-cards .three-icon-cards__col {
+  .three-icon-cards h3, .three-icon-cards .h3 {
+    font-size: var(--fs-700);
+    min-height: unset;
+  }
+  .three-icon-cards__col {
     margin-bottom: 2rem;
   }
-  .three-icon-cards .three-icon-cards__card {
+  .three-icon-cards__card {
     padding: 1rem 2rem;
   }
 }
@@ -23343,6 +23406,9 @@ blockquote.wp-block-quote cite::before {
   .three-image-cards .d-flex {
     flex-direction: column;
     align-items: flex-start !important;
+  }
+  .three-image-cards__title {
+    font-size: var(--fs-700);
   }
   .three-image-cards__image {
     aspect-ratio: 16/7;
@@ -23401,6 +23467,9 @@ blockquote.wp-block-quote cite::before {
   object-fit: contain;
 }
 @media (max-width: 767px) {
+  .cb-why-you-need h2, .cb-why-you-need .h2 {
+    font-size: var(--fs-700);
+  }
   .cb-why-you-need__after {
     margin-top: 4rem;
   }
@@ -23431,6 +23500,11 @@ blockquote.wp-block-quote cite::before {
 }
 .cb-feature-grid__item-content p {
   margin-bottom: 0;
+}
+@media (max-width: 768px) {
+  .cb-feature-grid__title {
+    font-size: var(--fs-700);
+  }
 }
 
 .cb-solutions-hero {
@@ -23605,6 +23679,11 @@ blockquote.wp-block-quote cite::before {
 }
 .cb-quote__credit strong {
   font-weight: 700;
+}
+@media (max-width: 768px) {
+  .cb-quote__content {
+    font-size: var(--fs-600);
+  }
 }
 
 .cb-cta-banner {

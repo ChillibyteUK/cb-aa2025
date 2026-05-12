@@ -76,4 +76,9 @@
         }
 
     }
+    @media (max-width: 768px) {
+        &__title {
+            font-size: var(--fs-700);
+        }
+    }
 }

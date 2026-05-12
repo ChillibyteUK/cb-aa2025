@@ -26,6 +26,9 @@
 			align-items: flex-start !important;
 		}
 
+		&__title {
+			font-size: var(--fs-700);
+		}
 		&__image {
 			aspect-ratio: 16 / 7;
 		}

@@ -1,27 +1,81 @@
 .trial-form {
+	&__hero {
+		overflow: hidden;
+		padding-top: 8rem;
+		isolation: isolate;
+	}
 
-    &__hero {
-        overflow: hidden;
-        padding-top: 8rem;
-        isolation: isolate;
-    }
+	&__form {
+		background-color: white;
+		padding: 2rem;
 
-    &__form {
-        background-color: white;
-        padding: 2rem;
-        .gform-theme--framework .gfield--type-choice .gfield_checkbox {
-            flex-direction: row;
-            flex-wrap: wrap;
-            .gchoice {
-                flex-basis: calc( 50% - 12px );
+		.hs-form {
+            padding-top: 1.5rem;
+            fieldset {
+                max-width: unset;
             }
-        }
-        button.gform_button.button {
-            background-color: var(--col-highlight-green) !important;
-            color: var(--col-main-blue) !important;
-            margin-top: 1rem !important;
-            padding-block: 1rem !important;
-            width: 100% !important;
-        }
-    }
+			.hs-form-field {
+				margin-bottom: 1rem;
+                label {
+                    font-weight: var(--fw-600);
+                    font-size: var(--fs-menu-intro);
+                    display: flex;
+                    align-items: baseline;
+                }
+                .hs-error-msgs {
+                    list-style: none;
+                    padding-left: 0;
+                    margin-top: 0.5rem;
+                }
+			}
+
+			input:not([type="checkbox"]):not([type="radio"]),
+			select,
+			textarea {
+				width: 100%!important;
+                background-color: var(--col-off-white);
+                border-color: var(--col-off-white);
+                border-style: solid; 
+			}
+
+			.inputs-list.multi-container,
+			.inputs-list.hs-form-checkboxes {
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				gap: 0.75rem 1.5rem;
+
+				.hs-form-checkbox,
+				.hs-form-radio {
+					flex-basis: calc(50% - 12px);
+				}
+			}
+
+			.hs-submit {
+				margin-top: 1rem;
+			}
+
+            .hs-fieldtype-booleancheckbox ul {
+                list-style: none;
+                margin: 0;
+                padding: 10px 0;
+            }
+
+            .legal-consent-container .hs-richtext {
+                font-size: var(--fs-menu-descr);
+                margin-bottom: 0.5rem;
+            }
+
+			.hs-button,
+			input[type="submit"] {
+				background-color: var(--col-highlight-green) !important;
+				color: var(--col-main-blue) !important;
+                font-weight: var(--fw-700);
+				margin-top: 1rem !important;
+				padding-block: 1rem !important;
+				width: 100% !important;
+				border: 0;
+			}
+		}
+	}
 }

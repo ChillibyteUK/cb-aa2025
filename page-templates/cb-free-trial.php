@@ -46,18 +46,18 @@ get_header();
 						?>
 
 						<?php if ( $hubspot_portal_id && $hubspot_form_id ) : ?>
-							<script
-								src="https://js-eu1.hsforms.net/forms/embed/<?= esc_attr( $hubspot_portal_id ); ?>.js"
-								defer>
+							<script charset="utf-8" type="text/javascript" src="//js-eu1.hsforms.net/forms/embed/v2.js"></script>
+							
+							<script>
+							hbspt.forms.create({
+								portalId: "<?= esc_attr( $hubspot_portal_id ); ?>",
+								formId: "<?= esc_attr( $hubspot_form_id ); ?>",
+								region: "eu1"
+							});
 							</script>
-
-							<div
-								class="hs-form-frame"
-								data-region="eu1"
-								data-form-id="<?= esc_attr( $hubspot_form_id ); ?>"
-								data-portal-id="<?= esc_attr( $hubspot_portal_id ); ?>">
-							</div>
 						<?php endif; ?>
+
+						
 
 						<?php
 						// Gravity Forms fallback/previous implementation.

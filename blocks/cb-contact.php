@@ -23,6 +23,7 @@ defined( 'ABSPATH' ) || exit;
 			</div>
 			<div class="col-md-6">
 				<?= wp_get_attachment_image( get_field( 'map' ), 'full', false, array( 'class' => 'cb_contact__map' ) ); ?>
+				
 			</div>
 		</div>
 	</div>
