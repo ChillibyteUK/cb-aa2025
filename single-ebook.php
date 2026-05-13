@@ -1,46 +1,62 @@
 <?php
 /**
- * Template for displaying single blog posts.
+ * Template for displaying single ebooks.
  *
  * @package cb-aa2025
  */
 
 defined( 'ABSPATH' ) || exit;
-get_header();
 
+get_header();
 ?>
 
-<main id="main" class="single_integration">
+<main id="main" class="single_ebook has-background-blue-background-color">
 
-	<div class="container-xl py-5 has-background-blue-background-color">
-            <div class="col-12 col-md-6 single_integration__sidebar">
-                <h1 class="single_integration__title">
-                    <?= esc_html( get_the_title() ); ?>
-                </h1>
-            </div>
-            <div class="col-12 col-md-6 single_integration__sidebar">
-                <?php if ( has_post_thumbnail() ) : ?>
+	<div class="container-xl py-5">
 
-                    <?= get_the_post_thumbnail(
-                        get_the_ID(),
-                        'large',
-                        array(
-                            'class' => 'single_integration__logo-image',
-                            'alt'   => esc_attr( get_the_title() ),
-                        )
-                    ); ?>
+		<div class="row align-items-center g-5 mb-5">
 
-                <?php endif; ?>
-            </div>
-            <div class="col-12 col-md-9 mx-auto single_integration__content">
-                <?php
-                $integration_title = get_field( 'integration_title' );
-                ?>
+			<!-- TITLE -->
+			<div class="col-12 col-md-8">
+				<h1 class="single_ebook__title">
+					<?php echo esc_html( get_the_title() ); ?>
+				</h1>
+			</div>
 
-                
-                <?= apply_filters( 'the_content', get_the_content() ); ?>
-            </div>
-    </div>
+			<!-- FEATURED IMAGE -->
+			<div class="col-12 col-md-4 text-md-end text-center">
+
+				<?php if ( has_post_thumbnail() ) : ?>
+
+					<?php
+					echo get_the_post_thumbnail(
+						get_the_ID(),
+						'medium_large',
+						array(
+							'class'   => 'single_ebook__cover-image img-fluid',
+							'alt'     => esc_attr( get_the_title() ),
+							'loading' => 'eager',
+						)
+					);
+					?>
+
+				<?php endif; ?>
+
+			</div>
+
+		</div>
+
+		<div class="row">
+
+			<div class="col-12 col-lg-12 mx-auto single_ebook__content">
+
+				<?php the_content(); ?>
+
+			</div>
+
+		</div>
+
+	</div>
 
 </main>
 
