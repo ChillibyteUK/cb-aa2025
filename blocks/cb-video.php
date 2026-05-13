@@ -12,9 +12,6 @@ defined( 'ABSPATH' ) || exit;
 $video_id    = get_field( 'video_id' );
 $cover_image = get_field( 'cover_image' );
 
-if ( ! $video_id ) {
-	return;
-}
 ?>
 
 <section class="cb_video">
