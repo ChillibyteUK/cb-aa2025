@@ -12,43 +12,32 @@ get_header();
 
 <main id="main" class="single_integration">
 
-	
+	<div class="container-xl py-5 has-background-blue-background-color">
+            <div class="col-12 col-md-6 single_integration__sidebar">
+                <h1 class="single_integration__title">
+                    <?= esc_html( get_the_title() ); ?>
+                </h1>
+            </div>
+            <div class="col-12 col-md-6 single_integration__sidebar">
+                <?php if ( has_post_thumbnail() ) : ?>
 
-	<section class="single_integration__hero has-off-white-background-color">
-		<div class="container-xl">
-			<div class="single_integration__hero-inner">
+                    <?= get_the_post_thumbnail(
+                        get_the_ID(),
+                        'large',
+                        array(
+                            'class' => 'single_integration__logo-image',
+                            'alt'   => esc_attr( get_the_title() ),
+                        )
+                    ); ?>
 
-				<div class="single_integration__logo">
-
-
-                    <?php if ( has_post_thumbnail() ) : ?>
-
-                        <?= get_the_post_thumbnail(
-                            get_the_ID(),
-                            'large',
-                            array(
-                                'class' => 'single_integration__logo-image',
-                                'alt'   => esc_attr( get_the_title() ),
-                            )
-                        ); ?>
-
-                    <?php endif; ?>
-
-                </div>
-
-			</div>
-		</div>
-	</section>
-
-	<div class="container-xl py-5">
+                <?php endif; ?>
+            </div>
             <div class="col-12 col-md-9 mx-auto single_integration__content">
                 <?php
                 $integration_title = get_field( 'integration_title' );
                 ?>
 
-                <h1 class="single_integration__title">
-                    <?= esc_html( $integration_title ?: get_the_title() ); ?>
-                </h1>
+                
                 <?= apply_filters( 'the_content', get_the_content() ); ?>
             </div>
     </div>
