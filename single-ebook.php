@@ -14,19 +14,18 @@ get_header();
 
 	<div class="container-xl py-5">
 
-		<div class="row align-items-center g-5 mb-5">
+		<!--<div class="row align-items-center g-5 mb-5">
 
-			<!-- TITLE -->
+			
 			<div class="col-12 col-md-8">
 				<h1 class="single_ebook__title">
-					<?php echo esc_html( get_the_title() ); ?>
+					<?php // echo esc_html( get_the_title() ); ?>
 				</h1>
 			</div>
 
-			<!-- FEATURED IMAGE -->
 			<div class="col-12 col-md-4 text-md-end text-center">
 
-				<?php if ( has_post_thumbnail() ) : ?>
+				<?php /*if ( has_post_thumbnail() ) : ?>
 
 					<?php
 					echo get_the_post_thumbnail(
@@ -40,11 +39,11 @@ get_header();
 					);
 					?>
 
-				<?php endif; ?>
+				<?php endif; */?>
 
 			</div>
 
-		</div>
+		</div>-->
 
 		<div class="row">
 
