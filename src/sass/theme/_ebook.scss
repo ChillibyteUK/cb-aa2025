@@ -4,3 +4,17 @@
 	height: auto;
 	display: inline-block;
 }
+img.ft-ebook {
+	max-width: 240px;
+    margin: auto;
+    display: block;
+}
+.ebook__image {
+	aspect-ratio: 2 / 3;
+	width: 100%;
+	max-width: 180px;
+	height: auto;
+	object-fit: cover;
+	display: block;
+	margin-inline: auto;
+}

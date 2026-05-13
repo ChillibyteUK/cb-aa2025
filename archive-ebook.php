@@ -38,20 +38,20 @@ get_header();
 					<div class="col-md-5 d-flex flex-column justify-content-between">
 						<div class="pt-5 has-dark-grey-color fs-300"><?= esc_html( get_the_date( 'j F, Y' ) ); ?></div>
 
-						<h2><?= esc_html( get_the_title() ); ?></h2>
+						<h2 class="mb-2"><?= esc_html( get_the_title() ); ?></h2>
 
 						<?php
 						$content = wp_strip_all_tags( get_the_content() );
 						echo wp_kses_post( wp_trim_words( $content, 30 ) );
 						?>
 
-						<div class="d-flex align-items-center">
+						<div class="d-flex align-items-center mt-3">
 							<a href="<?php the_permalink(); ?>" class="blue-arrow">Learn more</a>
 						</div>
 					</div>
 
 					<div class="col-md-7">
-						<?= get_the_post_thumbnail( get_the_ID(), 'full', array( 'class' => 'img-fluid' ) ); ?>
+						<?= get_the_post_thumbnail( get_the_ID(), 'full', array( 'class' => 'img-fluid ft-ebook' ) ); ?>
 					</div>
 				</div>
 				<?php
@@ -81,7 +81,7 @@ get_header();
 					?>
 					<div class="col-md-4">
 						<a href="<?php the_permalink(); ?>" class="d-flex gap-2 flex-column justify-content-start h-100 has-main-blue-background-color p-4">
-							<?= get_the_post_thumbnail( get_the_ID(), 'full', array( 'class' => 'case_study__image' ) ); ?>
+							<?= get_the_post_thumbnail( get_the_ID(), 'medium-large', array( 'class' => 'ebook__image' ) ); ?>
 
 							<div class="fs-300 has-mid-grey-color"><?= esc_html( get_the_date( 'j F, Y' ) ); ?></div>
 
