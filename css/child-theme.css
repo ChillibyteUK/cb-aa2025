@@ -23830,7 +23830,7 @@ img.ft-ebook {
 .ebook__image {
   aspect-ratio: 2/3;
   width: 100%;
-  max-width: 180px;
+  max-width: 180px !important;
   height: auto;
   -o-object-fit: cover;
   object-fit: cover;
