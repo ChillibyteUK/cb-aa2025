@@ -10,12 +10,11 @@ get_header();
 
 ?>
 
-<main id="main" class="single_integration has-background-blue-background-color">
-    <img src="https://aa.chillihosting.co.uk/wp-content/themes/cb-aa2025/img/bg-aurora.jpg" class="hero__background" alt="">
+<main id="main" class="single_integration">
 
 	
 
-	<section class="single_integration__hero">
+	<section class="single_integration__hero has-off-white-background-color">
 		<div class="container-xl">
 			<div class="single_integration__hero-inner">
 
