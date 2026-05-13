@@ -21,27 +21,31 @@ $cover_image = get_field( 'cover_image' );
 
 				<div class="ratio ratio-2x1 cb_video__media">
 
-					<?php if ( $cover_image ) : ?>
-						<button class="cb_video__player" type="button" data-video-id="<?= esc_attr( $video_id ); ?>" aria-label="Play video">
+					<?php if ( $video_id ) : ?>
 
-							<?= wp_get_attachment_image(
-								$cover_image,
-								'large',
-								false,
-								array( 'class' => 'cb_video__cover' )
-							); ?>
+						<?php if ( $cover_image ) : ?>
+							<button class="cb_video__player" type="button" data-video-id="<?= esc_attr( $video_id ); ?>" aria-label="Play video">
 
-							<span class="cb_video__play" aria-hidden="true"></span>
+								<?= wp_get_attachment_image(
+									$cover_image,
+									'large',
+									false,
+									array( 'class' => 'cb_video__cover' )
+								); ?>
 
-						</button>
-					<?php else : ?>
-						<iframe
-							class="cb_video__iframe"
-							src="<?= esc_url( 'https://player.vimeo.com/video/' . $video_id . '?title=0&byline=0&portrait=0' ); ?>"
-							title="<?= esc_attr( get_the_title() ); ?>"
-							allowfullscreen
-							allow="autoplay; fullscreen; picture-in-picture">
-						</iframe>
+								<span class="cb_video__play" aria-hidden="true"></span>
+
+							</button>
+						<?php else : ?>
+							<iframe
+								class="cb_video__iframe"
+								src="<?= esc_url( 'https://player.vimeo.com/video/' . $video_id . '?title=0&byline=0&portrait=0' ); ?>"
+								title="<?= esc_attr( get_the_title() ); ?>"
+								allowfullscreen
+								allow="autoplay; fullscreen; picture-in-picture">
+							</iframe>
+						<?php endif; ?>
+
 					<?php endif; ?>
 
 				</div>
