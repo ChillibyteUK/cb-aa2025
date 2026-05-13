@@ -10,7 +10,7 @@ defined( 'ABSPATH' ) || exit;
 get_header();
 ?>
 
-<main id="main" class="single_ebook has-background-blue-background-color">
+<main id="main" class="single_ebook has-background-blue-background-color text-white">
 
 	<div class="container-xl py-5">
 
