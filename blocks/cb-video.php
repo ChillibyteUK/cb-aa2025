@@ -19,9 +19,10 @@ $cover_image = get_field( 'cover_image' );
 		<div class="row justify-content-center">
 			<div class="col-lg-12">
 
+			<?php if ( $video_id ) : ?>
 				<div class="ratio ratio-2x1 cb_video__media">
 
-					<?php if ( $video_id ) : ?>
+					
 
 						<?php if ( $cover_image ) : ?>
 							<button class="cb_video__player" type="button" data-video-id="<?= esc_attr( $video_id ); ?>" aria-label="Play video">
@@ -46,10 +47,9 @@ $cover_image = get_field( 'cover_image' );
 							</iframe>
 						<?php endif; ?>
 
-					<?php endif; ?>
-
 				</div>
-
+			<?php endif; ?>
+			
 				<?php if ( get_field( 'description' ) ) : ?>
 					<div class="cb_video__description">
 						<?= wp_kses_post( get_field( 'description' ) ); ?>
