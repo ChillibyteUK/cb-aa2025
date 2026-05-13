@@ -72,7 +72,7 @@ get_header();
 				</div>
 				<div class="hub__ebooks-copy">
 					<h3 class="mb-3">E-books</h3>
-					<div class="fs-300 mb-4">Lorem ipsum dolor sit amet, consetetur sadipscin eirmod et teute labore et dolore magna aliquyam erat voluptua sum dolor sit.</div>
+					<div class="fs-300 mb-4">Download our latest thought pieces and research on the business of implementing AI into UK businesses.</div>
 					<a href="/e-books/" class="green-arrow mt-auto">Learn more</a>
 				</div>
 			</div>
@@ -97,7 +97,7 @@ get_header();
 			<div class="col-md-3">
 				<div class="has-dark-grey-background-color text-white h-100 p-3 d-flex flex-column">
 					<h3 class="mb-4 pt-5">Case Studies</h3>
-					<div class="mb-5">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat voluptua.</div>
+					<div class="mb-5">Use cases in action. AA clients bringing our solutions to life to over deliver on our promises.</div>
 					<a href="/case-studies/" class="green-arrow mt-auto">Learn more</a>
 				</div>
 			</div>

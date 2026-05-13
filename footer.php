@@ -18,10 +18,14 @@ defined( 'ABSPATH' ) || exit;
                         src="<?= esc_url( get_stylesheet_directory_uri() . '/img/aa-logo--wo.svg' ); ?>"
                         alt="Automated Analytics" class="logo img-fluid mb-4"></a>
 				<div class="footer__strap">Fuel your business growth and witness immediate results today.</div>
-				<div class="input-group mb-3">
-					<input type="email" class="form-control" placeholder="Enter your email" aria-label="Email address" aria-describedby="footer-button">
-					<button class="button button-green" type="button" id="footer-button">Stay informed</button>
-				</div>
+				<script charset="utf-8" type="text/javascript" src="//js-eu1.hsforms.net/forms/embed/v2.js"></script>
+                <script>
+                hbspt.forms.create({
+                    portalId: "145100553",
+                    formId: "d4c15350-7de6-438f-85ff-9273bca655b9",
+                    region: "eu1"
+                });
+                </script>
                 
             </div>
             <div class="col-sm-6 col-lg-2 offset-lg-2 mb-2 pt-4">
