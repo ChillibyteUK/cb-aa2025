@@ -77,7 +77,7 @@ get_header();
 		);
 
 		if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
-			echo '<ul class="filters list-unstyled d-flex align-items-start gap-5">';
+			echo '<ul class="filters list-unstyled d-flex align-items-start">';
 			echo '<li data-filter="all" class="active">All</li>';
 			foreach ( $categories as $category ) {
 				echo '<li data-filter="' . esc_attr( $category->slug ) . '">' . esc_html( $category->name ) . '</li>';

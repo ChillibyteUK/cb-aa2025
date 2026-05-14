@@ -93,13 +93,13 @@ session_start();
             "description": "---",
             "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "---",
-                "addressLocality": "---",
-                "addressRegion": "---",
-                "postalCode": "------",
-                "addressCountry": "--"
+                "streetAddress": "2a Sidings Court",
+                "addressLocality": "Doncaster",
+                "addressRegion": "South Yorkshire",
+                "postalCode": "DN4 5NU",
+                "addressCountry": "GB"
             },
-            "telephone": "+44 (-) -- --- -----",
+            "telephone": "+44 (0) 1302 636269",
             "email": "hello@automatedanalytics.co"
         }
     </script>
@@ -122,7 +122,7 @@ session_start();
 			</div>
 			<div class="d-flex flex-column-reverse flex-md-column w-100">
 				<div id="topNav" class="prenav d-none d-md-flex justify-content-end px-2 px-md-0 mb-2 collapse navbar-collapse navbars">
-					<a href="#"><i class="fa-solid fa-globe"></i> Select Region</a>
+					<!-- a href="#"><i class="fa-solid fa-globe"></i> Select Region</a -->
 				</div>
 				<?php
 					wp_nav_menu(
