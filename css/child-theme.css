@@ -22185,8 +22185,8 @@ body .gform_wrapper .gform_footer button {
 .hbspt-form .hs-form select,
 .hbspt-form .hs-form textarea {
   width: 100% !important;
-  background-color: var(--col-off-white);
-  border: 1px solid var(--col-off-white);
+  background-color: var(--col-dark-grey);
+  border: 1px solid var(--col-dark-grey);
   padding: 0.75rem 1rem;
 }
 .hbspt-form .hs-form .inputs-list.multi-container,
