@@ -18,6 +18,7 @@ defined( 'ABSPATH' ) || exit;
                         src="<?= esc_url( get_stylesheet_directory_uri() . '/img/aa-logo--wo.svg' ); ?>"
                         alt="Automated Analytics" class="logo img-fluid mb-4"></a>
 				<div class="footer__strap">Fuel your business growth and witness immediate results today.</div>
+                <div class="footer__strap mt-2 mb-2">Sign up to our newsletter.</div>
 				<script charset="utf-8" type="text/javascript" src="//js-eu1.hsforms.net/forms/embed/v2.js"></script>
                 <script>
                 hbspt.forms.create({
