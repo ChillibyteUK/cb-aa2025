@@ -74,9 +74,9 @@ if ( get_field( 'gtm_property', 'options' ) ) {
 
 <?php if ( $portal_id = get_field( 'hs_property', 'options' ) ) : ?>
 	<script
+		type="text/plain"
+		data-cookieyes="cookieyes-analytics"
 		id="hs-script-loader"
-		async
-		defer
 		src="<?php echo esc_url( "//js-eu1.hs-scripts.com/{$portal_id}.js" ); ?>">
 	</script>
 <?php endif; ?>
