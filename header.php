@@ -121,9 +121,15 @@ session_start();
 				<button class="navbar-toggler input-button" id="navToggle" data-bs-toggle="collapse" data-bs-target=".navbars" type="button" aria-label="Navigation"><i class="fa fa-navicon"></i></button>
 			</div>
 			<div class="d-flex flex-column-reverse flex-md-column w-100">
-				<div id="topNav" class="prenav d-none d-md-flex justify-content-end px-2 px-md-0 mb-2 collapse navbar-collapse navbars">
-					<!-- a href="#"><i class="fa-solid fa-globe"></i> Select Region</a -->
-				</div>
+				<div id="topNav" class="prenav collapse navbar-collapse navbars pt-md-0 pt-2">
+                    <div class="topNav-inner d-flex flex-column flex-md-row align-items-start align-items-md-center w-100 justify-content-end gap-md-3 gap-2 px-md-0 mb-2">
+                        <a href="tel:<?= esc_attr( parse_phone( get_field( 'contact_phone', 'options' ) ) ); ?>"><?= esc_html( get_field( 'contact_phone', 'options' ) ); ?></a>
+                        <a href="/free-trial/" class="button-green button-green--arrow">
+                        Find out more
+                        </a>
+                    </div>
+                </div>
+                
 				<?php
 					wp_nav_menu(
 						array(

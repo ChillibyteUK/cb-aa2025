@@ -20,7 +20,11 @@
     font-size: var(--fs-smallest);
 
     a {
-      color: var(--col-dark-grey);
+      /*color: var(--col-dark-grey);*/
+      font-size: var(--fs-menu-descr);
+      &.button-green {
+        padding: .3rem 1.5rem;
+      }
     }
 
     .social-icons {
@@ -32,7 +36,7 @@
 
   a {
     color: black;
-    padding-bottom: 0;
+    /*padding-bottom: 0;*/
 
     &:hover {
       color: var(--col-accent-400);

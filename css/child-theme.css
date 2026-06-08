@@ -21194,7 +21194,11 @@ strong, b {
   font-size: var(--fs-smallest);
 }
 #wrapperNavbar .prenav a {
-  color: var(--col-dark-grey);
+  /*color: var(--col-dark-grey);*/
+  font-size: var(--fs-menu-descr);
+}
+#wrapperNavbar .prenav a.button-green, #wrapperNavbar .prenav .wp-block-button.is-style-primary-arrow a.wp-block-button__link, .wp-block-button.is-style-primary-arrow #wrapperNavbar .prenav a.wp-block-button__link {
+  padding: 0.3rem 1.5rem;
 }
 #wrapperNavbar .prenav .social-icons {
   display: flex;
@@ -21203,7 +21207,7 @@ strong, b {
 }
 #wrapperNavbar a {
   color: black;
-  padding-bottom: 0;
+  /*padding-bottom: 0;*/
 }
 #wrapperNavbar a:hover {
   color: var(--col-accent-400);
