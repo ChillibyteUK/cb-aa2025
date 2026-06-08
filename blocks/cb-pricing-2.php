@@ -48,7 +48,7 @@ $bgalign = $bgalign ? $bgalign : 'bottom';
 			<div class="pricing_cards">
 				<div class="row g-4">
 					<div class="col-md-6 col-lg-3">
-						<div class="pricing_card">
+						<div class="pricing_card d-flex flex-column align-items-stretch">
 							<div class="pricing_card__header">
 								<h2 class="pricing_card__package"><?= esc_html( is_array( $call_starter ) && isset( $call_starter['package_name'] ) ? $call_starter['package_name'] : 'Starter' ); ?></h2>
 								<div class="pricing_card__description"><?= esc_html( is_array( $call_starter ) && isset( $call_starter['package_desc'] ) ? $call_starter['package_desc'] : '' ); ?></div>
@@ -70,14 +70,14 @@ $bgalign = $bgalign ? $bgalign : 'bottom';
 									?>
 								</ul>
 							</div>
-							<div class="pricing_card__actions d-flex flex-column align-items-center">
+							<div class="pricing_card__actions d-flex flex-column align-items-center mt-auto">
 								<button class="btn btn-call--outline mb-3"><?= esc_html( is_array( $call_starter ) && isset( $call_starter['cta']['title'] ) ? $call_starter['cta']['title'] : 'Get Started' ); ?></button>
 								<a href="#call-comparison">Compare plans below</a>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-6 col-lg-3">
-						<div class="pricing_card">
+						<div class="pricing_card d-flex flex-column align-items-stretch">
 							<div class="pricing_card__header">
 								<h2 class="pricing_card__package"><?= esc_html( is_array( $call_growth ) && isset( $call_growth['package_name'] ) ? $call_growth['package_name'] : 'Growth' ); ?></h2>
 								<div class="pricing_card__description"><?= esc_html( is_array( $call_growth ) && isset( $call_growth['package_desc'] ) ? $call_growth['package_desc'] : '' ); ?></div>
@@ -102,14 +102,14 @@ $bgalign = $bgalign ? $bgalign : 'bottom';
 								}
 								?>
 							</div>
-							<div class="pricing_card__actions d-flex flex-column align-items-center">
+							<div class="pricing_card__actions d-flex flex-column align-items-center mt-auto">
 								<button class="btn btn-call--outline mb-3"><?= esc_html( is_array( $call_growth ) && isset( $call_growth['cta']['title'] ) ? $call_growth['cta']['title'] : 'Get Started' ); ?></button>
 								<a href="#call-comparison">Compare plans below</a>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-6 col-lg-3">
-						<div class="pricing_card pricing_card--glow">
+						<div class="pricing_card pricing_card--glow d-flex flex-column align-items-stretch">
 							<div class="pricing_card__header">
 								<h2 class="pricing_card__package"><?= esc_html( is_array( $call_pro ) && isset( $call_pro['package_name'] ) ? $call_pro['package_name'] : 'Pro' ); ?></h2>
 								<div class="pricing_card__description"><?= esc_html( is_array( $call_pro ) && isset( $call_pro['package_desc'] ) ? $call_pro['package_desc'] : '' ); ?></div>
@@ -134,14 +134,14 @@ $bgalign = $bgalign ? $bgalign : 'bottom';
 								}
 								?>
 							</div>
-							<div class="pricing_card__actions d-flex flex-column align-items-center">
+							<div class="pricing_card__actions d-flex flex-column align-items-center mt-auto">
 								<button class="btn btn-call mb-3"><?= esc_html( is_array( $call_pro ) && isset( $call_pro['cta']['title'] ) ? $call_pro['cta']['title'] : 'Get Started' ); ?></button>
 								<a href="#call-comparison">Compare plans below</a>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-6 col-lg-3">
-						<div class="pricing_card">
+						<div class="pricing_card pricing_card d-flex flex-column align-items-stretch">
 							<div class="pricing_card__header">
 								<h2 class="pricing_card__package"><?= esc_html( is_array( $call_enterprise ) && isset( $call_enterprise['package_name'] ) ? $call_enterprise['package_name'] : 'Enterprise' ); ?></h2>
 								<div class="pricing_card__description"><?= esc_html( is_array( $call_enterprise ) && isset( $call_enterprise['package_desc'] ) ? $call_enterprise['package_desc'] : '' ); ?></div>
@@ -166,7 +166,7 @@ $bgalign = $bgalign ? $bgalign : 'bottom';
 								}
 								?>
 							</div>
-							<div class="pricing_card__actions d-flex flex-column align-items-center">
+							<div class="pricing_card__actions d-flex flex-column align-items-center mt-auto">
 								<button class="btn btn-call--outline mb-3"><?= esc_html( is_array( $call_enterprise ) && isset( $call_enterprise['cta']['title'] ) ? $call_enterprise['cta']['title'] : 'Get Started' ); ?></button>
 								<a href="#call-comparison">Compare plans below</a>
 							</div>

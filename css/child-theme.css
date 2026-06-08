@@ -22991,6 +22991,7 @@ blockquote.wp-block-quote cite::before {
 }
 .pricing_card__actions .btn {
   width: 100%;
+  font-size: var(--fs-menu-intro);
 }
 .pricing_card__actions a {
   color: var(--col-dark-grey);
