@@ -38,7 +38,7 @@ get_header();
 
 				<div class="col-md-6 offset-md-1">
 					<div class="trial-form__form">
-						<div class="has-main-blue-color fs-600">Sign up for a <strong>free trial</strong></div>
+						<div class="has-main-blue-color fs-600">Book a <strong>demo</strong></div>
 
 						<?php
 						$hubspot_portal_id = get_field( 'hs_property', 'option' );
