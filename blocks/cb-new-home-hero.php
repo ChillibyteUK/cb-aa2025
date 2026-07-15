@@ -40,6 +40,11 @@ defined( 'ABSPATH' ) || exit;
 				<?php endif; ?>
 			</div>
 
+			<div class="cb_home_hero__logos">
+				<img src="<?= esc_url( get_stylesheet_directory_uri() . '/img/FT_Logo.svg' ); ?>" alt="FT Badge">
+				<img src="<?= esc_url( get_stylesheet_directory_uri() . '/img/ISO_27001_Logo.svg' ); ?>" class="tall-logo" alt="ISO 27001 Badge">
+			</div>
+
 		</div>
 	</div>
 </section>

@@ -22539,6 +22539,27 @@ blockquote.wp-block-quote cite::before {
   justify-content: center;
 }
 
+.cb_home_hero__logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.cb_home_hero__logos img {
+  display: block;
+  height: 88px;
+  width: auto;
+}
+.cb_home_hero__logos .tall-logo {
+  height: 120px;
+}
+@media (max-width: 767px) {
+  .cb_home_hero__logos img {
+    height: 88px;
+  }
+}
+
 .cb_scroll_snap {
   padding-top: 8rem;
   background-color: var(--col-background-blue);
