@@ -41,7 +41,7 @@ defined( 'ABSPATH' ) || exit;
 			</div>
 
 			<div class="cb_home_hero__logos">
-				<img src="<?= esc_url( get_stylesheet_directory_uri() . '/img/FT_TOP1000_2024_&_2026-TOP50.svg' ); ?>" alt="FT Badge Top 50 in Europe 2024 & 2026" class="tall-logo">
+				<img src="<?= esc_url( get_stylesheet_directory_uri() . '/img/FT_TOP1000_2024_&_2026-TOP50.svg' ); ?>" alt="FT Badge Top 50 in Europe 2024 & 2026">
 				<img src="<?= esc_url( get_stylesheet_directory_uri() . '/img/ISO_27001_Logo.svg' ); ?>" class="tall-logo" alt="ISO 27001 Badge">
 			</div>
 
