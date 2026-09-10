@@ -156,14 +156,15 @@ add_action(
 	}
 );
 
-/* Add modal to a one off page for last minute request from Jeremy */
 /**
- * Free ticket modal
+ * Free Ticket Gravity Forms Modal
+ *
  * Page ID: 30026
  * Gravity Form ID: 2
  */
 function aa_ticket_modal() {
 
+    // Only load the modal on the Free Ticket page
     if (!is_page(30026)) {
         return;
     }
@@ -173,27 +174,49 @@ function aa_ticket_modal() {
         class="modal fade"
         id="ticketModal"
         tabindex="-1"
+        role="dialog"
         aria-labelledby="ticketModalLabel"
         aria-hidden="true"
     >
-        <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div
+            class="modal-dialog modal-dialog-centered modal-lg"
+            role="document"
+        >
             <div class="modal-content">
 
                 <div class="modal-header">
-                    <h2 class="modal-title h4" id="ticketModalLabel">
+
+                    <h2
+                        class="modal-title h4"
+                        id="ticketModalLabel"
+                    >
                         Get Your Free Ticket
                     </h2>
 
                     <button
                         type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
+                        class="close"
+                        data-dismiss="modal"
                         aria-label="Close"
-                    ></button>
+                    >
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
                 </div>
 
                 <div class="modal-body">
-                    <?php gravity_form(2, false, false, false, null, true); ?>
+
+                    <?php
+                    gravity_form(
+                        2,      // Form ID
+                        false,  // Display form title
+                        false,  // Display form description
+                        false,  // Display inactive
+                        null,   // Field values
+                        true    // AJAX
+                    );
+                    ?>
+
                 </div>
 
             </div>
@@ -201,22 +224,13 @@ function aa_ticket_modal() {
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        jQuery(function ($) {
 
-            const modalElement = document.getElementById('ticketModal');
+            $('.js-ticket-modal a').on('click', function (event) {
 
-            if (!modalElement || typeof bootstrap === 'undefined') {
-                return;
-            }
+                event.preventDefault();
 
-            const ticketModal = new bootstrap.Modal(modalElement);
-
-            document.querySelectorAll('.js-ticket-modal a').forEach(function (button) {
-
-                button.addEventListener('click', function (event) {
-                    event.preventDefault();
-                    ticketModal.show();
-                });
+                $('#ticketModal').modal('show');
 
             });
 
