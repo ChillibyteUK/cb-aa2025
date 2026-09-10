@@ -164,7 +164,7 @@ add_action(
  */
 function aa_ticket_modal() {
 
-    // Only load the modal on the Free Ticket page
+    // Only output on the Free Ticket landing page.
     if (!is_page(30026)) {
         return;
     }
@@ -196,7 +196,6 @@ function aa_ticket_modal() {
                     <button
                         type="button"
                         class="close"
-                        data-dismiss="modal"
                         aria-label="Close"
                     >
                         <span aria-hidden="true">&times;</span>
@@ -208,9 +207,9 @@ function aa_ticket_modal() {
 
                     <?php
                     gravity_form(
-                        2,      // Form ID
-                        false,  // Display form title
-                        false,  // Display form description
+                        2,      // Gravity Form ID
+                        false,  // Don't display form title
+                        false,  // Don't display form description
                         false,  // Display inactive
                         null,   // Field values
                         true    // AJAX
@@ -224,17 +223,25 @@ function aa_ticket_modal() {
     </div>
 
     <script>
-        jQuery(function ($) {
+    jQuery(function ($) {
 
-            $('.js-ticket-modal a').on('click', function (event) {
+        var $ticketModal = $('#ticketModal');
 
-                event.preventDefault();
+        // Open modal.
+        $('.js-ticket-modal a').on('click', function (event) {
+            event.preventDefault();
 
-                $('#ticketModal').modal('show');
-
-            });
-
+            $ticketModal.modal('show');
         });
+
+        // Close modal using the cross.
+        $ticketModal.on('click', '.close', function (event) {
+            event.preventDefault();
+
+            $ticketModal.modal('hide');
+        });
+
+    });
     </script>
 
     <?php
