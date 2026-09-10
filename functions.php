@@ -157,7 +157,13 @@ add_action(
 );
 
 /* Add modal to a one off page for last minute request from Jeremy */
+/**
+ * Free ticket modal
+ * Page ID: 30026
+ * Gravity Form ID: 2
+ */
 function aa_ticket_modal() {
+
     if (!is_page(30026)) {
         return;
     }
@@ -193,6 +199,29 @@ function aa_ticket_modal() {
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            const modalElement = document.getElementById('ticketModal');
+
+            if (!modalElement || typeof bootstrap === 'undefined') {
+                return;
+            }
+
+            const ticketModal = new bootstrap.Modal(modalElement);
+
+            document.querySelectorAll('.js-ticket-modal a').forEach(function (button) {
+
+                button.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    ticketModal.show();
+                });
+
+            });
+
+        });
+    </script>
 
     <?php
 }
