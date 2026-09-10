@@ -155,3 +155,46 @@ add_action(
 		);
 	}
 );
+
+/* Add modal to a one off page for last minute request from Jeremy */
+function aa_ticket_modal() {
+    if (!is_page(30026)) {
+        return;
+    }
+    ?>
+
+    <div
+        class="modal fade"
+        id="ticketModal"
+        tabindex="-1"
+        aria-labelledby="ticketModalLabel"
+        aria-hidden="true"
+    >
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h2 class="modal-title h4" id="ticketModalLabel">
+                        Get Your Free Ticket
+                    </h2>
+
+                    <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                    ></button>
+                </div>
+
+                <div class="modal-body">
+                    <?php gravity_form(2, false, false, false, null, true); ?>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <?php
+}
+
+add_action('wp_footer', 'aa_ticket_modal');
